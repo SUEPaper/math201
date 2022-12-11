@@ -1,6 +1,6 @@
 ---
 id: vscode
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-# VScode搭建Latex编辑环境
+# VS Code搭建Latex编辑环境
