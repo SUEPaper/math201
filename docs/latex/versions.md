@@ -5,6 +5,11 @@ sidebar_position: 2
 
 # 什么是TeX 引擎、格式、发行版
 
+本文参考: 
+1. [TeX 引擎、格式、发行版之介绍](https://liam.page/2018/11/26/introduction-to-TeX-engine-format-and-distribution/)
+2. [CTeX套装](https://ctex.org/ctex/)
+3. [一份其实很短的 LaTeX 入门文档](https://liam.page/2014/09/08/latex-introduction/)
+
 ## 引擎
 与通常用的编程语言的编译器相对应——如 C++ 的 gcc/icc/cl、Java 的 javac——TeX 的「编译器」的真名叫做「TeX 引擎」。TeX 引擎大概有如下一些选择：
 
@@ -17,6 +22,55 @@ sidebar_position: 2
 - upTeX
 - e-upTeX
 - pTeX-ng
+
+
+### TeX - LaTeX
+TeX 是高德纳（Donald Ervin Knuth，1938年1月10日 --）教授追求完美(愤世嫉俗)做出来的排版引擎，同时也是该引擎使用的标记语言（Markup Language）的名称。这里所谓的引擎，是指能够实现断行、分页等操作的程序（请注意这并不是定义）；这里的标记语言，是指一种将控制命令和文本结合起来的格式，它的主体是其中的文本而控制命令则实现一些特殊效果（同样请注意这并不是定义）。
+
+你可以在这里找到关于 TeX 引擎的具体描述；
+
+你可以在这里找到关于标记语言的具体描述。
+
+而 LaTeX 则是 L. Lamport （1941年2月7日 -- ） 教授开发的基于 TeX 的排版系统。实际上 LaTeX 利用 TeX 的控制命令，定义了许多新的控制命令并封装成一个可执行文件。这个可执行文件会去解释 LaTeX 新定义的命令成为 TeX 的控制命令，并最终交由 TeX 引擎进行排版。
+
+实际上，LaTeX 是基于一个叫做 plain TeX 的格式的。plain TeX 是高德纳教授为了方便用户，自己基于原始的 TeX 定义的格式，但实际上 plain TeX 的命令仍然十分晦涩。至于原始的 TeX 直接使用的人就更少了，因此 plain TeX 格式逐渐就成为了 TeX 格式的同义词，尽管他们事实上是不同的。
+
+因此在 TeX - LaTeX 组合中，
+
+1. 最终进行断行、分页等操作的，是 TeX 引擎；
+2. LaTeX 实际上是一个工具，它将用户按照它的格式编写的文档解释成 TeX 引擎能理解的形式并交付给 TeX 引擎处理，再将最终结果返回给用户。
+
+### pdfTeX - pdfLaTeX
+
+TeX 系统生成的文件是 dvi 格式，虽然可以用其他程序将其转换为例如 pdf 等更为常见的格式，但是毕竟不方便。
+
+dvi 格式是为了排版而产生的，它本身并不支持所谓的「交叉引用」，pdfTeX 直接输出 pdf 格式的文档，这也是 pdfTeX 相对 TeX 进步（易用性方面）的地方。
+
+为了解决这个问题，Hàn Thế Thành 博士在他的博士论文中提出了 pdfTeX 这个对 TeX 引擎的扩展。二者最主要的差别就是 pdfTeX 直接输出 pdf 格式文档，而 TeX 引擎则输出 dvi 格式的文档。
+
+pdfTeX 的信息可以查看wiki.
+
+pdfLaTeX 这个程序的主要工作依旧是将 LaTeX 格式的文档进行解释，不过此次是将解释之后的结果交付给 pdfTeX 引擎处理。
+
+
+### XeTeX - XeLaTeX
+
+高德纳教授在实现 TeX 的当初并没有考虑到中日韩等字符的处理，而只支持 ASCII 字符。这并不是说中日韩字符就无法使用 TeX 引擎排版了，事实上 TeX 将每个字符用一个框包括起来（这被称为盒子）然后将一个个的盒子按照一定规则排列起来，因而 TeX 的算法理论上适用于任何字符。ASCII 字符简单理解，就是在半角模式下你的键盘能直接输出的字符。
+
+在 XeTeX 出现之前，为了能让 TeX 系统排版中文，国人曾使用了 天元、CCT、CJK 等手段处理中文。其中 天元和CCT 现在已经基本不用，CJK 因为使用时间长且效果相对较好，现在还有人使用。
+
+不同于 CJK 等方式使用 TeX 和 pdfTeX 这两个不直接支持 Unicode 字符的引擎，XeTeX 引擎直接支持 Unicode 字符。也就是说现在不使用 CJK 也能排版中日韩文的文档了，并且这种方式要比之前的方式更加优秀。
+
+XeLaTeX 和 XeTeX 的关系与 pdfLaTeX 和 pdfTeX 的关系类似，这里不再赘述。
+
+使用 XeTeX 引擎需要使用 UTF-8 编码。
+
+所谓编码就是字符在计算机储存时候的对应关系。例如，假设有一种编码，将汉字「你」对应为数字「1」；「好」对应为数字「2」，则含有「你好」的纯文本文件，在计算机中储存为「12」（读取文件的时候，将「12」再转换为「你好」显示在屏幕上或打印出来）。
+
+UTF-8 编码是 Unicode 编码的一种，可以参考它的 wiki.
+
+
+
 
 其中，Knuth TeX 是高德纳的原版 TeX，现在你基本已经找不到它了。
 
@@ -67,18 +121,21 @@ TeX 是一个「宏语言」。当你制作了一些特别基础的宏，那么�
 
 这引出了「TeX 发行版（distribution）」或者「TeX 系统（system）」或者「TeX 套装（suite）」的概念，表示上述所有引擎、格式、宏包，还有一些为了简便未在此处介绍的驱动、辅助工具，的集合。一般来说 TeX 发行版是用户真正需要安装的东西。也就是说，讨论「新手应该安装什么」的时候，我们实际上讨论的是「新手应该安装什么 TeX 发行版」。
 
-### Texlive VS Miktex
+### Texlive VS MiKTeX VS CTeX
 
 Texlive包比较全，但是非常大，整个安装包超过5G。
 
-Miktex占用空间比较小，遇到需要的包会自动在线下载。
+MiKTeX占用空间比较小，遇到需要的包会自动在线下载。
 
+CTeX中文套装在 MiKTeX 的基础上增加了对中文的完整支持。
+
+[为什么不推荐安装CTeX](https://zhuanlan.zhihu.com/p/45174503)
 
 ### 建议安装版本
 
-强烈建议使用最小化安装的发行版本，即使用Miktex，避免安装一大堆几乎不会用到的宏包。不同操作系统的建议如下：
+强烈建议使用最小化安装的发行版本，即使用MiKTeX，避免安装一大堆几乎不会用到的宏包。不同操作系统的建议如下：
 
-- Windows 和 Linux: [Miktex](https://miktex.org/download)
+- Windows 和 Linux: [MiKTeX](https://miktex.org/download)
 - MacOS:  [BasicTeX](https://tug.org/mactex/morepackages.html) (MacOS不建议使用Miktex)
 
 ### Latex的文本编辑器
@@ -89,5 +146,3 @@ Latex常见的文本编辑器有如下：
 2. WinEdt(付费软件)
 3. Visual Studio Code(作者强烈推荐)
 4. Emacs
-
-[本文大部分内容转载自此链接](https://liam.page/2018/11/26/introduction-to-TeX-engine-format-and-distribution/)
