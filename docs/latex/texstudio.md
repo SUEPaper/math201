@@ -63,7 +63,7 @@ Texstudio 官网下载地址为：https://texstudio.org
 #### 3. 输入LaTeX代码
 在TeXsudio 界面中输入以下代码: (目前的你无需懂得这段代码的意思，只是为了测试LaTex环境是否成功安装)
 
-```
+```latex showLineNumbers
 \documentclass{ctexart}
 \begin{document}
 你好！\LaTeX
@@ -81,7 +81,13 @@ Texstudio 官网下载地址为：https://texstudio.org
 
 ![](./img/install/texstudio_install_07.png)
 
+:::tip
+
 这里可以取消勾选“总是显示此对话框”, MiKTeX会自动安装我们LaTeX项目中用到的本地没有的宏包。如果不取消勾选，则每次遇到缺失的宏包要安装时，都会弹出此界面。
+
+:::
+
+
 
 #### 6. 编译成功并且显示PDF
 MiKTeX自动安装宏包成功后，XeLaTex会将我们的LaTeX项目编译成PDF文件，并且在右侧预览PDF文件。
