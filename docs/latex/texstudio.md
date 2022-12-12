@@ -3,7 +3,13 @@ id: texstudio
 sidebar_position: 4
 ---
 
-# TeXstudio 搭建Latex编辑环境
+# TeXstudio 搭建LaTeX编辑环境
+
+:::info
+
+本教程采用Windows版本安装，Linux和MacOS版本安装类似，既然你已经使用Linux/MacOS，作者认为你的动手解决问题的能力很强，相信你可以通过自己的努力在Linux/MacOS上安装好TeXstudio。
+
+:::
 
 ## 下载
 
@@ -30,7 +36,7 @@ Texstudio 官网下载地址为：https://texstudio.org
 
 ![](./img/install/texstudio_install_04.png)
 
-## 配置XeLatex
+## 配置XeLaTeX
 
 #### 1. 打开TeXsudio
 在开始菜单中找到TeXsudio, 并打开。
@@ -41,7 +47,7 @@ Texstudio 官网下载地址为：https://texstudio.org
 
 ![](./img/install/texstudio_install_05.png)
 
-#### 3. 将默认编译器改为XeLaTex
+#### 3. 将默认编译器改为XeLaTeX
 
 点击 Build -> Default Compiler， 选择 XeLaTex。 点击 OK，完成配置
 
@@ -49,12 +55,12 @@ Texstudio 官网下载地址为：https://texstudio.org
 
 ## 测试是否安装成功 & MiKTeX 缺失宏包安装
 
-#### 1. 新建一个LaTex项目
+#### 1. 新建一个LaTeX项目
 点击新建文件图标。
 
 ![](./img/install/texstudio_new_01.png)
 
-#### 2. 保存LaTex文件
+#### 2. 保存LaTeX文件
 点击保存图标，进入保存路径设置界面，将.tex文件保存到你想保存的路径。
 
 ![](./img/install/texstudio_new_02.png)

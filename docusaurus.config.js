@@ -89,7 +89,7 @@ const config = {
             type: 'docSidebar',
             position: 'left',
             sidebarId: 'latexSidebar',
-            label: 'Latex',
+            label: 'LaTeX',
           },
           {
             type: 'docSidebar',

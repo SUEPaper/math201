@@ -133,16 +133,17 @@ CTeX中文套装在 MiKTeX 的基础上增加了对中文的完整支持。
 
 ### 建议安装版本
 
-强烈建议使用最小化安装的发行版本，即使用MiKTeX，避免安装一大堆几乎不会用到的宏包。不同操作系统的建议如下：
+强烈建议使用最小化安装的发行版本，即使用MiKTeX，避免安装一大堆几乎不会用到的宏包，节省磁盘空间。不同操作系统的建议如下：
 
 - Windows 和 Linux: [MiKTeX](https://miktex.org/download)
-- MacOS:  [BasicTeX](https://tug.org/mactex/morepackages.html) (MacOS不建议使用Miktex)
+- MacOS:  [BasicTeX](https://tug.org/mactex/morepackages.html)
 
 ### Latex的文本编辑器
 
 Latex常见的文本编辑器有如下：
  
-1. Texsudio
+1. TeXsudio
 2. WinEdt(付费软件)
 3. Visual Studio Code(作者强烈推荐)
-4. Emacs
+4. Emacs(神之编辑器)
+5. Vim(编辑器之神)

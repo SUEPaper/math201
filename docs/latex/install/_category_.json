@@ -1,7 +1,13 @@
 {
-  "label": "安装",
   "position": 3,
+  "label": "安装教程",
+  "collapsible": true,
+  "collapsed": false,
+  "className": "red",
   "link": {
     "type": "generated-index"
+  },
+  "customProps": {
+    "description": "这个描述可以用在 swizzle 的 DocCard 里"
   }
 }
