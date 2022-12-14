@@ -10,7 +10,7 @@ const katex = require('rehype-katex');
 const config = {
   title: '数值计算方法实训课',
   tagline: 'Dinosaurs are cool',
-  url: 'https://haiwenzhang.github.io',
+  url: 'https://suepaper.github.io',
   baseUrl: '/math201',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -18,7 +18,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'HaiwenZhang', // Usually your GitHub org/user name.
+  organizationName: 'SUEPaper', // Usually your GitHub org/user name.
   projectName: 'math201', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
