@@ -1,11 +1,11 @@
 ---
 id: index
-sidebar_position: 1
+sidebar_position: 0
 ---
 
-# 必读资料
+# 实验0: 必读材料
 
-课程必读材料，需提交500字以上的读后感，占总成绩的5% 。
+课程必读材料，需提交800字以上的读后感。
 
 1. 提问的智慧：https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md
 2. 别像弱智一样提问：https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md
@@ -15,3 +15,5 @@ sidebar_position: 1
 6. 如何科学提问：https://ysyx.oscc.cc/docs/prestudy/0.1.html
 7. 什么样的问题我不想回答：https://zhuanlan.zhihu.com/p/381820481
 8. 提问模版：https://ysyx.oscc.cc/docs/misc/ask.html
+
+所有的课程实验需严格准守学术诚信原则。
