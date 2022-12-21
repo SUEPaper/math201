@@ -11,7 +11,7 @@ sidebar_position: 1
 
 **问题1**：计算$S_n = \int_0^1 \dfrac{x^n}{x+5}\text{d}x, ~ n=0,1,2,\cdots,8$的值。要求给出两种不同的算法，体会算法对结果的影响，并从理论上给出实验结果分析。
 
-### 算法1:  
+### 算法1 
 由于
 
 $$
@@ -132,7 +132,7 @@ $$
 :::  
 
 
-### 算法2（改进算法）: 
+### 算法2（改进算法）
 
 $$
 S_n = \frac{1}{n}-5S_{n-1}\\ 
@@ -261,7 +261,7 @@ x_1 =10^d, x_2= 1
 $$
 下面设计方案并编写程序让计算机模拟求根的计算过程。
 
-### 方案1：
+### 方案1
 
 直接使用一元二次方程求根公式
 
@@ -269,7 +269,7 @@ $$
 x_{1,2} = \frac{-b\pm \sqrt{b^2-4ac}}{2a}
 $$
 
-### 方案2（改进方案）：
+### 方案2（改进方案）
 
 为了避免分子中相近的两数相减，优先选用量级相近的两数相加，再利用维韦达定理中的$x_1x_2=\dfrac{c}{a}$，即
 
@@ -355,6 +355,26 @@ x2= 1.0
 
 > 说明：Python默认的计算精度为$10^{-16}$，能够处理的有效数字位数为16位，简单理解为Python把小于$10^{-16}$的数值处理为0.
 
+
+### 方案3（SciPy）
+
+我们可以用SciPy中的[scipy.optimize.fsolve](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html)计算函数的根。
+
+```python showLineNumbers
+from scipy.optimize import fsolve
+
+d = 16
+
+f = lambda x: x ** 2 - (10 ** d + 1) * x + 10 ** d
+
+root = fsolve(f, [5])
+print("SciPy函数fsolve所求的根为: ", root[0])
+print("所求根的根带入函数的结果为: ", f(root[0]))
+```
+```
+SciPy函数fsolve所求的根为:  1.0
+所求根的根带入函数的结果为:  0.0
+```
 ## 思考和分析
 
 1. 舍入误差和截断误差对数值计算的影响有哪些？
