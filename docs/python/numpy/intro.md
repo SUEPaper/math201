@@ -28,3 +28,18 @@ import numpy as np
 a = np.array([1, 2, 3])
 print(a)
 ```
+```
+[1 2 3]
+```
+
+
+## 4. NumPy数组 vs Python 列表
+
+
+:::tip
+- Numpy数组中插入、移除元素没Python列表高效；
+- Numpy数组可直接做四则运算、Python列表则需借助列表推倒式等；
+- Numpy数组更紧凑，高维时尤为明显；
+- Numpy数组向量化后运算速度比Python列表更快；
+- Numpy数组通常是同质化的，仅仅当数组中元素类型一致时处理速度快。
+:::  
