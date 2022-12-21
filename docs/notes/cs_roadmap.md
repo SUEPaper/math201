@@ -45,9 +45,9 @@ graph
 B站视频链接：https://www.bilibili.com/video/BV1ER4y157uA
 
 ## Berkeley CS61A
-课程网站链接：https://cs50.harvard.edu/x/2022/
+课程网站链接：https://inst.eecs.berkeley.edu/~cs61a/sp21/
 
-B站视频链接：https://www.bilibili.com/video/BV1ER4y157uA
+B站视频链接：https://www.bilibili.com/video/BV1v64y1Q78o
 
 ## MIT The Missing Semester of Your CS Education
 课程网站链接：https://missing.csail.mit.edu/
@@ -107,9 +107,9 @@ B站视频链接：https://space.bilibili.com/202224425/channel/collectiondetail
 B站视频链接：https://www.bilibili.com/video/BV17K4y147Bz
 
 ## CMU 15-445
-课程网站：https://15445.courses.cs.cmu.edu/fall2021/
+课程网站：https://15445.courses.cs.cmu.edu/fall2022/
 
-B站视频链接：https://www.bilibili.com/video/BV1q741127SQ
+B站视频链接：https://www.bilibili.com/video/BV1Cp4y1C7dv
 
 ## Stanford CS144
 课程网站：https://cs144.github.io/
