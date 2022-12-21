@@ -358,7 +358,7 @@ x2= 1.0
 
 ### 方案3（SciPy）
 
-我们可以用SciPy中的[scipy.optimize.fsolve](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html)计算函数的根。
+下面案例是使用SciPy中的**scipy.optimize.fsolve**计算函数的根。fsolve的具体用法，请查看[API文档](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html)。
 
 ```python showLineNumbers
 from scipy.optimize import fsolve
