@@ -76,14 +76,14 @@ const config = {
           {
             type: 'docSidebar',
             position: 'left',
-            sidebarId: 'pythonSidebar',
-            label: 'Python',
+            sidebarId: 'labSidebar',
+            label: '课程实验',
           },
           {
             type: 'docSidebar',
             position: 'left',
-            sidebarId: 'labSidebar',
-            label: '课程实验',
+            sidebarId: 'pythonSidebar',
+            label: 'Python',
           },
           {
             type: 'docSidebar',
