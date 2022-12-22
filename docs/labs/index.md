@@ -6,7 +6,7 @@ sidebar_position: 0
 # 实验0: 必读材料
 
 ## 读后感
-课程必读材料，需提交500字以上的读后感（占总成绩一定比例的分值）。
+课程必读材料，需提交500字以上的读后感（占最终成绩一定比例）。
 
 1. 提问的智慧：https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md
 2. 别像弱智一样提问：https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md
@@ -23,7 +23,7 @@ sidebar_position: 0
 
 ## 实训课Python学习路线图
 
-想要顺利完整本门实训课，所需要学习的最少Python知识的Roadmap。
+想要顺利完整本门实训课，所需要学习的最少Python知识:
 
 <div style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>
 
@@ -47,28 +47,29 @@ graph
 ```
 </div>
 
-本课程网站提供详细的Python文档，你可以在学有余力的情况下进行深入自学Python的其他部分内容。
+本课程网站提供详细的Python文档，在学有余力的情况下你可以自行深入学习Python的其他部分内容。
 
 如果你想深入学习计算机科学(CS: Computer Science)，我们提供了[自学CS Roadmap](../notes/cs_roadmap.md)。
 
 ## 实验报告
-本课程提供LaTeX版本的实验报告模板，我们希望你提交的是LaTeX版本的实验报告，而不是Word版本的实验报告（很明确的告诉你LaTeX版本的报告是有**加分**的）。
+本课程提供LaTeX（[什么是$\LaTeX$?](../latex/index.md)）版本的实验报告模板，我们希望你提交的是LaTeX版本的实验报告，而不是Word版本的实验报告（很明确的告诉你LaTeX版本的报告是有**加分**的）。
 
 [Math201_report_latex.zip](https://suepaper.github.io/math201/)
 
 :::info
 本课程不会详细教授LaTeX的使用，只提供LaTeX的入门文档以及授课过程中的简单介绍。因为我们相信作为一个成年人的你是有足够的自学能力去掌握LaTeX这个非常优美的工具。尤其是你已经读了必读材料，并且完成了500字以上的读后感任务了，所以现在开始请自觉接受LaTeX自学过程的毒打。
 
-> 我们不认为学习LaTeX是一件非常难的时候，反而这是一件可以提升自己能力的事情。一旦你学会了LaTeX，我们保证你会喜欢上LaTeX这款优美的工具，并且热衷于LaTeX的哲学———**只关心内容，不必关心排版格式**。尤其作为数学系学生的你会深刻体会到LaTeX在节约你的生命，不再为了Word中数学公式的排版而头疼。
+> 我们不认为学习LaTeX是一件非常难的事情，反而这是一件可以提升自己能力的事情。一旦你学会了LaTeX，我们保证你会喜欢上LaTeX这款优美的工具，并且热衷于LaTeX的哲学———**只关心内容，不必关心排版格式**。尤其作为数学系学生的你会深刻体会到LaTeX是在节约你的生命，你不再为了Word中数学公式的排版而头疼。
+> 我们为了提供更舒适的课程网页浏览体验，本网站的所有数学公式均使用LaTeX编写，相信你可以为了提供更舒适的报告浏览体验，也为为我们提供LaTeX版本报告。
 :::
 
 ## 课程实验代码管理
-本课程推荐使用git工具管理你的代码版本，并且可以将代码保存在GitHub上开设一个私有的代码仓库，请遵守学术诚信原则，不要公开你的代码。(本课程网站的源代码也是保存在GitHub的仓库里面, 感兴趣的同学可以去浏览我们的源代码: https://github.com/SUEPaper/math201)
+本课程推荐使用git([什么是git?](../git/index.md))工具管理你的代码版本，你可以将你的代码存放在Github上([什么是Github?](../git/index.md))。请遵守学术诚信原则，不要公开你的代码，你可以使用Github的私有仓库来达到不公开代码的目的。(本课程网站的源代码也是保存在GitHub的仓库里面, 感兴趣的同学可以去浏览我们的源代码: https://github.com/SUEPaper/math201)
 
 
 ## 关于遇到问题的搜索
 
-我们想通过必读材料的阅读，你应该知道搜索的重要性了。但在此之前, 你需要适应查阅英文资料。你会发现你不太容易搜索到相关的中文资料。
+我们想通过必读材料的阅读，你应该知道搜索的重要性了。你会发现你不太容易搜索到相关的中文资料，所以你需要适应查阅英文资料。
 
 如何适应查阅英文资料? 方法是尝试并坚持查阅**英文资料**。
 

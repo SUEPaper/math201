@@ -1,5 +1,5 @@
 ---
-id: intro
+id: index
 sidebar_position: 1
 ---
 
