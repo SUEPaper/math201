@@ -3,10 +3,10 @@ id: index
 sidebar_position: 0
 ---
 
-# 实验0: 必读材料
+# 实验0: 预学习
 
-## 读后感
-课程必读材料，需提交500字以上的读后感（占最终成绩一定比例）。
+## 必读材料读后感
+课程必读材料，需提交不少于500字的读后感（占最终成绩一定比例）。
 
 1. 提问的智慧：https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md
 2. 别像弱智一样提问：https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md
@@ -54,13 +54,13 @@ graph
 ## 实验报告
 本课程提供LaTeX（[什么是$\LaTeX$?](../latex/index.md)）版本的实验报告模板，我们希望你提交的是LaTeX版本的实验报告，而不是Word版本的实验报告（很明确的告诉你LaTeX版本的报告是有**加分**的）。
 
-[Math201_report_latex.zip](https://suepaper.github.io/math201/)
+[Math201-LaTeX-Report](https://github.com/SUEPaper/math201-latex-report)
 
 :::info
 本课程不会详细教授LaTeX的使用，只提供LaTeX的入门文档以及授课过程中的简单介绍。因为我们相信作为一个成年人的你是有足够的自学能力去掌握LaTeX这个非常优美的工具。尤其是你已经读了必读材料，并且完成了500字以上的读后感任务了，所以现在开始请自觉接受LaTeX自学过程的毒打。
 
 > 我们不认为学习LaTeX是一件非常难的事情，反而这是一件可以提升自己能力的事情。一旦你学会了LaTeX，我们保证你会喜欢上LaTeX这款优美的工具，并且热衷于LaTeX的哲学———**只关心内容，不必关心排版格式**。尤其作为数学系学生的你会深刻体会到LaTeX是在节约你的生命，你不再为了Word中数学公式的排版而头疼。
-> 我们为了提供更舒适的课程网页浏览体验，本网站的所有数学公式均使用LaTeX编写，相信你可以为了提供更舒适的报告浏览体验，也为为我们提供LaTeX版本报告。
+> 我们为了提供更舒适的课程网页浏览体验，本网站的所有数学公式均使用LaTeX编写，相信你可以为了提供更舒适的报告浏览体验，也为我们提供LaTeX版本报告。
 :::
 
 ## 课程实验代码管理

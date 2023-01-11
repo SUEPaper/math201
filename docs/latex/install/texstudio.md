@@ -1,6 +1,6 @@
 ---
 id: texstudio
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # TeXstudio 搭建LaTeX编辑环境
@@ -17,24 +17,24 @@ Texstudio 官网下载地址为：https://texstudio.org
 
 点击Download，下载安装包。
 
-![](./img/install/texstudio_install_01.png)
+![](./img/texstudio_install_01.png)
 
 ## 安装
 
 #### 1. 运行安装程序
 双击运行安装程序。
 
-![](./img/install/texstudio_install_02.png)
+![](./img/texstudio_install_02.png)
 
 #### 2. 安装页面01
 选择下一步。
 
-![](./img/install/texstudio_install_03.png)
+![](./img/texstudio_install_03.png)
 
 #### 3. 安装页面02
 选择关闭，结束安装。
 
-![](./img/install/texstudio_install_04.png)
+![](./img/texstudio_install_04.png)
 
 ## 配置XeLaTeX
 
@@ -45,25 +45,25 @@ Texstudio 官网下载地址为：https://texstudio.org
 
 点击 Options -> Configure TeXsudio 便可进入TeXsudio配置界面。
 
-![](./img/install/texstudio_install_05.png)
+![](./img/texstudio_install_05.png)
 
 #### 3. 将默认编译器改为XeLaTeX
 
 点击 Build -> Default Compiler， 选择 XeLaTex。 点击 OK，完成配置
 
-![](./img/install/texstudio_install_06.png)
+![](./img/texstudio_install_06.png)
 
 ## 测试是否安装成功 & MiKTeX 缺失宏包安装
 
 #### 1. 新建一个LaTeX项目
 点击新建文件图标。
 
-![](./img/install/texstudio_new_01.png)
+![](./img/texstudio_new_01.png)
 
 #### 2. 保存LaTeX文件
 点击保存图标，进入保存路径设置界面，将.tex文件保存到你想保存的路径。
 
-![](./img/install/texstudio_new_02.png)
+![](./img/texstudio_new_02.png)
 
 
 #### 3. 输入LaTeX代码
@@ -79,13 +79,13 @@ Texstudio 官网下载地址为：https://texstudio.org
 #### 4. 编译
 点击Build & View图标或者按F5健，进行LaTeX项目编译。
 
-![](./img/install/texstudio_new_03.png)
+![](./img/texstudio_new_03.png)
 
 
 #### 5. MiKTeX 缺失宏包安装
 由于MiKTeX默认安装没有带 ctex 这个中文支持宏包，所以在编译时会弹出如下窗口，点击安装，MiKTeX即可自动从远程宏包管理库安装 ctex 这个宏包。
 
-![](./img/install/texstudio_install_07.png)
+![](./img/texstudio_install_07.png)
 
 :::tip
 
@@ -98,4 +98,4 @@ Texstudio 官网下载地址为：https://texstudio.org
 #### 6. 编译成功并且显示PDF
 MiKTeX自动安装宏包成功后，XeLaTex会将我们的LaTeX项目编译成PDF文件，并且在右侧预览PDF文件。
 
-![](./img/install/texstudio_new_04.png)
+![](./img/texstudio_new_04.png)

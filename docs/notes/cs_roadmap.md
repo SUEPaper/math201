@@ -13,7 +13,7 @@ graph
     C --> D[git小任务]
     D --> E[Stanford CS106L: C++ Programming]
     E --> F[Linux C编程一站式学习]
-    F --> G[NJU Introduction to Computer Systems 理论课]
+    F --> G[CMU 15-213 ICS]
     G --> H[NJU ICS PA]
     H --> I[Stanford CS106B: Programming Abstractions] 
     H --> J[Berkeley CS61C: Great Ideas in Computer Architecture]
@@ -72,12 +72,15 @@ B站视频链接：https://www.bilibili.com/video/BV1K8411b7AU
 ## Linux C编程一站式学习
 链接：http://akaedu.github.io/book/
 
-## NJU Introduction to Computer Systems 理论课
-计算机系统基础(一)：程序的表示、转换与链接： https://www.icourse163.org/course/NJU-1001625001
+## CMU 15-213 Introduction to Computer Systems (ICS)
 
-计算机系统基础（二）：程序的执行和存储访问：https://www.icourse163.org/course/NJU-1001964032
+B站课程视频： https://www.bilibili.com/video/BV1iW411d7hd
 
-计算机系统基础(三)：异常、中断和输入/输出：https://www.icourse163.org/course/NJU-1002532004
+推荐一个非常棒的中文课程讲解：https://www.bilibili.com/video/BV1cD4y1D7uR/
+
+CSAPP作业地址(**强烈建议使用NJU的ICS PA作为课程作业，学有余力的同学可以做本作业**)：http://csapp.cs.cmu.edu/3e/labs.html
+
+推荐书籍：[深入理解计算机系统 第三版](https://item.jd.com/12006637.html)
 
 ## NJU ICS PA
 PA实验内容网站：https://nju-projectn.github.io/ics-pa-gitbook/ics2022/
