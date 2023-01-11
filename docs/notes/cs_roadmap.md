@@ -80,6 +80,8 @@ B站课程视频： https://www.bilibili.com/video/BV1iW411d7hd
 
 CSAPP作业地址(**强烈建议使用NJU的ICS PA作为课程作业，学有余力的同学可以做本作业**)：http://csapp.cs.cmu.edu/3e/labs.html
 
+推荐书籍：[深入理解计算机系统 第三版](https://item.jd.com/12006637.html)
+
 ## NJU ICS PA
 PA实验内容网站：https://nju-projectn.github.io/ics-pa-gitbook/ics2022/
 

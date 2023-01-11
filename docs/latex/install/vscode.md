@@ -14,13 +14,13 @@ sidebar_position: 4
 ## 配置VS Code
 
 安装完成后，打开 Visual Studio Code 应用程序，使用
-快捷键 Ctrl + Shift + X（MacOS: Command + Shift + B） 打开扩展列表，在应用商店中搜索 并安装以下两个扩展
+快捷键 Ctrl + Shift + X（MacOS: Command + Shift + X） 打开扩展列表，在应用商店中搜索 并安装以下两个扩展
 
 > ▶ Chinese(Simplified)
 
 > ▶ LaTeXWorkshop
 
-最后需要进行插件配置。使用快捷键 Ctrl + Shift + P（MacOS: Command + Shift + B）打开命令列表，输入“setting”，找到并点击“首选项:打开设置(json)”。
+最后需要进行插件配置。使用快捷键 Ctrl + Shift + P（MacOS: Command + Shift + P）打开命令列表，输入“setting”，找到并点击“首选项:打开设置(json)”。
 
 ```json
 
