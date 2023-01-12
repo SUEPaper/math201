@@ -23,21 +23,10 @@ sidebar_position: 4
 最后需要进行插件配置。使用快捷键 Ctrl + Shift + P（MacOS: Command + Shift + P）打开命令列表，输入“setting”，找到并点击“首选项:打开设置(json)”。
 
 ```json
-
 {
     "latex-workshop.latex.autoBuild.run": "never", // 禁止保存时自动编译
     "latex-workshop.latex.recipe.default": "lastUsed", // 使用前一次的编译方法
     "latex-workshop.latex.tools": [
-        {
-            "name": "pdflatex",
-            "command": "pdflatex",
-            "args": [
-                "-shell-escape",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "%DOCFILE%"
-            ]
-        },
         {
             "name": "xelatex",
             "command": "xelatex",
@@ -48,78 +37,13 @@ sidebar_position: 4
                 "-file-line-error",
                 "%DOCFILE%"
             ]
-        },
-        {
-            "name": "lualatex",
-            "command": "lualatex",
-            "args": [
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "%DOCFILE%"
-            ]
-        },
-        {
-            "name": "latexmk",
-            "command": "latexmk",
-            "args": [
-                "-interaction=nonstopmode",
-                "%DOCFILE%"
-            ]
-        },
-        {
-            "name": "latexmk-xe",
-            "command": "latexmk",
-            "args": [
-                "-xelatex",
-                "-interaction=nonstopmode",
-                "%DOCFILE%"
-            ]
-        },
-        {
-            "name": "latexmk-lua",
-            "command": "latexmk",
-            "args": [
-                "-lualatex",
-                "-interaction=nonstopmode",
-                "%DOCFILE%"
-            ]
         }
     ],
     "latex-workshop.latex.recipes": [
         {
-            "name": "latexmk(xe)",
-            "tools": [
-                "latexmk-xe"
-            ]
-        },
-        {
-            "name": "latexmk(lua)",
-            "tools": [
-                "latexmk-lua"
-            ]
-        },
-        {
-            "name": "latexmk",
-            "tools": [
-                "latexmk"
-            ]
-        },
-        {
             "name": "xelatex",
             "tools": [
                 "xelatex"
-            ]
-        },
-        {
-            "name": "lualatex",
-            "tools": [
-                "lualatex"
-            ]
-        },
-        {
-            "name": "pdflatex",
-            "tools": [
-                "pdflatex"
             ]
         }
     ]
