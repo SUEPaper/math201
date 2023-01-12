@@ -26,6 +26,8 @@ sidebar_position: 4
 {
     "latex-workshop.latex.autoBuild.run": "never", // 禁止保存时自动编译
     "latex-workshop.latex.recipe.default": "lastUsed", // 使用前一次的编译方法
+    "latex-workshop.showContextMenu": true,
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
     "latex-workshop.latex.tools": [
         {
             "name": "xelatex",
@@ -37,6 +39,13 @@ sidebar_position: 4
                 "-file-line-error",
                 "%DOCFILE%"
             ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
         }
     ],
     "latex-workshop.latex.recipes": [
@@ -44,9 +53,40 @@ sidebar_position: 4
             "name": "xelatex",
             "tools": [
                 "xelatex"
+            ],
+        },
+        {
+            "name": "xe->bib->xe->xe",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
             ]
         }
-    ]
+    ],
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.synctex.gz"
+    ]  
 }
 ```
 
