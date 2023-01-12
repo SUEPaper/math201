@@ -24,7 +24,7 @@ MiKTex 官网下载地址为：https://miktex.org/download
 ![](../img/install/miktex_install_01.png)
 
 #### 2. 安装页面02
-可以选择为当前用户安装，也可以选择为所有用护安装。配置结束后，点击下一页。
+选择为当前用户安装，点击下一页。
 
 ![](../img/install/miktex_install_02.png)
 
