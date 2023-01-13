@@ -18,26 +18,17 @@ sidebar_position: 4
 
 > ▶ Chinese(Simplified)
 
-> ▶ LaTeXWorkshop
+> ▶ LaTeX Workshop
 
-最后需要进行插件配置。使用快捷键 Ctrl + Shift + P（MacOS: Command + Shift + P）打开命令列表，输入“setting”，找到并点击“首选项:打开设置(json)”。
+最后需要进行插件配置。点击左下角的设置按钮，点击设置，然后再搜索框中搜索recipe，找到标题"Latex-workshop > Latex:Recipes",点击该设置项的在settings.json中编辑，将原来的删除，将下方内容复制进去，然后按Ctrl+S保存，最后重启vscode即可。
 
 ```json
-
 {
     "latex-workshop.latex.autoBuild.run": "never", // 禁止保存时自动编译
     "latex-workshop.latex.recipe.default": "lastUsed", // 使用前一次的编译方法
+    "latex-workshop.showContextMenu": true,
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
     "latex-workshop.latex.tools": [
-        {
-            "name": "pdflatex",
-            "command": "pdflatex",
-            "args": [
-                "-shell-escape",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "%DOCFILE%"
-            ]
-        },
         {
             "name": "xelatex",
             "command": "xelatex",
@@ -50,83 +41,54 @@ sidebar_position: 4
             ]
         },
         {
-            "name": "lualatex",
-            "command": "lualatex",
+            "name": "bibtex",
+            "command": "bibtex",
             "args": [
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "%DOCFILE%"
-            ]
-        },
-        {
-            "name": "latexmk",
-            "command": "latexmk",
-            "args": [
-                "-interaction=nonstopmode",
-                "%DOCFILE%"
-            ]
-        },
-        {
-            "name": "latexmk-xe",
-            "command": "latexmk",
-            "args": [
-                "-xelatex",
-                "-interaction=nonstopmode",
-                "%DOCFILE%"
-            ]
-        },
-        {
-            "name": "latexmk-lua",
-            "command": "latexmk",
-            "args": [
-                "-lualatex",
-                "-interaction=nonstopmode",
                 "%DOCFILE%"
             ]
         }
     ],
     "latex-workshop.latex.recipes": [
         {
-            "name": "latexmk(xe)",
-            "tools": [
-                "latexmk-xe"
-            ]
-        },
-        {
-            "name": "latexmk(lua)",
-            "tools": [
-                "latexmk-lua"
-            ]
-        },
-        {
-            "name": "latexmk",
-            "tools": [
-                "latexmk"
-            ]
-        },
-        {
             "name": "xelatex",
             "tools": [
                 "xelatex"
-            ]
+            ],
         },
         {
-            "name": "lualatex",
+            "name": "xe->bib->xe->xe",
             "tools": [
-                "lualatex"
-            ]
-        },
-        {
-            "name": "pdflatex",
-            "tools": [
-                "pdflatex"
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
             ]
         }
-    ]
+    ],
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.synctex.gz"
+    ]  
 }
 ```
-
-将上面内容复制到刚刚打开的文件里，保存并重启应用程序。设置完成!
 
 ## 第一个LaTeX项目
 
