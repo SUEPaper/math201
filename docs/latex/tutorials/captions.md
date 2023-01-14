@@ -3,13 +3,13 @@ id: captions
 sidebar_position: 1
 ---
 
-# 文章的结构
+# 文章结构
 从begin{document}开始，我们就走出了导言区。而对于一篇文章来说，它有标题，摘要，目录，正文，参考文献以及附录。下面我们需要利用代码来对他们进行实现。
 
 ## 标题
 文章的标题通常需要在导言区设置好，可以通过如下命令实现：
 ```latex
-\documentclass[UTF8,12pt,a4paper,space]{ctexart}
+\documentclass[UTF8,12pt,a4paper]{ctexart}
 \title{文章标题}
 
 \begin{document}
@@ -65,7 +65,7 @@ sidebar_position: 1
 ## 总结
 最后，综合上述代码来实现一篇文章结构如下：
 ```latex
-\documentclass[UTF8,12pt,a4paper,space]{ctexart}
+\documentclass[UTF8,12pt,a4paper]{ctexart}
 \usepackage{fontspec} 
 \setmainfont{SimSun} 
 \usepackage{times} 
