@@ -289,7 +289,7 @@ sidebar_position: 10
 |$\xleftharpoondown{abc}$ `\xleftharpoondown{abc}`    |$\xrightharpoondown{abc}$ `\xrightharpoondown{abc}`
 |$\xleftrightharpoons{abc}$ `\xleftrightharpoons{abc}`|$\xrightleftharpoons{abc}$ `\xrightleftharpoons{abc}`
 |$\xtofrom{abc}$ `\xtofrom{abc}`                      |$\xmapsto{abc}$ `\xmapsto{abc}`
-|$\xlongequal{abc}$ `\xlongequal{abc}`
+|$\xlongequal{abc}$ `\xlongequal{abc}`||
 
 ## 符号和标点符号
 
@@ -346,6 +346,12 @@ sidebar_position: 10
 | `\mathscr{A-Z,a-z}` | $\mathscr{A-Z}$ | `\mathfrak{A-Z,a-z,0-9}`   | $\mathfrak{A-Z,a-z,0-9}$ |
 
 ## 上下标
+$$
+a^b \qquad a_1
+$$
+```tex
+a^b    a_1
+```
 
 ## 分式和根式
 
@@ -379,8 +385,20 @@ $$
 ```
 
 ## 连乘
+$$
+\prod_{i=0}^{n}a_i 
+$$
+```tex
+\prod_{i=0}^{n}a_i
+```
 
 ## 导数
+$$
+\frac{\mathrm{d} }{\mathrm{d} x} x^2
+$$
+```tex
+\frac{\mathrm{d} }{\mathrm{d} x} x^2
+```
 
 ## 积分
 

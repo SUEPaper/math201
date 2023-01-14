@@ -48,11 +48,15 @@ latex的宏包就类似于python的库，旨在扩展或提供LaTeX的某一特�
 该点是为了说明一些latex的内置的基本规则，旨在帮助同学们后面写正文时防止踩坑。建议将下面代码自己手动编译一次感受区别并牢牢记住！
 
 ### 空格的使用
-LaTeX默认是忽略文字之间的空格的，如果想要使用空格，可以在设置文档类型时加入space，方法如下：
+latex默认是忽略文字之间的空格的，如果想要使用空格，可以在设置文档类型时加入space，这样latex就不会忽略我们输入的空格，方法如下：
 ```latex
 \documentclass[UTF8,12pt,a4paper,space]{ctexart}
+```
+当然，我是很不推荐这样使用space的，我们可以利用如下方法来添加空格：
+```latex
+\documentclass[UTF8,12pt,a4paper]{ctexart}
 \begin{document}
-你好啊!你好{ }啊！你好\ 啊！
+你好啊！你好 啊！你好{ }啊！你好\ 啊！
 \end{document}
 ```
 ![](./img/img1.png)
@@ -60,7 +64,7 @@ LaTeX默认是忽略文字之间的空格的，如果想要使用空格，可以
 ### 换行
 latex中回车是不会换行的，需要输入\\或\newline来进行换行，方法如下：
 ```latex
-\documentclass[UTF8,12pt,a4paper,space]{ctexart}
+\documentclass[UTF8,12pt,a4paper]{ctexart}
 \begin{document}
 你好啊！\\
 你好{ }啊！\newline
@@ -72,7 +76,7 @@ latex中回车是不会换行的，需要输入\\或\newline来进行换行，�
 ### 分段
 当运行了上面的代码时可以发现，第一个你好啊！是有首行缩进的，而后面两个是没有的，说明他们依旧是一个段落，如果想对他们进行分段，可以对两个段落之间空一行或使用\par进行分段
 ```latex
-\documentclass[UTF8,12pt,a4paper,space]{ctexart}
+\documentclass[UTF8,12pt,a4paper]{ctexart}
 \begin{document}
 你好啊！\\
 你好{ }啊！
@@ -84,11 +88,16 @@ latex中回车是不会换行的，需要输入\\或\newline来进行换行，�
 ![](./img/img3.png)
 
 ### 换页
-换页只需要在你想换页的地方使用\newpage命令即可实现。
+换页只需要在你想换页的地方使用\clearpage命令即可实现。
 
 ### 特殊字符
 特殊控制字符：#，$， %， & ，{， }， ^， ~，由于这些字符在latex各司其职，要输出这些控制符用下列命令：
+```latex
+\documentclass[UTF8,12pt,a4paper]{ctexart}
+\begin{document}
 \#，\$，\%，\&，\{，\}，\^{}，\~{} 
+\end{document}
+```
 ![](./img/img4.png)
 
 
