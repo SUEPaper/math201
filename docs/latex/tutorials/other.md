@@ -19,15 +19,19 @@ sidebar_position: 5
 \textbf{正文} % 粗体
 \underline{正文} % 下划线
 ```
+
 对于字号而言，可以使用如下方法：
 ```latex
 \zihao{-2} % 小二
 \zihao{4} % 四号
 ```
+![](./img/img19.png)
+
 对于颜色而言，需要添加color宏包，使用方法如下：
 ```latex
 {\color{red} 正文} %可选项red，blue，green，yellow，magenta，white，black
 ```
+
 当然，我们可以利用{}将字体和字号和颜色结合使用，方法如下：
 ```latex
 {\zihao{3}\color{red}\heiti{正文}} % 红色黑体3号字
@@ -94,9 +98,9 @@ sidebar_position: 5
 ![](./img/img13.png)
 
 ## 代码环境
-使用代码环境，需要引入宏包listings，并将language设置成目标语言类型，方法如下：
+使用代码环境，需要引入宏包minted，并将language设置成目标语言类型，方法如下：
 ```latex
-\begin{lstlisting}[language={Python}]
+\begin{minted}{python}
 N = 8  #共有N项
 S = [0] * (N + 1) #包含S0共有N+1项，初始化
 S[0] = 0.182 #初始值
@@ -104,53 +108,40 @@ S[0] = 0.182 #初始值
 for n in range(1, N+1):
     S[n] = 1/n - 5 * S[n-1]  #递推关系式
     print('S' + str(n) + ' =', S[n]) #打印算法结果
-\end{lstlisting}
+\end{minted}
 ```
-![](./img/img14.png)
+![](./img/img20.png)
 
 同样的，为了使我们的代码更加好看，我们可以使用xcolor宏包并在导言区进行一些配置来完成，方法如下：
 ```latex
-\documentclass[UTF8,12pt,a4paper]{ctexart}
-\usepackage{listings}
-\usepackage{fontspec} % 中文字体宏包
-\setmainfont{SimSun} % 设置为宋体
-\usepackage{times} %使得英文默认字体都是Times New Roman
-\usepackage{xcolor}
-
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-\lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
-}
-\lstset{style=mystyle}
-
-\begin{document}
-\begin{lstlisting}[language={Python}]
-    N = 8  #共有N项
-    S = [0] * (N + 1) #包含S0共有N+1项，初始化
-    S[0] = 0.182 #初始值
-    #for循环进行递推计算
-    for n in range(1, N+1):
-        S[n] = 1/n - 5 * S[n-1]  #递推关系式
-        print('S' + str(n) + ' =', S[n]) #打印算法结果
-    \end{lstlisting}
-\end{document}
+\begin{minted}
+[
+    frame=lines,
+    framesep=2mm,
+    baselinestretch=1.2,
+    bgcolor=LightGray,
+    fontsize=\footnotesize,
+    linenos
+]
+{python}
+N = 8  #共有N项
+S = [0] * (N + 1) #包含S0共有N+1项，初始化
+S[0] = 0.182 #初始值
+#for循环进行递推计算
+for n in range(1, N+1):
+    S[n] = 1/n - 5 * S[n-1]  #递推关系式
+    print('S' + str(n) + ' =', S[n]) #打印算法结果
+\end{minted}
 ```
-![](./img/img15.png)
+![](./img/img21.png)
+
+我们也可以直接通过导入代码文件的方式进行引入，方法如下：
+```latex
+\inputminted[
+    frame=lines,
+    framesep=2mm,
+    baselinestretch=1.2,
+    fontsize=\small,
+    linenos
+]{python}{代码文件名} % 我们也可以利用路径{代码文件夹/代码文件名}的方式导入
+```
