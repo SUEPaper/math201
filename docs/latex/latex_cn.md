@@ -16,13 +16,13 @@ xeCJK 是一个 XeLaTeX 宏包，用于排版中日韩（CJK）文字。主要�
 xeCJK只提供了字体和标点控制等基本CJK语言支持, 使用方式如下:
 
 ```latex
-\usepackage {xeCJK}
+\usepackage{xeCJK}
 
-\setCJKmainfont {font name}
+\setCJKmainfont{font name}
 % 设置正文罗马族的CJK字体，影响\rmfamily和\textrm 的字体
-\setCJKsansfont {font name}
+\setCJKsansfont{font name}
 % 设置正文无衬线族的CJK字体，影响\sffamily和\textsf 的字体
-\setCJKmonofont {font name}
+\setCJKmonofont{font name}
 % 设置正文等宽族的CJK字体，影响\ttfamily 和 \texttt 的字体
 ```
 
@@ -32,11 +32,11 @@ ctex宏包和文档类封装了xeCJK等宏包，使得用户在排版中文时�
 使用方式如下:
 ```latex
 %在导言区使用以下代码，获得中文支持
-\documentclass[utf8,a4paper,12pt] {ctexart}
+\documentclass[utf8,a4paper,12pt]{ctexart}
 
 %或者
-\documentclass {article}
-\usepackage {ctex}
+\documentclass{article}
+\usepackage{ctex}
 ```
 
 :::tip
