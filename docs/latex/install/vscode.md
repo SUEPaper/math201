@@ -13,8 +13,7 @@ sidebar_position: 4
 
 ## 配置VS Code
 
-安装完成后，打开 Visual Studio Code 应用程序，使用
-快捷键 Ctrl + Shift + X（MacOS: Command + Shift + X） 打开扩展列表，在应用商店中搜索 并安装以下两个扩展
+安装完成后，打开 Visual Studio Code 应用程序，使用快捷键 `Ctrl + Shift + X（MacOS: Command + Shift + X`打开扩展列表，在应用商店中搜索 并安装以下两个扩展
 
 > ▶ Chinese(Simplified)
 
@@ -124,3 +123,25 @@ sidebar_position: 4
 :::
 
 重新运行编译———>查看PDF，恭喜你终于**通关了！！！**
+
+
+## 公式预览
+
+当你把鼠标放在\[, $$, \begin{equation}, \begin{...}等数学公式环境上时，数学公式会被渲染出来。
+
+![](./img/math_hover_01.gif)
+
+
+## 正反向搜索设置
+
+### 正向搜索
+将光标放到想要看的代码处，然后使用快捷键`Ctrl + Alt + j (MacOS Command + Option + j)`，便可在PDF看到对应渲染的内容。
+
+![](./img/back-search.gif)
+
+### 反向搜索
+将光标放到PDF想要看的内容处，然后双击，便可看对应的LaTeX代码。
+
+![](./img/forward-search.gif)
+
+更多使用教程请参考LaTeX Workshop官网[Wiki](https://github.com/James-Yu/LaTeX-Workshop/wiki)
