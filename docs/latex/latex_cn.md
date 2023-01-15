@@ -1,6 +1,6 @@
 ---
 id: latex_cn
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # LaTeX中文支持(xeCJK vs ctex)

@@ -1,6 +1,6 @@
 ---
 id: math
-sidebar_position: 10
+sidebar_position: 8
 ---
 
 # LaTeX数学公式大全
