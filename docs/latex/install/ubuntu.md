@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # Ubuntu Linux 安装 MiKTeX
 
-你已经是一个成熟的 Linux 用户啦，乖乖去读[官方文档](https://miktex.org/howto/install-miktex-unx)吧!
+你已经是一个成熟的 Linux 用户啦，乖乖去读[官方文档](https://miktex.org/download)吧!
 
 ## MiKTeX远程仓库配置
 
