@@ -1,9 +1,9 @@
 ---
 id: math
-sidebar_position: 10
+sidebar_position: 8
 ---
 
-# LaTeX数学公式
+# LaTeX数学公式大全
 
 本文参考: 
 1. [超详细 LaTex数学公式](https://blog.csdn.net/ViatorSun/article/details/82826664)
@@ -289,7 +289,7 @@ sidebar_position: 10
 |$\xleftharpoondown{abc}$ `\xleftharpoondown{abc}`    |$\xrightharpoondown{abc}$ `\xrightharpoondown{abc}`
 |$\xleftrightharpoons{abc}$ `\xleftrightharpoons{abc}`|$\xrightleftharpoons{abc}$ `\xrightleftharpoons{abc}`
 |$\xtofrom{abc}$ `\xtofrom{abc}`                      |$\xmapsto{abc}$ `\xmapsto{abc}`
-|$\xlongequal{abc}$ `\xlongequal{abc}`
+|$\xlongequal{abc}$ `\xlongequal{abc}`||
 
 ## 符号和标点符号
 
@@ -346,41 +346,165 @@ sidebar_position: 10
 | `\mathscr{A-Z,a-z}` | $\mathscr{A-Z}$ | `\mathfrak{A-Z,a-z,0-9}`   | $\mathfrak{A-Z,a-z,0-9}$ |
 
 ## 上下标
+$$
+a^b
+$$
+```tex
+a^b 
+```
+
+$$
+ a_c
+$$
+```tex
+a_c
+```
+
+$$
+ a^b_c
+$$
+```tex
+a^b_c
+```
+
+$$
+ a^{12}_{21}
+$$
+```tex
+a^{12}_{21}
+```
 
 ## 分式和根式
 
 $$
-3/8 \qquad \frac{3}{8} \qquad \tfrac{3}{8}
+3/8 
 $$
 ```tex
-3/8 \qquad \frac{3}{8} \qquad \tfrac{3}{8}
+3/8 
 ```
 
 $$
-\sqrt{x} \Leftrightarrow x^{1/2} \quad \sqrt[3]{2} \quad \sqrt{x^{2} + \sqrt{y}}
+\frac{3}{8}
 $$
 ```tex
-\sqrt{x} \Leftrightarrow x^{1/2} \quad \sqrt[3]{2} \quad \sqrt{x^{2} + \sqrt{y}}
+\frac{3}{8}
+```
+
+$$
+\tfrac{3}{8}
+$$
+```tex
+\tfrac{3}{8}
+```
+
+$$
+\sqrt{x} \Leftrightarrow x^{1/2}
+$$
+```tex
+\sqrt{x} \Leftrightarrow x^{1/2}
+```
+
+$$
+\sqrt[3]{2}
+$$
+```tex
+\sqrt[3]{2}
+```
+
+$$
+\sqrt{x^{2} + \sqrt{y}}
+$$
+```tex
+\sqrt{x^{2} + \sqrt{y}}
 ```
 
 ## 求和
 
 $$
-\sum_{i=1}^n \quad
-\int_0^{\frac{\pi}{2}} dx \quad
-\oint_0^{\frac{\pi}{2}} \quad
-\prod_\epsilon 
+\sum_{i=1}^n x_i
 $$
 ```tex
-\sum_{i=1}^n \quad
-\int_0^{\frac{\pi}{2}} dx\quad
-\oint_0^{\frac{\pi}{2}} \quad
-\prod_\epsilon 
+\sum_{i=1}^n x_i
 ```
 
 ## 连乘
+$$
+\prod_{i=0}^{n}x_i 
+$$
+```tex
+\prod_{i=0}^{n}x_i
+```
+
+## 极限
+如果是行间公式，则如下：
+$$
+\lim_{x \to \infty} f(x)
+$$
+```tex
+\lim_{x \to \infty} f(x)
+```
+
+如果是行内公式，则如下：
+$$
+\lim\limits_{x \to \infty} f(x)
+$$
+```tex
+\lim\limits_{x \to \infty} f(x)
+```
+
+其他案例：
+$$
+e^x=\lim_{n\to\infty} \left( 1+\frac{x}{n} \right)^n
+$$
+```tex
+e^x=\lim_{n\to\infty} \left( 1+\frac{x}{n} \right)^n
+```
 
 ## 导数
+
+$$
+\frac{\mathrm{d} y }{\mathrm{d} x}
+$$
+```tex
+\frac{\mathrm{d} y }{\mathrm{d} x}
+```
+
+$$
+\frac{\mathrm{d}^{n} y }{\mathrm{d} x^{n}}
+$$
+```tex
+\frac{\mathrm{d}^{n} y }{\mathrm{d} x^{n}}
+```
+
+$$
+\frac{\mathrm{d} }{\mathrm{d} x} y^2
+$$
+```tex
+\frac{\mathrm{d} }{\mathrm{d} x} y^2
+```
+
+$$
+\frac{ y^{'} }{ x^{'} }
+$$
+```tex
+\frac{ y^{'} }{ x^{'} }
+```
+
+## 偏导数
+
+$$
+\frac{\partial f}{\partial x}
+$$
+```tex
+\frac{\partial f}{\partial x}
+```
+
+$$
+\frac{\partial ^{n} f}{\partial x^{n}}
+$$
+```tex
+\frac{\partial ^{n} f}{\partial x^{n}}
+```
 
 ## 积分
 

@@ -3,7 +3,7 @@ id: picture
 sidebar_position: 2
 ---
 
-# 图片的插入
+# 图片插入
 如果想要在文章中插入图片，此时，宏包的作用就来了，我们需要在导言区中调用graphicx宏包。
 ```latex
 \usepackage{graphicx}
@@ -70,7 +70,7 @@ sidebar_position: 2
 ```
 同样的，我们可以给这些图片设置label，以便在正文中引用他们，不仅如此，在左侧的结构栏中也可以让我们快速找到这些标签以便管理。综合以上代码：
 ```latex
-\documentclass[UTF8,12pt,a4paper,space]{ctexart}
+\documentclass[UTF8,12pt,a4paper]{ctexart}
 \usepackage{graphicx}
 \graphicspath{{figures/}{pictures/}{images/}}
 

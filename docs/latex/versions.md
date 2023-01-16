@@ -121,29 +121,3 @@ TeX 是一个「宏语言」。当你制作了一些特别基础的宏，那么�
 
 这引出了「TeX 发行版（distribution）」或者「TeX 系统（system）」或者「TeX 套装（suite）」的概念，表示上述所有引擎、格式、宏包，还有一些为了简便未在此处介绍的驱动、辅助工具，的集合。一般来说 TeX 发行版是用户真正需要安装的东西。也就是说，讨论「新手应该安装什么」的时候，我们实际上讨论的是「新手应该安装什么 TeX 发行版」。
 
-### Texlive VS MiKTeX VS CTeX
-
-Texlive包比较全，但是非常大，整个安装包超过5G。
-
-MiKTeX占用空间比较小，遇到需要的包会自动在线下载。
-
-CTeX中文套装在 MiKTeX 的基础上增加了对中文的完整支持。
-
-[为什么不推荐安装CTeX](https://zhuanlan.zhihu.com/p/45174503)
-
-### 建议安装版本
-
-强烈建议使用最小化安装的发行版本，即使用MiKTeX，避免安装一大堆几乎不会用到的宏包，节省磁盘空间。不同操作系统的建议如下：
-
-- Windows 和 Linux: [MiKTeX](https://miktex.org/download)
-- MacOS:  [BasicTeX](https://tug.org/mactex/morepackages.html)
-
-### Latex的文本编辑器
-
-Latex常见的文本编辑器有如下：
- 
-1. TeXsudio
-2. WinEdt(付费软件)
-3. Visual Studio Code(作者强烈推荐)
-4. Emacs(神之编辑器)
-5. Vim(编辑器之神)
