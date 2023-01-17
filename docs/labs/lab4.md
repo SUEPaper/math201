@@ -5,9 +5,11 @@ sidebar_position: 4
 
 # 实验4: 数值微积分实验
 
-## 问题1：复合梯形和复合辛普森公式
+## 1. 复合梯形和复合辛普森公式
 
-问题1：编写$n$等分的复合梯形公式和复合辛普森公式计算积分$I=\int_0^1\dfrac{1}{1+x^2}\text{d}x$的程序，输入参数为$n$，然后分别取$n=10, 20, 30$计算积分近似值。
+### 1.1 区间n等分的复合求积公式
+
+**问题1**：编写$n$等分的复合梯形公式和复合辛普森公式计算积分$I=\int_0^1\dfrac{1}{1+x^2}\text{d}x$的程序，输入参数为$n$，然后分别取$n=10, 20, 30$计算积分近似值。
 
 **实验原理**：为了数值计算积分$I=\int_a^b f(x)\text{d}x$，对积分区间$[a, b]$进行$n$等分，步长$h=\dfrac{b-a}{n}$，积分节点为$x_k = a+ kh,k=0,1,\cdots, n$.  这样就得到$n$个子积分区间$[x_k, x_{k+1}], k=0, 1,\cdots, n-1$，对每个子区间上的积分使用梯形积分公式，整理可得复合梯形公式为
 $$
@@ -60,7 +62,7 @@ def Simpson(func, a, b, n):
     :param a: 积分区间[a, b]
     :param b:
     :param n: 区间n等分
-    :return: 复合梯形求积结果Tn
+    :return: 复合梯形求积结果Sn
     '''
     h = (b-a)/n  #步长
     xdata = np.linspace(a, b, n+1) #n等分对应n+1个点
@@ -80,6 +82,7 @@ def draw_error(a, b, func, n_list):
     :param a: 积分区间
     :param b:
     :param func: 被积函数
+    :param n_list: n等分的列表
     :return: []
     '''
     result_true = np.pi / 4  # 积分精确值
@@ -132,11 +135,64 @@ if __name__ == '__main__':
 
 </div>
 
-<p align="center"><b>图1:</b> 不同区间等分数下的复合梯形公式和复合辛普森公式数值积分的误差比较</p>
+<p align="center"><b>图1:</b> 不同区间等分数的复合梯形公式和复合辛普森公式数值积分的误差比较</p>
 
-结果分析：在相同的条件下，复合辛普森公式比复合梯形公式所求的解精确得多。
+**结果分析**：在相同的条件下，复合辛普森公式比复合梯形公式所求的解精确得多。
 
-## 动手实践
+### 1.2 基于scipy.integrate函数的结果检验
+
+**结果检验**：`scipy.integrate`提供了求各类积分的函数，其中`quad`函数可以求出被积函数为已知的积分，`trapz`函数可以求给出离散点集的复合梯形积分。
+
+```python
+'''
+利用scipy的integrate工具箱求数值积分
+'''
+import numpy as np
+from scipy.integrate import trapz
+
+#函数f(x)
+def f(x):
+    '''
+    :param x: np.array(), 支持矢量化运算
+    :return: y, np.array()
+    '''
+    x = np.array(x)
+    return 1 / (1 + x ** 2)
+
+#
+def trapz_main(n_list):
+    '''
+    :param n_list: #区间等分数
+    '''
+    # 积分区间[a, b]
+    a = 0
+    b = 1
+    result_true = np.pi / 4  # 积分精确值
+    trapz_error = []  # 保存复合梯形计算误差
+    for n in n_list:
+        xdata = np.linspace(a, b, n + 1)  # n等分对应n+1个点
+        ydata = f(xdata)
+        Tn = trapz(ydata, xdata)
+        trapz_error.append(abs(result_true - Tn))
+        print(f'{n}等分scipy.trapz计算结果为T{n}={Tn}, 误差={np.round(abs(result_true - Tn), 8)}')
+    print('---' * 10)
+
+if __name__ == '__main__':
+    n_list = [10, 20, 30] #区间等分数
+    trapz_main(n_list)
+```
+
+输出结果为
+
+```
+10等分scipy.trapz计算结果为T10=0.7849814972267897, 误差=0.00041667
+20等分scipy.trapz计算结果为T20=0.7852939967385321, 误差=0.00010417
+30等分scipy.trapz计算结果为T30=0.7853518671018324, 误差=4.63e-05
+```
+
+由此可见，与独立编写的复合梯形数值积分结果一致。
+
+### 1.3 满足精度要求的复合求积公式
 
 **问题2**：给定计算精度$\varepsilon$，编写复合梯形公式和复合辛普森公式计算积分$I=\int_0^1\dfrac{1}{1+x^2}\text{d}x$的程序，要求输入参数为$\varepsilon$，然后分别取$\varepsilon=0.5\times 10^{-4}, 0.5\times 10^{-8}$计算积分近似值。
 
@@ -158,6 +214,8 @@ $$
 精度为5e-05: 复合辛普森公式共进行4次等分，结果为0.7853981256146767
 精度为5e-09: 复合辛普森公式共进行8次等分，结果为0.7853981628062054
 ```
+
+## 2. 龙贝格加速算法
 
 **问题3**：编写龙贝格三等分的加速算法程序，并计算积分$\int_0^1 \dfrac{\sin x}{x}\text{d}x$的近似值。
 

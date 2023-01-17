@@ -73,7 +73,9 @@ f(0.6389) = 0.5963626475627078
 f(0.6886) = 0.6354956588305982
 ```
 
-## 问题2：Runge现象
+## 问题2：Runge现象和分段插值
+
+### 2.1 Runge现象
 
 **实验题目**：研究函数$y=\dfrac{1}{1+x^2}, x\in[-5, 5]$在区间上的$n$等分点的函数值来构造Lagrange插值多项式，画图感受Runge现象的产生。
 
@@ -112,7 +114,109 @@ if __name__ == '__main__':
 
 <p align="center"><b>图1:</b> 高次插值产生的龙格Runge现象</p>
 
-**结论**：高次插值多项式的误差在某些情况下较大，往往称为Runge现象。为此，经常使用分段插值，包括分段线性、三次样条插值等。
+**结论**：高次插值多项式的误差在某些情况下较大，往往称为**Runge现象**。为了避免使用**高阶插值多项式**出现的Runge现象，实际应用中经常使用分段插值，包括分段线性、三次样条插值等。
+
+### 2.2 分段插值以及基于scipy函数的结果检验
+
+在掌握了分段线性和样条插值原理的基础上，下面直接使用Python科学计算库scipy里的插值函数来验证分段插值的效果。
+
+在scipy里可以用`scipy.interpolate`模块下的`interp1d`函数实现分段多项式插值，特点是插值凸点点多，不够光滑。 分段插值方式有：kind='linear','zero', 'slinear', 'quadratic'(2次), 'cubic'(3次), 4, 5等。
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.interpolate import interp1d # scipy一元插值
+# #绘图显示中文
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
+
+#编写函数f(x)
+def f(x):
+    '''
+    :param x: np.array()，支持向量化运算
+    :return: y, np.array()
+    '''
+    return 1 / (1 + x**2)
+
+
+# 绘图观察分段插值避免Runge现象
+def piecewise_interp():
+    x_list = np.linspace(-5, 5, 100)  # 插值计算每个内部点的值
+    n = 10 # n+1个插值节点
+    for kind in ['linear', 'slinear', 'quadratic', 'cubic', 5]: # 区间n等分，n+1个点
+        xdata = np.linspace(-5, 5, n + 1) #插值节点
+        ydata = f(xdata) #采集y的值
+        f_interp = interp1d(xdata, ydata, kind=kind) #利用scipy进行插值
+        y_list = f_interp(x_list)  #利用插值多项式计算新点的函数值
+        plt.plot(x_list, y_list, 'o--', markersize=2, linewidth=1.5, label=kind)
+
+    plt.plot(xdata, ydata, 'rs', markersize=5, linewidth=2, label='插值节点')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.legend()
+    plt.savefig('interp1d_result.svg', dpi=500)
+
+
+if __name__ == '__main__':
+    #调用scipy分段插值
+   piecewise_interp()
+```
+
+![lab3-interp1d](img/lab3-interp1d.svg)
+
+<p align="center"><b>图2:</b> scipy实现的分段插值可以避免高阶插值多项式的龙格现象</p>
+
+样条插值法是一种以可变样条来作出一条经过一系列点的光滑曲线的数学方法。插值样条是由一些多项式组成的，每一个多项式都是由相邻的两个数据点决定的，这样，任意两个相邻的多项式以及它们的导数在内部连接点处都是**连续的**。 
+
+`scipy.interpolate`包里提供了两个函数`splev`和`splrep`共同完成(B-样条: 贝兹曲线(又称贝塞尔曲线))插值，和之前一元插值`interp1d`一步就能完成不同，样条插值需要两步完成，第一步先用`splrep`计算出B样条曲线的参数tck，第二步在第一步的基础上用`splev`计算出各取样点的插值结果。
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.interpolate import splev, splrep #样条插值
+# #绘图显示中文
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
+
+#编写函数f(x)
+def f(x):
+    '''
+    :param x: np.array()，支持向量化运算
+    :return: y, np.array()
+    '''
+    return 1 / (1 + x**2)
+
+
+# 绘图观察分段插值避免Runge现象
+def spline_main():
+    x_list = np.linspace(-5, 5, 100)  # 插值计算每个内部点的值
+    n = 10 # n+1个插值节点
+    xdata = np.linspace(-5, 5, n + 1)  # 插值节点
+    ydata = f(xdata)  # 采集y的值
+
+    spl = splrep(xdata, ydata) #样条插值节点和系数
+    '''
+    splrep返回的tck：A tuple (t,c,k) containing the vector of knots, the B-spline
+    coefficients, and the degree of the spline.
+    '''
+    y_list = splev(x_list, spl) #利用样条插值函数计算新点的函数值
+    plt.plot(x_list, y_list, 'o--', markersize=2, linewidth=1.5, label='样条插值')
+    plt.plot(xdata, ydata, 'rs', markersize=5, linewidth=2, label='插值节点')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.legend()
+    plt.savefig('spline_result.svg', dpi=500)
+
+if __name__ == '__main__':
+    #调用scipy样条插值
+   spline_main()
+```
+
+![lab3-spline](img/lab3-spline.svg)
+
+<p align="center"><b>图3:</b> scipy实现的样条插值效果</p>
 
 ## 问题3：牛顿插值
 
@@ -226,6 +330,8 @@ f(0.6886) = 0.6354338103392001
 **结论**：Newton插值多项式和Lagrange插值多项式虽然形式不同，但它们是等价（相等）的，即$L_n(x)= N_n(x)$。
 
 ## 问题4：最小二乘拟合
+
+### 4.1 最小二乘拟合原理和算例
 
 在某化学反应里，测得生成物的质量浓度$y(10^{-3}\text{g/cm}^3)$与时间$t(\min)$的关系如下表。为了研究该化学反应的性质，如反应速度等，试求$y$与$t$之间的连续函数关系式$y=f(t)$.
 
@@ -503,3 +609,163 @@ if __name__ == '__main__':
 <p align="center"><b>图2:</b> 不同拟合函数拟合效果的比较</p>
 
 **结果分析**：三种曲线均能反映数据的增长趋势，从均方误差来看，非线性模型$\varphi(t)=11.816521  e^{\frac{-1.112608}{t}}$拟合效果最好。
+
+### 4.2 基于scipy的leastsq函数的结果检验
+
+利用scipy提供的最小二乘工具来验证上面的拟合结果的准确性。
+
+`scipy.optimize`包里提供了最小二乘法的功能函数`leastsq()`，最小二乘法是一种数学优化技术，最小二乘法还可用于曲线拟合。它通过最小化误差的平方和寻找数据的最佳函数匹配。具体拟合步骤可以参考下面的示例。
+
+```python
+'''
+利用scipy.optimize模块的最小二乘拟合函数leastsq()
+与独立编写程序的结果进行比较和验证
+'''
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.optimize import leastsq
+
+# #绘图显示中文
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
+'''
+step1: 定义拟合函数
+'''
+#拟合函数1：y = a + b t + c t**2
+def fitfun1(alpha, t):
+    '''
+    :param alpha: 拟合函数的参数列表alpha = [a, b, c]
+    :param t: 拟合函数的自变量
+    :return: y: 拟合函数的因变量
+    '''
+    a, b, c = alpha #拟合系数
+    y = a * t**2 + b * t +c
+    return y
+
+#拟合函数2：:y = a exp(b/t)
+def fitfun2(alpha, t):
+    '''
+    :param alpha: 拟合函数的参数列表alpha = [a, b]
+    :param t: 拟合函数的自变量
+    :return: y: 拟合函数的因变量
+    '''
+    '''
+    ------------------------------
+    这里作为作业思考，请根据你的理解补充完整
+    ----------------------------
+    '''
+
+
+#拟合函数3：y = t/(at+b)
+def fitfun3(alpha, t):
+    '''
+    :param alpha: 拟合函数的参数列表alpha = [a, b]
+    :param t: 拟合函数的自变量
+    :return: y: 拟合函数的因变量
+    '''
+    '''
+    ------------------------------
+    这里作为作业思考，请根据你的理解补充完整
+    ----------------------------
+    '''
+    
+    
+'''
+step2: 定义残差项
+'''
+def error1(alpha, t, y):
+    '''
+    :param alpha: 拟合函数的未知参数
+    :param t:
+    :param y:
+    :return:
+    '''
+    return fitfun1(alpha, t) - y
+
+def error2(alpha, t, y):
+    '''
+    :param alpha: 拟合函数的未知参数
+    :param t:
+    :param y:
+    :return:
+    '''
+    '''
+    ------------------------------
+    这里作为作业思考，请根据你的理解补充完整
+    ----------------------------
+    '''
+
+def error3(alpha, t, y):
+    '''
+    :param alpha: 拟合函数的未知参数
+    :param t:
+    :param y:
+    :return:
+    '''
+    '''
+    ------------------------------
+    这里作为作业思考，请根据你的理解补充完整
+    ----------------------------
+    '''
+
+'''
+step3: 进行拟合
+'''
+def fit_main(tdata, ydata):
+    '''
+    :param tdata: 拟合数据表
+    :param ydata:
+    :return: 绘图观察拟合效果
+    '''
+    # 对第一个拟合函数进行参数拟合
+    alpha1_0 = np.array([0.1, 0.01, 1])  # 拟合的初始参数设置
+    para1 = leastsq(error1, alpha1_0, args=(tdata, ydata))  # 进行拟合
+    alpha1 = para1[0] #拟合参数结果
+
+    '''
+    ------------------------------
+    这里作为作业思考，请根据你的理解补充完整
+    ----------------------------
+    '''
+
+    #绘图观察拟合效果
+    tdata_new = np.linspace(min(tdata), max(tdata), 200)
+    # y = a + bt+c t**2
+    ydata1_new = fitfun1(alpha1, tdata_new)
+    # y =a exp(b/t)
+    '''
+    ------------------------------
+    这里作为作业思考，请根据你的理解补充完整
+    ----------------------------
+    '''
+    # y = t/(a t + b)
+    '''
+    ------------------------------
+    这里作为作业思考，请根据你的理解补充完整
+    ----------------------------
+    '''
+    
+    plt.plot(tdata, ydata, 'ro', markersize=5, linewidth=2, label='原始数据')
+    plt.plot(tdata_new, ydata1_new, '--', linewidth=2, label='$y=a+bt+ct^2$')
+    plt.plot(tdata_new, ydata2_new, '--', linewidth=2, label='$y=a e^{b/t}$')
+    plt.plot(tdata_new, ydata3_new, '--', linewidth=2, label='$y=t / (at+b)$')
+    plt.legend()
+    plt.xlabel('t(min)')
+    plt.ylabel('$10^3$ g/cm$^3$')
+    plt.title('scipy leastsq最小二乘拟合效果')
+    plt.savefig('scipy_leastsq_result.svg', dpi=500)
+
+
+if __name__ == '__main__':
+    #拟合数据
+    tdata = np.arange(1, 11)
+    ydata = np.array([4.00, 6.41, 8.01, 8.79, 9.53, 9.86, 10.33, 10.42, 10.53, 10.61])
+    #使用scipy的leastsq()来验证手工编写的最小二乘结果
+    fit_main(tdata=tdata, ydata=ydata)
+```
+
+![lab3-scipy_leastsq_result](img/lab3-scipy_leastsq_result.svg)
+
+<p align="center"><b>图3:</b> scipy提供的leastsq工具的最小二乘拟合效果</p>
+

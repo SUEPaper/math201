@@ -108,7 +108,7 @@ if __name__ == '__main__':
 
 ## 问题2：Doolittle和Crout三角分解法求解线性方程组
 
-问题2：编写Dollittle分解和Crout分解求线性方程组$A\mathbf{x}=\mathbf{b}$的程序，并求解下面的线性方程组。
+**问题2**：编写Dollittle分解和Crout分解求线性方程组$A\mathbf{x}=\mathbf{b}$的程序，并求解下面的线性方程组。
 $$
 \begin{pmatrix}
         2 & 1 & 1\\
@@ -173,7 +173,6 @@ $$
   \end{cases}
   $$
   
-
 - [x] 求解三角型方程组$Ly=b$算法
   $$
   y_i = b_i -\sum_{k=1}^{i-1}l_{ik}y_k, i=1,2\cdots, n
@@ -268,7 +267,9 @@ if __name__ == '__main__':
 
 ## 问题3：Jacobi和Gauss-Seidel迭代法求解线性方程组
 
-问题3：给定精度要求 ，编写雅克比迭代、高斯-赛德尔迭代和超松弛迭代法求方程组$A\mathbf{x}=\mathbf{b}$的程序，分别对不同精度要求给出下面线性方程组的计算结果。
+### 3.1 Jacobi和Gauss-Seidel迭代法
+
+**问题3**：给定精度要求 ，编写雅克比迭代、高斯-赛德尔迭代和超松弛迭代法求方程组$A\mathbf{x}=\mathbf{b}$的程序，分别对不同精度要求给出下面线性方程组的计算结果。
 $$
 \begin{pmatrix}
         2 & -1 & 0\\
@@ -606,11 +607,45 @@ Gauss-Seidel迭代法共迭代12次，求得方程组的解为X=
  [-1.00000047]]
 ```
 
-结果分析：该方程组的精确解为$\mathbf{x} = [2, 3, -1]^T$. 请根据实验过程总结一些结论，并测试更多方程组发现更多结论。
+**结果分析**：该方程组的精确解为$\mathbf{x} = [2, 3, -1]^T$. 请根据实验过程总结一些结论，并测试更多方程组发现更多结论。
+
+### 3.2 基于numpy.linalg函数的结果检验
+
+**结果检验**：`numpy.linalg`库包提供了`solve`函数可以求线性方程组的解，具体使用可见下面的示例。
+
+```python
+'''
+线性方程组的迭代解法：numpy.linalg.solve
+'''
+
+import numpy as np
+from numpy.linalg import solve
+
+#线性方程组Ax=b的系数矩阵A和右端向量b
+A = np.array([[2.0, -1.0, 0],
+     [-1, 3.0, -1.0],
+     [0, -1.0, 2]])
+b = np.array([1.0, 8.0, -5.0])
+x = solve(A, b) #求解线性方程组
+print('numpy提供的solve求得该线性方程组的解为')
+print(x)
+error = np.max(np.abs(np.matmul(A, x) - b)) #代入方程组求出误差
+print(f'最大模误差为 {error}')
+```
+
+输出结果为
+
+```python
+numpy提供的solve求得该线性方程组的解为
+[ 2.  3. -1.]
+最大模误差为 0.0
+```
+
+由此可见，上述Jacobi迭代法和G-S迭代法与numpy的求解结果一致。
 
 ## 问题4：线性方程组系数的灵敏性
 
-问题4：研究下面的方程组系数的灵敏性。利用上面的方法求解下面的线性方程组。 
+**问题4**：研究下面的方程组系数的灵敏性。利用上面的方法求解下面的线性方程组。 
 $$
 \begin{cases}
 x+ay=1\\
