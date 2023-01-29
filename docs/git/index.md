@@ -7,7 +7,7 @@ sidebar_position: 1
 
 > 什么是“版本控制”？我为什么要关心它呢？ 版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。 
 
-_本教程参考自[pro git](https://git-scm.com/book/en/v2)_
+_本教程参考自[pro git](https://git-scm.com/book/en/v2),如果有时间，强烈推荐大家去阅读Pro Git这本书。_
 
 ## 本地版本控制
 
