@@ -177,20 +177,12 @@ if __name__ == '__main__':
     plotting_Euler_result(f=f, a=a, b=b, y0=y0, h_list=h_list)
 ```
 
-输出结果为
-<div style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>
+输出结果为![Euler_result](./img/lab6-euler_result.svg)
 
-![Euler_result](./img/lab6-euler_result.svg)
+<p align="center"><b>图1:</b> Euler和改进Euler方法求解常微分方程数值解效果 </p>
 
-</div>
 
-<p align="center"><b>图1:</b> Euler和改进Euler方法求解常微分方程数值解效果</p>
-
-<div style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>
-
-![error_result_h=0.05](./img/lab6-error-result-h%3D0.05.svg)
-
-</div>
+![error_result_h=0.05](./img/lab6-error-result-h=0.05.svg)
 
 <p align="center"><b>图2:</b> Euler和改进Euler方法求解常微分方程数值解绝对误差</p>
 
@@ -200,11 +192,11 @@ if __name__ == '__main__':
 
 ![image-20221218172327423](./img/lab6-image-20221218172327423.png)
 
-<p align="center"><b>图4:</b> h=0.05时，Euler和改进Euler方法保存到csv文件的数值解结果</p>
+<p align="center"><b>图4: </b>h=0.05时，Euler和改进Euler方法保存到csv文件的数值解结果</p>
 
 ## 问题2：龙格-库塔(Runge-Kutta)法求常微分方程初值问题数值解
 
-问题2：编写经典四阶龙格-库塔公式计算常微分方程初值问题的数值解程序。并分别取步长$h=0.1, 0.05$来计算问题1中微分方程初值问题的数值解。并画图比较计算效果。
+**问题2**：编写经典四阶龙格-库塔公式计算常微分方程初值问题的数值解程序。并分别取步长$h=0.1, 0.05$来计算问题1中微分方程初值问题的数值解。并画图比较计算效果。
 
 **实验原理**：考虑一阶常微分方程(组)的初值问题(Initial Value Problem, IVP)
 $$
@@ -218,8 +210,6 @@ $$
       \end{equation*}
 $$
 对区间$[a, b]$进行$N$等分，步长$h= \dfrac{b-a}{N}$,  离散节点为$x_n=a+nh, n=0,1,\cdots, N.$ 
-
-
 
 - [x] 四阶经典龙格-库塔(Runge-Kutta)格式为
   $$
@@ -284,7 +274,9 @@ $$
   \end{equation*}
 $$
 
-### **实例：传染病SIR模型**及其数值求解
+### 3.1 **实例：传染病SIR模型**及其数值求解
+
+#### 3.1.1 模型建立
 
 天花、麻疹等传染病有免疫性，将人群分为三类：已感染者（Infective）、易感染者（Susceptible）和移出者（Removed）. 记$t$时刻三类病人所占的比例分别为$i(t)$, $s(t)$, $r(t) = 1- i(t) - s(t)$.
 
@@ -300,6 +292,8 @@ $$
         \right.
       \end{equation*}
 $$
+#### 3.1.2 模型的数值格式
+
 传染病SIR模型的欧拉格式数值求解：类似前面的讨论，可建立如下格式
 $$
 \begin{equation*}
@@ -313,23 +307,117 @@ $$
       \end{equation*}
 $$
 
-<div style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>
+#### 3.1.3 算例结果
+
+请根据上面的迭代格式自己动手编程实现，取$T=50$，$i_0=0.02, s_0 = 0.98, \lambda = 1, \mu = 0.3$，绘图展示三类人的动态变化曲线，以及$s-i$的相平面曲线，结果可以参考下面的图5和图6.
 
 ![image-20221218195210920](./img/lab6-image-20221218195210920.png)
 
-</div>
-
-**图5：**$i_0=0.02, s_0 = 0.98, \lambda = 1, \mu = 0.3$的三类人群的动态变化曲线
-
-<div style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>
+​                     **图5：**$i_0=0.02, s_0 = 0.98, \lambda = 1, \mu = 0.3$的三类人的动态变化曲线
 
 ![image-20221218195437015.png](./img/lab6-image-20221218195437015.png)
 
-</div>
+​                         **图6：**$i_0=0.02, s_0 = 0.98, \lambda = 1, \mu = 0.3$的$s$-$i$的相平面曲线
 
-**图6：**$i_0=0.02, s_0 = 0.98, \lambda = 1, \mu = 0.3$的$s(t)-i(t)$的相平面曲线
+#### 3.1.4 利用scipy的odeint函数的结果检验
 
-### 高阶微分方程化为一阶微分方程组
+SciPy 的 integrate 模块提供了一个 ODE 求解器接口:`integrate.odeint`. 
+
+`odeint` 函数是 ODEPACK的 LSODA 求解器的一个接口，它可以自动在（用于非刚性问题的）Adams 预测-校正方法和（用于刚性问题的）BDF 方法之间切换。
+
+`odeint`函数有三个强制性参数：
+
+- 用于评估标准形式 ODE 右侧的函数
+- 指定未知函数初始条件的数组（或标量）
+- 具有自变量的数组，其中未知函数要被计算。
+
+具体使用步骤可以参考下面的算例。
+
+```python
+'''
+利用scipy.integrate的odeint函数求传染病SIR模型的数值解
+'''
+import numpy as np
+from scipy.integrate import odeint
+import matplotlib.pyplot as plt
+# #绘图显示中文
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
+# 编写SIR模型函数
+# i'(t) = f1(t, i, s)
+# s'(t) = f2(t, i, s)
+def SIR(Y, t, alpha):
+    '''
+    :param Y: 因变量列表Y = [i(t), s(t)], 已感染者Infective, 易感染者Susceptible
+    :param t: 自变量
+    :param alpha: 参数列表
+    :return: Y'(t) = F(t, Y)的函数关系
+    '''
+    i, s = Y
+    lmda, mu = alpha
+    di = lmda * s * i - mu * i
+    ds = -lmda * s * i
+    return np.array([di, ds])
+
+def SIR_main():
+    T = 50 #时间长度
+    t_data = np.linspace(0, T, 200) #离散时间节点
+    Y0 = (0.02, 0.98) #tuple, Y的初始值，病人占比0.02，健康人占比0.98
+    alpha = (1.0, 0.3)  #tuple, 模型参数lmda = 1, mu =0.3
+    Y = odeint(func=SIR, y0=Y0, t=t_data, args=(alpha, ))
+    i_data = Y[:, 0]  #i(t)的数值解
+    s_data = Y[:, 1]  #s(t)的数值解
+    r_data = 1 - i_data - s_data #移出者动态比例
+    i_max = max(i_data)  #最大值
+    i_data = i_data.tolist()  #转化为list
+    max_index = i_data.index(i_max)  #找到列表最大值的位置
+    t_max = t_data[max_index]        #感染者达到最大值的时刻
+    s_max = s_data[max_index]        #感染者达到最大值对应的健康人的比例
+    
+    #绘图展示三类人的变化趋势
+    fig = plt.figure()
+    plt.plot(t_data, i_data, '-', linewidth=2, label='感染者$i(t)$')
+    plt.plot(t_data, s_data, '-', linewidth=2, label='健康者$s(t)$')
+    plt.plot(t_data, r_data, '-', linewidth=2, label='移出者$r(t)$')
+    plt.plot(t_data[0], s_data[0], 'o')
+    plt.plot(t_data[0], i_data[0], 'o')
+    plt.plot(t_data[0], r_data[0], 'o')
+    plt.plot(t_max, i_max, 'rs', markersize=6, label='感染者最大比例')
+
+    plt.xlabel('$t$')
+    plt.ylabel('三类人的比例')
+    plt.legend()
+    plt.savefig('SIR-result1.svg', dpi=500)
+    plt.close()
+
+    #绘制i-s相平面图
+    plt.plot(s_data, i_data, linewidth=2, label='$i-s$曲线')
+    plt.plot(s_max, i_max, 'ro', markersize=6, label='感染者峰值')
+    plt.plot(s_data[0], i_data[0], 'o', color='purple', markersize=6, label='初始状态')
+    plt.xlabel('$s(t)$')
+    plt.ylabel('$i(t)$')
+    plt.legend()
+    plt.savefig('SIR-result2.svg', dpi=500)
+    plt.close()
+
+if __name__ == '__main__':
+    SIR_main()
+```
+
+类似可以得到三类人的动态变化曲线以及相平面图，见图7和图8.
+
+
+![lab6-SIR-result1](img/lab6-SIR-result1.svg)
+
+​          **图7：**scipy实现的$i_0=0.02, s_0 = 0.98, \lambda = 1, \mu = 0.3$的三类人群的动态变化曲线
+
+
+![lab6-SIR-result2](img/lab6-SIR-result2.svg)
+
+​                       **图8：**scipy实现的$i_0=0.02, s_0 = 0.98, \lambda = 1, \mu = 0.3$的$s$-$i$的相平面曲线
+
+### 3.2 高阶微分方程化为一阶微分方程组
 
 Higher-Order Equations：
 $$
@@ -359,7 +447,8 @@ $$
 
 ## 问题4：有限差分法初步
 
-二阶常微分方程边值问题
+#### 4.1 二阶常微分方程边值问题和有限差分格式
+
 $$
 \begin{equation*}
         \left\{
@@ -383,7 +472,8 @@ $$
        \right.
      \end{equation*}
 $$
-示例：
+#### 4.2 算例和结果展示
+
 $$
 \begin{equation*}
         \left\{
@@ -435,14 +525,13 @@ $$
 $$
 请动手编写程序，可与解析解$y=x^3-x$进行比较，数值解效果如下。
 
-<div style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>
 
 ![image-20221218200458270](./img/lab6-image-20221218200458270.png)
 
-</div>
+<p align="center"><b>图9：</b>有限差分求解二阶常微分方程边值问题的数值解效果</p>
 
 
-### 拓展：热传导偏微分方程数值求解及应用
+## 问题5：热传导偏微分方程数值求解及应用
 
 数学建模应用案例中的“**多层高温作业专业服装设计问题**”、“**炉温曲线机理建模与优化设计**”等需要建立热传导微分方程及其边界条件、初始条件，可利用上面的有限差分法建立有限差分显格式和有限差分隐格式。
 
