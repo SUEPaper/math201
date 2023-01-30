@@ -1,6 +1,6 @@
 {
-  "name": "math-101",
-  "version": "0.0.0",
+  "name": "math-201",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
