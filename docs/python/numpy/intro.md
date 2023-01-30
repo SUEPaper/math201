@@ -35,11 +35,46 @@ print(a)
 
 ## 4. NumPy数组 vs Python 列表
 
+乍看上去，NumPy数组与Python列表极其相似。它们都用来装载数据，都能够快速添加或获取元素，插入和移除元素则比较慢。
+
+当然相比python列表，numpy数组可以直接进行算术运算：
+
+![](./img/numpy-02.png)
+
+
 
 :::tip
-- Numpy数组中插入、移除元素没Python列表高效；
-- Numpy数组可直接做四则运算、Python列表则需借助列表推倒式等；
-- Numpy数组更紧凑，高维时尤为明显；
-- Numpy数组向量化后运算速度比Python列表更快；
-- Numpy数组通常是同质化的，仅仅当数组中元素类型一致时处理速度快。
-:::  
+除此之外，numpy数组还具有以下特点：
+
+1. 更紧凑，高维时尤为明显
+2. 向量化后运算速度比列表更快
+3. 在末尾添加元素时不如列表高效
+4. 元素类型一般比较固定
+
+:::
+![](./img/numpy-03.png)
+
+
+## 5. NumPy的数据类型
+
+| Data type | Description |
+|---------------|-------------|
+| ``bool_``     | Boolean (True or False) stored as a byte |
+| ``int_``      | Default integer type (same as C ``long``; normally either ``int64`` or ``int32``)|
+| ``intc``      | Identical to C ``int`` (normally ``int32`` or ``int64``)|
+| ``intp``      | Integer used for indexing (same as C ``ssize_t``; normally either ``int32`` or ``int64``)|
+| ``int8``      | Byte (-128 to 127)|
+| ``int16``     | Integer (-32768 to 32767)|
+| ``int32``     | Integer (-2147483648 to 2147483647)|
+| ``int64``     | Integer (-9223372036854775808 to 9223372036854775807)|
+| ``uint8``     | Unsigned integer (0 to 255)|
+| ``uint16``    | Unsigned integer (0 to 65535)|
+| ``uint32``    | Unsigned integer (0 to 4294967295)|
+| ``uint64``    | Unsigned integer (0 to 18446744073709551615)|
+| ``float_``    | Shorthand for ``float64``.|
+| ``float16``   | Half precision float: sign bit, 5 bits exponent, 10 bits mantissa|
+| ``float32``   | Single precision float: sign bit, 8 bits exponent, 23 bits mantissa|
+| ``float64``   | Double precision float: sign bit, 11 bits exponent, 52 bits mantissa|
+| ``complex_``  | Shorthand for ``complex128``.|
+| ``complex64`` | Complex number, represented by two 32-bit floats|
+| ``complex128``| Complex number, represented by two 64-bit floats|

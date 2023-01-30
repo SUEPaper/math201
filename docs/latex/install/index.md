@@ -51,3 +51,12 @@ graph
 [链接3](https://www.zhihu.com/question/19954023)
 
 
+:::tip
+
+我们墙裂推荐：
+> [MiKTeX](https://miktex.org/) + [VS Code](https://code.visualstudio.com/) + [git](https://git-scm.com/) + [Github](https://github.com/)的组合。请参考后续的教程，进行安装。
+
+::: 
+
+
+
