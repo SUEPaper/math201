@@ -111,7 +111,7 @@ class NERFE:
 
 第一个self绑定到新创建的NERFE对象。
 
-第二第三个形参绑定到调用实例化时传递给类的参数。
+第二个形参绑定到调用实例化时传递给类的参数。
 
 第三个参数func的默认值为
 ```python
@@ -132,7 +132,7 @@ nerfe1 = NERFE('zcx')
 nerfe2 = NERFE('zcx',new_function1)
 nerfe3 = NERFE('xsm')
 ```
-这个对NERFE类的“调用”创建了一个新对象，它是NERFE的一个实例，然后使用三个个参数调用构造函数__init__：新创建的对象，字符串'zcx'，函数new_function1。
+nerfe1,nerfe2，nerfe3是NERFE的一个实例。nerfe2使用参数调用构造函数\_\_init__：字符串'zcx'，函数new_function1。
 
 每个对象都具有唯一标识。使用is和is not运算符比较对象标识。
 ```python
@@ -201,17 +201,20 @@ class NERFE:
     输出：
     100
     """
+
     NERFE.num
     """
     输出：
     100
     """
+
     NERFE.num = 200
     nerfe1.num
     """
     输出：
     200
     """
+
     nerfe2.num
     """
     输出：
@@ -238,12 +241,14 @@ class NERFE:
     输出：
     100
     """
+
     nerfe1.num = 200
     nerfe1.num
     """
     输出：
     200
     """
+    
     nerfe2.num
     """
     输出：
