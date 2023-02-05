@@ -86,4 +86,4 @@ graph
 
 ### Google搜索技巧
 
-内容正在补充中。。。。。。
+[如何高效地使用Google搜索](../notes/google.md)
