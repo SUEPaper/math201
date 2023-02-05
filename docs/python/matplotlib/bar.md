@@ -1,9 +1,9 @@
 ---
-id: scatter
-sidebar_position: 5
+id: bar
+sidebar_position: 6
 ---
 
-# 散点图
+# 条形图
 
 ```python
 # importing matplotlib module
@@ -15,8 +15,8 @@ x = [5, 2, 9, 4, 7]
 # Y-axis values
 y = [10, 5, 8, 4, 2]
  
-# Function to plot scatter
-plt.scatter(x, y)
+# Function to plot
+plt.bar(x, y)
  
 # function to show the plot
 plt.show()

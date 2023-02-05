@@ -4,10 +4,16 @@ sidebar_position: 6
 ---
 
 
-# 6. 100个NumPy练习
+# 6. 练习题
 
 
 练习题的Jupyter Notebook版：https://github.com/rougier/numpy-100/blob/master/100_Numpy_exercises.ipynb
+
+:::danger
+
+我们知道该链接包含了练习题的答案，还请你先动脑子思考一下，再看答案，学术诚信是你作为成年人应该遵守的尊则。
+
+:::  
 
 #### 1. 导入numpy库并简写为 np (★☆☆)
 
