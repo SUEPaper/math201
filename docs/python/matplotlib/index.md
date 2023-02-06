@@ -14,6 +14,8 @@ Matplotlib是建立在NumPy数组基础上的多平台数据可视化程序库�
 
 [速查手册下载](./pdf/cheatsheets.pdf)
 
+[Cheatsheets for Matplotlib users](https://github.com/matplotlib/cheatsheets)
+
 ## 1. 安装
 ```bash
 pip install matplotlib
@@ -30,4 +32,4 @@ pip install matplotlib
 - Seaborn是用户把自己常用到的可视化绘图过程进行了函数封装，形成的一个“快捷方式”，他相比Matplotlib的好处是代码更简洁，可以用一行代码实现一个清晰好看的可视化输出。主要的缺点则是定制化能力会比较差，只能实现固化的一些可视化模板类型；
 - Matplotlib是可以实现高度定制化绘图的，高度定制化可以让你获得最符合心意的可视化输出结果，但也因此需要设置更多的参数，因而代码更加复杂一些。
 
-本课程教授Seaborn如何使用，如果你想学习Seaborn的用法，请自我学习[Seaborn官方文档](https://seaborn.pydata.org/tutorial.html)
+本课程不教授Seaborn如何使用，如果你想学习Seaborn的用法，请自我学习[Seaborn官方文档](https://seaborn.pydata.org/tutorial.html)

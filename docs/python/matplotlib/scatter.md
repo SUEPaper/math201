@@ -22,6 +22,8 @@ plt.show()
 
 `plot`支持不同散点的类型，如下案例所示。详细说明请看[MarkrStyle](https://matplotlib.org/stable/api/_as_gen/matplotlib.markers.MarkerStyle.html)说明文档。
 
+![](./img/marks.png)
+
 ```python
 from matplotlib import pyplot as plt
 import numpy as np 
@@ -31,7 +33,7 @@ for marker in ['.', ',', 'o', 'v', '^', '<', '>', '1', '2', '3', '4', '8', 's', 
     plt.plot(rng.rand(10), rng.rand(10), marker,
              label="marker='{0}'".format(marker))
 plt.legend(numpoints=1)
-plt.xlim(0, 1.8);
+plt.xlim(0, 1.8)
 
 plt.show()
 ```
@@ -46,7 +48,7 @@ import numpy as np
 x = np.linspace(0, 10, 30)
 y = np.sin(x)
 
-plt.scatter(x, y, marker='o');
+plt.scatter(x, y, marker='o')
 
 plt.show()
 ```
@@ -63,7 +65,7 @@ for marker in ['.', ',', 'o', 'v', '^', '<', '>', '1', '2', '3', '4', '8', 's', 
     plt.plot(rng.rand(10), rng.rand(10), marker,
              label="marker='{0}'".format(marker))
 plt.legend(numpoints=1)
-plt.xlim(0, 1.8);
+plt.xlim(0, 1.8)
 
 plt.show()
 ```
@@ -85,7 +87,7 @@ sizes = 1000 * rng.rand(100)
 
 plt.scatter(x, y, c=colors, s=sizes, alpha=0.3,
             cmap='viridis')
-plt.colorbar();  # 显示颜色对比条
+plt.colorbar()  # 显示颜色对比条
 
 plt.show()
 ```
