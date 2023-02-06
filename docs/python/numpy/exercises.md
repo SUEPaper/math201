@@ -195,7 +195,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 
 #### 75. 如何通过滑动窗口计算一个数组的平均数? (★★★)
 
-#### 76. Consider a one-dimensional array Z, build a two-dimensional array whose first row is (Z[0],Z[1],Z[2]) and each subsequent row is  shifted by 1 (last row should be (Z[-3],Z[-2],Z[-1]) (★★★)
+#### 76. 思考以为数组Z，构建一个二维数组，其第一行是(Z[0],Z[1],Z[2])， 然后每一行移动一位，最后一行为 (Z[-3],Z[-2],Z[-1]). (★★★)
 
 #### 77. 如何对布尔值取反，或者原位(in-place)改变浮点数的符号(sign)? (★★★)
 
@@ -203,7 +203,7 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 
 #### 79. 考虑两组点集P0和P1去描述一组线(二维)和一组点集P，如何计算每一个点 j(P[j]) 到每一条线 i (P0[i],P1[i])的距离? (★★★)
 
-#### 80. Consider an arbitrary array, write a function that extract a subpart with a fixed shape and centered on a given element (pad with a `fill` value when necessary) (★★★)
+#### 80. 思考一个任意的数组，编写一个函数，该函数提取一个具有固定形状的子部分，并以一个给定的元素为中心(在该部分填充值) (★★★)
 
 #### 81. 考虑一个数组Z = [1,2,3,4,5,6,7,8,9,10,11,12,13,14],如何生成一个数组R = [[1,2,3,4], [2,3,4,5], [3,4,5,6], ...,[11,12,13,14]]? (★★★)
 
@@ -242,6 +242,6 @@ np.sqrt(-1) == np.emath.sqrt(-1)
 
 #### 98. 考虑一个由两个向量描述的路径(X,Y)，如何用等距样例(equidistant samples)对其进行采样(sample)? (★★★)
 
-#### 99. Given an integer n and a 2D array X, select from X the rows which can be interpreted as draws from a multinomial distribution with n degrees, i.e., the rows which only contain integers and which sum to n. (★★★)
+#### 99. 给定一个整数n 和一个二维数组X，从X中选择可以被解释为从多n度的多项分布式的行，即这些行只包含整数对n的和. (★★★)
 
-#### 100. 对于一个一维数组X，计算它boostrapped之后的95%置信区间的平均值 (i.e., resample the elements of an array with replacement N times, compute the mean of each sample, and then compute percentiles over the means). (★★★)
+#### 100. 对于一个一维数组X，计算它boostrapped之后的95%置信区间的平均值. (★★★)

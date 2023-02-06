@@ -1,6 +1,6 @@
 ---
 id: others
-sidebar_position: 9
+sidebar_position: 11
 ---
 
 # 更多画图种类

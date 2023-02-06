@@ -3,9 +3,9 @@ id: line
 sidebar_position: 4
 ---
 
-# 线图
+# 折线图
 
-线图用于表示不同轴上的两个数据 X 和 Y 之间的关系。在这里，我们将看到一些 Python 线图示例：
+折线图用于表示不同轴上的两个数据 X 和 Y 之间的关系。在这里，我们将看到一些 Python 线图示例：
 
 ```python
 import matplotlib.pyplot as plt
@@ -28,9 +28,14 @@ matplotlib.pyplot 的 matplotlib.pyplot.plot(*args, **kwargs) 方法用于绘制
 
 ### 风格
 
-线图风格有如下几种：
+风格有如下几种：
 
-'-', '--', '-.', ':', 'solid', 'dashed', 'dashdot', 'dotted'
+| code | 风格 |
+|:--------------------|:--------------------|
+| `-` | 实线 |
+| `--` | 虚线 |
+| `-.` | 长短点虚线 |
+| `:` | 点线 |
 
 #### 案例:
 
@@ -38,10 +43,13 @@ matplotlib.pyplot 的 matplotlib.pyplot.plot(*args, **kwargs) 方法用于绘制
 import matplotlib.pyplot as plt
 import numpy as np
 
-x = np.array([1, 2, 3, 4])
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 y = x*2
   
-plt.plot(x, y, linestyle="-.")
+plt.plot(x, x + 4, linestyle='-')  # 实线
+plt.plot(x, x + 5, linestyle='--') # 虚线
+plt.plot(x, x + 6, linestyle='-.') # 长短点虚线
+plt.plot(x, x + 7, linestyle=':');  # 点线
 
 plt.show()
 ```
@@ -190,3 +198,20 @@ plt.legend(loc='lower right', ncol=1)
 plt.show()
 ```
 ![](./img/matplotlib_18.png)
+
+## 调整坐标范围
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 20, 1000)
+
+plt.plot(x, np.sin(x))
+
+plt.xlim(-1, 21)
+plt.ylim(-1.5, 1.5);
+
+plt.show()
+```
+![](./img/matplotlib_19.png)
