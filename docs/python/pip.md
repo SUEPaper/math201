@@ -13,6 +13,37 @@ sidebar_position: 3
 
 ## 如何进行pip包管理
 
+### 使用中国源
+
+当我们进行pip下载时，使用外国的源会导致下载速度很慢，所以在使用之前我们首先要学会如何使用中国源。
+
+首先在 C:\Users\用户名 下面创建一个pip文件夹 如图：
+
+![6](./pip%20photo/6.png)
+
+然后 在pip文件夹下创建一个pip.ini文件 在文件里输入内容：
+
+```py
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple/
+[install]
+trusted-host = pypi.tuna.tsinghua.edu.cn
+# 以清华镜像源为例
+```
+
+![7](./pip%20photo/7.png)
+
+当然，如果使用示例中的清华源依然下载卡顿，我们还可以选择别的中国源（http不行就换https源）：
+
+```txt
+清华：https://pypi.tuna.tsinghua.edu.cn/simple
+阿里云：https://mirrors.aliyun.com/pypi/simple/
+中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/
+华中理工大学：http://pypi.hustunique.com/
+山东理工大学：http://pypi.sdutlinux.org/
+豆瓣：http://pypi.douban.com/simple/
+```
+
 ### 查看pip命令语句（show help）
 
 ```py
