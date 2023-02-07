@@ -2,256 +2,403 @@
 sidebar_position: 1
 ---
 # 面向对象编程
-面向对象编程Object-oriented programming (OOP) 是一种组织程序的方法。
-## 类与对象
-类充当所有类型为该类的对象的模板。每个对象都是某个特定类的实例。类定义指定该类的对象之间共享的属性和方法。
+在面向对象编程中（OOP）, 我们可以定义类作为蓝图，用于在 Python 中创建具有属性和方法（与对象相关的功能）的对象。
+
+定义类的一般语法：
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
-import datetime
-#函数f(x)
-class NERFE: #非线性方程求根实验(Nonlinear Equation Root Finding Experiment) 
-    num = 100 #画图时点的个数
-    def __init__(self,name,func = lambda x:x * np.exp(x) - 1):                                     #构造函数，用来初始化值    
-        self.path = './prob01-plot.svg'                     #默认储存路径
-        self.object_function = func                         #默认目标函数
-        self.author = name                                  #大作业作者名字
-        self.date = datetime.date.today()                   #当前日期
+class <className>:
 
+    <class_attribute_name> = <value>
 
-    def draw_f(self,left = -2,right = 1,save = True,show = True):
-        '''
-        绘图方法
-        :left图像所在区间的左端点值,默认为-2
-        :right图像所在区间的右端点值,默认为1
-        :save图像是否保存,默认为True
-        :show图像是否输出,默认为True
-        '''
-        x = np.linspace(left, right, self.num) #取区间[left, right]上num个等分点
-        y = self.object_function(x)
-        plt.plot(x, y, linewidth=2) # 绘制y=f(x)的图像
-        y2 = np.zeros_like(y)  #y2=0
-        plt.plot(x, y2, linewidth=2, linestyle='--', label='$y = 0$') # 绘制y2=0的图像
-        plt.xlabel('x')
-        plt.ylabel('y')
-        plt.legend()
-        if(show == True):
-            plt.show()
-        if(save == True):
-            plt.savefig('prob01-plot.svg', format='svg', dpi=500) #保存图像
-
-    def show_who_do_it(self):
-        """
-            输出这是谁做的作业
-        """
-        print(f'{self.author} 在{self.date}完成的')
-
-
-if __name__ == '__main__':
-    nerfe1 = NERFE('zcx')#实例化NERFE类，nerfe1为对象
-    nerfe1.draw_f()# 调用对象nerfe的方法draw_f，生成图像
-    print(nerfe1.object_function(2))
-    nerfe1.show_who_do_it()# 调用对象nerfe的方法show_who_do_it，输出作者与日期
+    def __init__(self,<param1>, <param2>, ...):
+        self.<attr1> = <param1>
+        self.<attr2> = <param2>
+        .
+        .
+        .
+        # As many attributes as needed
     
-    def new_function1(x):
-        return x ** 2 + 2
-
-    def new_function2(x):
-        return x ** 3 + 2    
-
-    nerfe2 = NERFE('zcx',new_function1)#实例化NERFE类，nerfe1为对象
-    nerfe2.draw_f(save = False)
-
-    nerfe2.object_function = new_function2 # 更新目标函数
-    nerfe2.draw_f(save = False)
-    
-    
+   def <method_name>(self, <param1>, ...):
+       <code>
+       
+   # As many methods as needed
 ```
-
-在上述代码中，path,object_function,author,date，draw_f，show_who_do_it为对象中共有的属性与方法。
-
-创建新对象实例的行为称为实例化类
-
-Python 中用于实例化类的语法与调用函数的语法相同。在这种情况下，使用'zcx'实例化对象
+:::tip
+ self是类的实例(用类创建的对象)的引用。
+:::
+如你所见，类可以有很多不同的元素，让我们来分析一下它们的细节：
+## 类的头部
+类定义的第一行是class关键字和类名：
 ```python
-nerfe1 = NERFE('zcx')
+class Dog:
 ```
-对象的属性是与对象关联的名称-值对，可以通过点符号访问。
+
 ```python
-nerfe1.author
-"""
-输出
-'zcx'
-"""
+class House:
 ```
-对对象进行操作或执行特定于对象的计算的函数称为方法。方法的返回值和副作用可能取决于并更改对象的其他属性。
+
 ```python
-nerfe1.draw1()
-nerfe1.draw1(save = False)
+class Ball:
 ```
-## 定义类
 
-用户定义的类由类语句创建，类语句由单个子句组成。类语句定义类名，然后包含一组语句来定义类的属性：
+:::tip
+ 如果一个类继承了另外一个类的属性和方法，我们会在括号中看到该类的名称：
+:::
+
 ```python
-class <类名>:
-    <内容>
+class Poodle(Dog):
 ```
-### 类的构造函数
-类通过定义初始化新对象的方法来指定其对象的实例属性。例如类NERFE的对象初始化时，为path 与 date 分别赋值
-初始化对象的方法在 Python 中有一个特殊的名称， __init __（“init”一词两边各有两个下划线），称为类的构造函数。
+
 ```python
-class NERFE:
-    def __init__(self,name,func = lambda x:x * np.exp(x) - 1):                                     #构造函数，用来初始化值    
-        self.path = './prob01-plot.svg'                     #默认储存路径
-        self.object_function = func                         #默认目标函数
-        self.author = name                                  #大作业作者名字
-        self.date = datetime.date.today()   
+class Truck(Vehicle):
 ```
-类NERFE的__init__方法有三个形参
 
-第一个self绑定到新创建的NERFE对象。
-
-第二个形参绑定到调用实例化时传递给类的参数。
-
-第三个参数func的默认值为
 ```python
-lambda x:x * np.exp(x) - 1
+class Mom(FamilyMember):
 ```
-构造函数将实例属性名称path绑定到'./prob01-plot.svg',
+Python 中, 类名用大驼峰（也称为 Pascal Case），名称中的每个一个单词都是以大写字母开头。例如：FamilyMember
 
-object_function绑定到输入的形参func，
+## __init__和实例属性
+接下来，我们将使用类在 Python 中创建对象，就像我们根据图纸建造真正的房屋一样。
 
-author绑定到输入的形参name，
+对象中的属性来自于我们在类中定义，而这些属性通常是在__init__方法中被初始化，而__init__方法会在创建类的实例时被执行。
 
-date绑定到当前日期
+这是一般语法：
 
-### 类的实例化
-定义了NERFE类后，我们可以实例化它。
 ```python
-nerfe1 = NERFE('zcx')
-nerfe2 = NERFE('zcx',new_function1)
-nerfe3 = NERFE('xsm')
+def __init__(self, <parameter1>, <parameter2>, ...):
+        self.<attribute1> = <parameter1>  # Instance attribute
+        self.<attribute2> = <parameter2>  # Instance attribute
+        .
+        .
+        .
+        # As many instance attributes as needed
 ```
-nerfe1,nerfe2，nerfe3是NERFE的一个实例。nerfe2使用参数调用构造函数\_\_init__：字符串'zcx'，函数new_function1。
+我们可以根据需要来给类指定尽可能多的属性。
 
-每个对象都具有唯一标识。使用is和is not运算符比较对象标识。
+Dog类的一个__init__方法例子：
 ```python
-nerfe1 is nerfe1
-"""
-True
-"""
-nerfe1 is not nerfe3
-"""
-False
-"""
+class Dog:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 ```
-像往常一样，使用赋值将一个对象绑定到一个新名称并不会创建一个新对象。
+:::tip
+ 注意名称__init__中的前后的双下划线
+:::
+## 如何创建类的实例
+要创建Dog类的实例，我们需要指定 name 和 age 属性。
 ```python
-nerfe4 = nerfe1
-nerfe4 is nerfe1
-"""
-True
-"""
+my_dog = Dog("Nora", 10)
 ```
-只有在使用调用表达式语法实例化类时，才会创建具有用户定义类的新对象。
-### 方法
-对象方法也由类语句组中的def语句定义。下面，show_who_do_it和draw_f都被定义为Account类对象的方法。
+很好。现在我们已经准备好了一个可以在代码中使用的 Dog 实例了。
+
+有些类，可以不需要任何参数来创建实例。 这种情况我们只需要一个空括号，例如：
 ```python
-def show_who_do_it(self):
-        """
-            输出这是谁做的作业
-        """
-        print(f'{self.author} 在{self.date}完成的')
+class Circle:
+
+    def __init__(self):
+        self.radius = 1
 ```
-虽然方法定义在声明方式上与函数定义没有区别，但方法定义在执行时确实具有不同的效果。由类语句中的def语句创建的函数值绑定到声明的名称，但在类中作为属性本地绑定。该值作为方法调用，使用来自类实例的点表示法。
-
-每个方法定义再次包含一个特殊的第一个参数self，它绑定到调用该方法的对象。
-
-所有调用的方法都可以通过self参数访问对象，因此它们都可以访问和操作对象的状态。
-### 消息传递和点表达式
-在类中定义的方法和通常在构造函数中分配的实例属性是面向对象编程的基本元素。这两个概念在数据值的消息传递实现中复制了调度字典的大部分行为。对象使用点表示法获取消息，但这些消息不是任意字符串值键，而是类的本地名称。对象也有命名的本地状态值（实例属性），但是可以使用点符号访问和操作该状态，而不必在实现中使用非本地语句。
-
-消息传递的中心思想是数据值应该通过响应与其表示的抽象类型相关的消息来具有行为。点符号是 Python 的一个句法特征，它使消息传递隐喻形式化。使用具有内置对象系统的语言的优点是消息传递可以与其他语言功能（例如赋值语句）无缝交互。我们不需要不同的消息来“获取”或“设置”与本地属性名称关联的值；语言语法允许我们直接使用消息名称。
-
-点表达式由表达式、点和名称组成：
+创建实例：
 ```python
-<表达式>.<名称>
+>>> my_circle = Circle()
 ```
-python 几乎所有的东西都是对象。
+
+:::tip
+self像是一个“幕后”的参数，即使我们在方法的定义中看到它，但你传参数时可以不用考虑它。
+:::
+## 默认参数
+我们可以为类的属性指定默认值，但如果使用者想自己赋值，也是可以的。
+
+这种情况下，我们可以在参数列表中写上形如：< attribute >=< value >
+
+例如：
 ```python
-a = 3
-a.__str__()
-"""
-输出：
-'3'
-"""
-```
-### 类属性
-某些属性值在给定类的所有对象之间共享。这些属性与类本身相关联，而不是与类的任何单个实例相关联。例如，画图时取得点的个数
+class Circle:
 
-类属性由类语句组中的赋值语句创建，在任何方法定义之外。在更广泛的开发者社区中，类属性也可以称为类变量或静态变量。
+    def __init__(self, radius=1):
+        self.radius = radius
+```
+现在我们创建Circle实例，你可以通过忽略 radius 参数使用它的默认值，也可以传入一个自己的值：
 ```python
-class NERFE: 
-    num = 100 
+# Default value
+>>> my_circle1 = Circle()
+
+# Customized value
+>>> my_circle2 = Circle(5)
 ```
-该属性仍然可以从该类的任何实例访问。
+## 如何获取实例的属性
+访问实例属性，可以用下面的语法：
 ```python
-    nerfe1.num
-    """
-    输出：
-    100
-    """
-
-    NERFE.num
-    """
-    输出：
-    100
-    """
-
-    NERFE.num = 200
-    nerfe1.num
-    """
-    输出：
-    200
-    """
-
-    nerfe2.num
-    """
-    输出：
-    200
-    """
+<object_variable>.<attribute>
 ```
-### 属性名称
-我们已经在我们的对象系统中引入了足够的复杂性，我们必须指定如何将名称解析为特定属性。毕竟，我们可以很容易地拥有同名的类属性和实例属性。
-
-要评估点表达式：
-
-1. 计算点左侧的<表达式> ，这会生成点表达式的对象。
-2. <名称>与该对象的实例属性相匹配；如果具有该名称的属性存在，则返回其值。
-3. 如果<名称>没有出现在实例属性中，则<名称>在类中查找，这会产生一个类属性值。
-4. 除非它是一个函数，否则将返回该值，在这种情况下，将返回一个绑定方法。
-
-在此评估过程中，实例属性在类属性之前找到，就像局部名称在环境中优先于全局名称一样。类中定义的方法与点表达式的对象组合，在这个求值过程的第四步形成一个绑定方法。一旦我们引入类继承，在类中查找名称的过程就会有其他细微差别，这些细微差别很快就会出现。
-
-### 属性赋值
-所有在其左侧包含点表达式的赋值语句都会影响该点表达式的对象的属性。如果对象是实例，则赋值设置实例属性。如果对象是类，则赋值设置类属性。作为此规则的结果，对对象属性的赋值不会影响其类的属性。下面的例子说明了这种区别。
+例如：
 ```python
-    nerfe1.num
-    """
-    输出：
-    100
-    """
+# Class definition
+>>> class Dog:
 
-    nerfe1.num = 200
-    nerfe1.num
-    """
-    输出：
-    200
-    """
-    
-    nerfe2.num
-    """
-    输出：
-    100
-    """
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+# Create instance        
+>>> my_dog = Dog("Nora", 10)
+
+# Get attributes
+>>> my_dog.name
+'Nora'
+
+>>> my_dog.age
+10
 ```
+## 如何更新实例的属性
+更新实例的属性，我们可以用下面的语法：
+```python
+<object_variable>.<attribute> = <new_value>
+```
+例如：
+```python
+>>> class Dog:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+        
+>>> my_dog = Dog("Nora", 10)
+
+>>> my_dog.name
+'Nora'
+
+# Update the attribute
+>>> my_dog.name = "Norita"
+
+>>> my_dog.name
+'Norita'
+```
+## 如何删除实例属性
+要删除实例属性，可以用下面的语法：
+```python
+del <object_variable>.<attribute>
+```
+```python
+>>> class Dog:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+        
+>>> my_dog = Dog("Nora", 10)
+
+>>> my_dog.name
+'Nora'
+
+# Delete this attribute
+>>> del my_dog.name
+
+>>> my_dog.name
+Traceback (most recent call last):
+  File "<pyshell#77>", line 1, in <module>
+    my_dog.name
+AttributeError: 'Dog' object has no attribute 'name'
+```
+## 如何删除一个实例
+同样的，删除实例我们也可以用del：
+```python
+>>> class Dog:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+        
+>>> my_dog = Dog("Nora", 10)
+
+>>> my_dog.name
+'Nora'
+
+# Delete the instance
+>>> del my_dog
+
+>>> my_dog
+Traceback (most recent call last):
+  File "<pyshell#79>", line 1, in <module>
+    my_dog
+NameError: name 'my_dog' is not defined
+```
+## 公开 vs 非公开 的属性
+在 Python 中，我们没有用访问修饰符来限制对实例属性的访问，而是依靠命名惯例来做到这一点。
+
+例如，在属性前添加一个前导下划线，就可以告诉开发者这是一个非公开的属性。
+
+例如：
+```python
+class Dog:
+
+    def __init__(self, name, age):
+        self.name = name  # Public attribute
+        self._age = age   # Non-Public attribute
+```
+## Python 中类的属性
+类的属性由类的所有实例共享。所有实例都可以访问这些属性，如果这些属性被修改，这些实例将都会受到影响。
+```python
+class Dog:
+
+    # Class attributes
+    kingdom = "Animalia"
+    species = "Canis lupus"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+```
+:::tip
+通常，它们写在__init__方法的前面。
+:::
+## 如何获取一个类属性
+```python
+<class_name>.<attribute>
+```
+例如：
+```python
+>>> class Dog:
+
+    kingdom = "Animalia"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+        
+>>> Dog.kingdom
+'Animalia'
+```
+:::tip
+你可以使用同样的语法在类里面获取它的值。
+:::
+## 如何更新一个类属性
+要更新一个类属性，我们使用下面的语法：
+```python
+<class_name>.<attribute> = <value>
+```
+例如：
+
+```python
+>>> class Dog:
+
+    kingdom = "Animalia"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+        
+>>> Dog.kingdom
+'Animalia'
+
+>>> Dog.kingdom = "New Kingdom"
+
+>>> Dog.kingdom
+'New Kingdom'
+```
+## 如何删除一个类属性
+我们使用del一个类属性。例如：
+```python
+>>> class Dog:
+
+    kingdom = "Animalia"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+>>> Dog.kingdom
+'Animalia'
+        
+# Delete class attribute
+>>> del Dog.kingdom
+
+>>> Dog.kingdom
+Traceback (most recent call last):
+  File "<pyshell#88>", line 1, in <module>
+    Dog.kingdom
+AttributeError: type object 'Dog' has no attribute 'kingdom'
+```
+## 如何定义方法
+方法用于表示类实例的功能。
+
+:::tip
+ 如果我们在实例方法的定义中写上self.< attribute >，那么实例方法就可以调用实例属性。
+:::
+下面是定义方法的基本语法，这些方法一般定义在__init__方法后面：
+```python
+class <ClassName>:
+
+    # Class attributes
+
+    # __init__
+
+    def <method_name>(self, <param1>, ...):
+        <code>
+```
+这些实例方法可能有 0 个、1 个或多个参数（就像函数！），但self必须是第一个参数。
+
+例如，下面的bark方法没有参数（除了self）：
+
+```python
+class Dog:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def bark(self):
+        print(f"woof-woof. I'm {self.name}")
+```
+要调用这个方法，我们用下面的语法：
+```python
+<object_variable>.<method>(<arguments>)
+```
+例如：
+```python
+# Create the instance
+>>> my_dog = Dog("Nora", 10)
+
+# Call the method
+>>> my_dog.bark()
+woof-woof. I'm Nora
+```
+Player类里定义了只有一个参数的increment_speed方法：
+
+```python
+class Player:
+
+    def __init__(self, name):
+        self.name = name
+        self.speed = 50
+
+    def increment_speed(self, value):
+        self.speed += value
+```
+调用此方法：
+```python
+# Create instance        
+>>> my_player = Player("Nora")
+
+# Check initial speed to see the change
+>>> my_player.speed
+50
+
+# Increment the speed
+>>> my_player.increment_speed(5)
+
+# Confirm the change
+>>> my_player.speed
+55
+```
+:::tip
+要添加更多参数，只需要将多个参数用逗号分隔。建议在每个逗号后面加一个空格。
+:::
