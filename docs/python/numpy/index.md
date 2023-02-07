@@ -1,9 +1,9 @@
 ---
-id: intro
+id: numpy
 sidebar_position: 1
 ---
 
-# 1. NumPy简介与安装
+# 1. 简介与安装
 
 本文参考: 
 
@@ -11,6 +11,7 @@ sidebar_position: 1
 2. [A Visual Intro to NumPy and Data Representation](https://jalammar.github.io/visual-numpy/)
 3. [《Python Data Science Handbook》](https://www.oreilly.com/library/view/python-data-science/9781491912126/)
 
+NumPy(Numerical Python 的简称)提供了高效存储和操作密集数据缓存的接口。在某些方面，NumPy数组与Python内置的列表类型非常相似。但是随着数组在维度上变大，NumPy数组提供了更加高效的存储和数据操作。NumPy数组几乎是整个Python数据科学工具生态系统的核心。因此，不管你对数据科学的哪个方面感兴趣，花点时间学习如何有效地使用NumPy都是非常值得的。
 
 ## 1. NumPy 速查手册
 ![Numpy Cheat Sheet](./img/numpy-cheat-sheet.png)
