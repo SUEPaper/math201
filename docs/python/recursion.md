@@ -185,7 +185,6 @@ n! = n·(n − 1)!
 292
 ```
 count_change函数生成树形递归过程，和fib的首个实现一样，它是重复的。它会花费很长时间来计算出292，除非我们记忆这个函数。另一方面，设计迭代算法来计算出结果的方式并不是那么明显，我们将它留做一个挑战。
-
 ## 增长度
 前面的例子表明，不同过程在花费的时间和空间计算资源上有显著差异。我们用于描述这个差异的便捷方式，就是使用增长度的概念，来获得当输入变得更大时，过程所需资源的大致度量。
 
@@ -210,3 +209,128 @@ k1·f(n) <= R(n) <= k2·f(n)
 增长度只提供了过程行为的大致描述。例如，需要n^2个步骤的过程和需要1000·n^2个步骤的过程，以及需要3·n^2+10·n+17个步骤的过程都拥有Θ(n^2)的增长度。在特定的情况下，增长度的分析过于粗略，不能在函数的两个可能实现中做出判断。
 
 但是，增长度提供了实用的方法，来表示在改变问题规模的时候，我们应如何预期过程行为的改变。对于Θ(n)（线性）的过程，使规模加倍只会使所需的资源总数加倍。对于指数的过程，每一点问题规模的增长都会使所用资源以固定因数翻倍。接下来的例子展示了一个增长度为对数的算法，所以使问题规模加倍，只会使所需资源以固定总数增加。
+## 处理递归列表
+递归列表结构将列表表示为首个元素和列表的剩余部分的组合。我们之前使用函数实现了递归列表，但是现在我们可以使用类来重新实现。下面，长度（__len__）和元素选择（__getitem__）被重写来展示处理递归列表的典型模式。
+```bash
+>>> class Rlist(object):
+        """A recursive list consisting of a first element and the rest."""
+        class EmptyList(object):
+            def __len__(self):
+                return 0
+        empty = EmptyList()
+        def __init__(self, first, rest=empty):
+            self.first = first
+            self.rest = rest
+        def __repr__(self):
+            args = repr(self.first)
+            if self.rest is not Rlist.empty:
+                args += ', {0}'.format(repr(self.rest))
+            return 'Rlist({0})'.format(args)
+        def __len__(self):
+            return 1 + len(self.rest)
+        def __getitem__(self, i):
+            if i == 0:
+                return self.first
+            return self.rest[i-1]
+```
+__len__和__getitem__的定义实际上是递归的，虽然不是那么明显。Python 内建函数len在自定义对象的参数上调用时会寻找叫做__len__的方法。与之类似，下标运算符会寻找叫做__getitem__的方法。于是，这些定义最后会调用对象自身。剩余部分上的递归调用是递归列表处理的普遍模式。这个递归列表的类定义与 Python 的内建序列和打印操作能够合理交互。
+```bash
+>>> s = Rlist(1, Rlist(2, Rlist(3)))
+>>> s.rest
+Rlist(2, Rlist(3))
+>>> len(s)
+3
+>>> s[1]
+2
+```
+创建新列表的操作能够直接使用递归来表示。例如，我们可以定义extend_rlist函数，它接受两个递归列表作为参数并将二者的元素组合到新列表中。
+```bash
+>>> def extend_rlist(s1, s2):
+        if s1 is Rlist.empty:
+            return s2
+        return Rlist(s1.first, extend_rlist(s1.rest, s2))
+>>> extend_rlist(s.rest, s)
+Rlist(2, Rlist(3, Rlist(1, Rlist(2, Rlist(3)))))
+```
+与之类似，在递归列表上映射函数展示了相似的模式：
+```bash
+>>> def map_rlist(s, fn):
+        if s is Rlist.empty:
+            return s
+        return Rlist(fn(s.first), map_rlist(s.rest, fn))
+>>> map_rlist(s, square)
+Rlist(1, Rlist(4, Rlist(9)))
+```
+过滤操作包括额外的条件语句，但是也拥有相似的递归结构。
+```bash
+>>> def filter_rlist(s, fn):
+        if s is Rlist.empty:
+            return s
+        rest = filter_rlist(s.rest, fn)
+        if fn(s.first):
+            return Rlist(s.first, rest)
+        return rest
+>>> filter_rlist(s, lambda x: x % 2 == 1)
+Rlist(1, Rlist(3))
+```
+列表操作的递归实现通常不需要局部赋值或者while语句。反之，递归列表可以作为函数调用的结果来拆分和构造。所以，它们拥有步骤数量和所需空间的线性增长度。
+## 层次结构
+层次结构产生于数据的封闭特性，例如，元组可以包含其它元组。考虑这个数值1到4的嵌套表示。
+```bash
+>>> ((1, 2), 3, 4)
+((1, 2), 3, 4)
+```
+这个元组是个长度为 3 的序列，它的第一个元素也是一个元组。这个嵌套结构的盒子和指针的图示表明，它可以看做拥有四个叶子的树，每个叶子都是一个数值。
+
+![](./img/recursion/recursion-tree.png)
+
+在树中，每个子树本身都是一棵树。作为基本条件，任何本身不是元组的元素都是一个简单的树，没有任何枝干。也就是说，所有数值都是树，就像在偶对(1, 2)和整个结构中那样。
+
+递归是用于处理树形结构的自然工具，因为我们通常可以将树的操作降至枝干的操作，它会相应产生枝干的枝干的操作，以此类推，直到我们到达了树的叶子。例如，我们可以实现count_leaves函数，它返回树的叶子总数。
+```bash
+>>> t = ((1, 2), 3, 4)
+>>> count_leaves(t)
+4
+>>> big_tree = ((t, t), 5)
+>>> big_tree
+((((1, 2), 3, 4), ((1, 2), 3, 4)), 5)
+>>> count_leaves(big_tree)
+9
+```
+正如map是用于处理序列的强大工具，映射和递归一起为树的操作提供了强大而通用的计算形式。例如，我们可以使用高阶递归函数map_tree将树的每个叶子平方，它的结构类似于count_leaves。
+```bash
+>>> def map_tree(tree, fn):
+        if type(tree) != tuple:
+            return fn(tree)
+        return tuple(map_tree(branch, fn) for branch in tree)
+>>> map_tree(big_tree, square)
+((((1, 4), 9, 16), ((1, 4), 9, 16)), 25)
+```
+内部值。上面描述的树只在叶子上存在值。另一个通用的树形结构表示也在树的内部节点上存在值。我们使用类来表示这种树。
+```bash
+>>> class Tree(object):
+        def __init__(self, entry, left=None, right=None):
+            self.entry = entry
+            self.left = left
+            self.right = right
+        def __repr__(self):
+            args = repr(self.entry)
+            if self.left or self.right:
+                args += ', {0}, {1}'.format(repr(self.left), repr(self.right))
+            return 'Tree({0})'.format(args)
+```
+例如，Tree类可以为fib的递归实现表示表达式树中计算的值。fib函数用于计算斐波那契数。下面的函数fib_tree(n)返回Tree，它将第 n 个斐波那契树作为entry，并将所有之前计算出来的斐波那契数存入它的枝干中。
+```bash
+>>> def fib_tree(n):
+        """Return a Tree that represents a recursive Fibonacci calculation."""
+        if n == 1:
+            return Tree(0)
+        if n == 2:
+            return Tree(1)
+        left = fib_tree(n-2)
+        right = fib_tree(n-1)
+        return Tree(left.entry + right.entry, left, right)
+>>> fib_tree(5)
+Tree(3, Tree(1, Tree(0), Tree(1)), Tree(2, Tree(1), Tree(1, Tree(0), Tree(1))))
+```
+这个例子表明，表达式树可以使用树形结构编程表示。嵌套表达式和树形数据结构的联系，在我们这一章稍后对解释器设计的讨论中起到核心作用。
