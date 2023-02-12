@@ -31,3 +31,11 @@ sidebar_position: 2
 选择Country为China，并且Host离你最近的仓库，这里推荐使用: mirrors.ustc.edu.cn。点击Finish，即可完成远程宏包管理库的配置
 
 ![](./img/linux/MiKTeX04.png)
+
+## Perl环境安装
+
+由于有部分LaTeX宏包依赖Perl，所以需要在Ubuntu上安装Perl环境。安装命令如下：
+
+```bash
+sudo apt install perl
+```
