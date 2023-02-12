@@ -85,3 +85,38 @@ MiKTex 官网下载地址为：https://miktex.org/download
 选择Country为China，并且Host离你最近的仓库，这里推荐使用: mirrors.ustc.edu.cn。点击Finish，即可完成远程宏包管理库的配置
 
 ![](../img/install/miktex_config_04.png)
+
+
+## Perl环境安装
+
+由于有部分LaTeX宏包依赖Perl，所以需要在Windows安装Perl环境。安装过程如下：
+
+### 下载安装包
+
+Windows的Perl安装包下载地址：https://strawberryperl.com/
+
+下载选择64位版本的Perl
+
+![](./img/windows_perl_01.png)
+
+### 安装
+
+#### 1. 双击下载好的程序，点击`Next`
+
+![](./img/windows_perl_02.png)
+
+#### 2. 勾选`I accept the terms in the License Agreement`，点击`Next`
+
+![](./img/windows_perl_03.png)
+
+#### 3. 点击`Next`
+
+![](./img/windows_perl_04.png)
+
+#### 4. 点击`Install`
+
+![](./img/windows_perl_05.png)
+
+#### 5. 安装成功，点击`Finish`结束安装
+
+![](./img/windows_perl_06.png)

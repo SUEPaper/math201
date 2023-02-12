@@ -54,7 +54,7 @@ graph
 ## 实验报告
 本课程提供LaTeX（[什么是$\LaTeX$?](../latex/index.md)）版本的实验报告模板，我们希望你提交的是LaTeX版本的实验报告，而不是Word版本的实验报告（很明确的告诉你LaTeX版本的报告是有**加分**的）。
 
-[Math201-LaTeX-Report](https://github.com/SUEPaper/math201-latex-report)
+LaTeX 实验报告模板下载：[Math201-LaTeX-Report](https://github.com/SUEPaper/math201-latex-report)
 
 :::info
 本课程不会详细教授LaTeX的使用，只提供LaTeX的入门文档以及授课过程中的简单介绍。因为我们相信作为一个成年人的你是有足够的自学能力去掌握LaTeX这个非常优美的工具。尤其是你已经读了必读材料，并且完成了500字以上的读后感任务了，所以现在开始请自觉接受LaTeX自学过程的毒打。

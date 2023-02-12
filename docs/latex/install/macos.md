@@ -40,3 +40,11 @@ tlmgr是BasicTeX自带的宏包管理工具，类似MacOS上的Homebrew。tlmgr[
 sudo tlmgr option repository https://mirrors.ustc.edu.cn/CTAN/systems/texlive/
 ```
 这样使用tlmgr安装缺失的宏包的速度会起飞。
+
+## Perl环境安装
+
+由于有部分LaTeX宏包依赖Perl，所以需要在MacOS上安装Perl环境。安装命令如下：
+
+```bash
+brew install perl
+```

@@ -1,5 +1,5 @@
 ---
-id: vscode
+id: debug
 sidebar_position: 5
 ---
 

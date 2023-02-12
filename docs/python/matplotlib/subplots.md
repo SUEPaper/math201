@@ -151,6 +151,7 @@ ax[1, 0].plot(x, x*x)
 ax[1, 1].plot(x, x*x*x)
 # using padding
 fig.tight_layout(pad=5.0)
+
 plt.show()
 ```
 ![](./img/matplotlib_09.png)
@@ -181,6 +182,7 @@ plt.subplots_adjust(left=0.1,
                     top=0.9,
                     wspace=0.4,
                     hspace=0.4)
+
 plt.show()
 ```
 ![](./img/matplotlib_10.png)
