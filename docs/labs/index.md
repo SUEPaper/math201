@@ -49,6 +49,12 @@ graph
 
 本课程网站提供详细的Python文档，在学有余力的情况下你可以自行深入学习Python的其他部分内容。
 
+:::caution
+
+请在上课前自行搭建好 Python + VS Code 的开发环境，详情请参见[Python 教程](../python/)。
+
+:::
+
 如果你想深入学习计算机科学(CS: Computer Science)，我们提供了[自学CS Roadmap](../notes/cs_roadmap.md)。
 
 ## 实验报告
