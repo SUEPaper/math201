@@ -155,7 +155,7 @@ const config = {
         //   },
         // ],
         // copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-        copyright: `<div>本网站由上海电力大学数理学院邓化宇老师和“纸上得来终觉浅”团队维护，供教学使用，采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 CN</a>许可协议发布，使用Docusaurus构建。<div>`
+        copyright: `<div>本网站仅供教学使用，自创内容采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 CN</a>许可协议发布，其他借鉴参考内容许可协议请参考原文许可协议。<div>`
       },
       prism: {
         theme: lightCodeTheme,
