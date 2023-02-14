@@ -5,27 +5,14 @@ sidebar_position: 5
 
 # VS Code Debug Python
 ```python
-class User:
-    def __init__(self, name, email):
-        self._name = name
-        self._email = email
- 
-    def get_name(self):
-        return self._name
- 
-    def get_email(self):
-        return self._email
-     
-    def do_something_cool(self):
-        print ("Sign up to Lightrun " + self._namee)
- 
-    def __str__(self):
-        return self._name + " , " + self._email
- 
-    users = [ User("Lightrun Demo", "help@lightrun.com"), User("Debugger", "debugger@debugger.com")]
- 
-    for user in users:
-        user.do_something_cool()
+def jiecheng(num):
+    ans = 1
+    for i in range(num):
+        ans = ans * i
+    return ans
+
+for i in range(5):
+    print(jiechen(i))
 ```
 ## 调试当前文件
 
@@ -58,19 +45,29 @@ class User:
 
 点击右上角的小箭头，点击Debug Python File即可开始调试
 
-让我们运行我们的调试器，我们看到 'User' 这个变量不存在不存在。
+让我们运行我们的调试器，我们看到 'jiechen' 这个函数不存在。
 
 ![](./img/debug4.png)
 
-发现原因为 18，20，21行未正常缩进
+发现原因为jiechen这个函数没有定义,为拼写错误
 
 ![](./img/debug5.png)
 
-正常缩进后再次调试
+正常拼写后再次调试
 
 ![](./img/debug6.png)
 
-出现错误，‘User’对象没有'_namee'这个属性，发现是拼写错误。
+出现错误，1的阶乘为0。
+
+设置断点，继续调试
+
+![](./img/debug7.png)
+
+发现此时的i为0，因为range(num)会生成是从0到num-1，所以设置为range(1,num+1)使得其生成1到num
+
+![](./img/debug8.png)
+
+结果输出正确
 
 ## 推选阅读资料
 [GDB debug](https://heather.cs.ucdavis.edu/~matloff/UnixAndC/CLanguage/Debug.html)
