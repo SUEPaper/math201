@@ -4,20 +4,46 @@ sidebar_position: 1
 ---
 
 # Windows 安装
-## 使用浏览器进入python官网:python.cn
-![](./img/windows_python_first.png)
-##进入首页点击"Downloads"
-##若你的windows系统是Win7以上的版本则可以点击"Python 3.11.1"下载最新版本
-![](./img/windows_python_second.png)
-##若是Win7及以下的版本则需点击Windows进入相关页面寻找适配版本
-![](./img/windows_python_second2.png)
-##打开安装包,点击"Customize installation"选择安装路径
-![](./img/windows_python_third.png)
-![](./img/windows_python_fouth.png)
-![](./img/windows_python_fifth.png)
-##若显示"Setup was successful"字样则下载成功
-![](./img/windows_python_sixth.png)
-##下载完成后关闭页面，通过"windows+R"打开调试页面，输入"cmd"进入调试
-![](./img/windows_python_seventh.png)
-##输入python后若出现对应版本则安装无误
-![](./img/windows_python_end.png) 
+
+## 下载安装包
+
+Python官网地址为:https://www.python.org/
+
+1.进入首页点击"Downloads"，然后点击"windows"
+
+![](./img/windows_python_1.png)
+
+2.选择"Python 3.10.9"这一版本进行下载
+
+![](./img/windows_python_2.png)
+
+:::danger
+本课程Windows上的Python版本为3.10.9，请不要下错版本。
+:::
+
+## 安装
+1.找到刚才下载好的Python安装程序，双击进行安装
+
+![](./img/windows_python_3.png)
+
+2.勾选`Add python.exe to PATH`，然后点击"Install Now"进行默认安装
+
+![](./img/windows_python_4.png)
+
+:::danger
+一定要勾选 `Add python.exe to PATH`
+:::
+
+3.当出现"Setup was successful"时则安装结束
+
+![](./img/windows_python_5.png)
+
+## 验证是否安装成功
+
+1."windows+R"打开运行页面，输入"cmd"进入Windows命令行终端。
+
+![](./img/windows_python_6.png)
+
+2.输入`python`命令出现如下类似信息，则说明安装成功。
+
+![](./img/windows_python_7.png)

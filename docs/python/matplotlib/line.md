@@ -19,11 +19,12 @@ y = x*2
 plt.plot(x, y)
 plt.xlabel("X-axis")  # add X-axis label
 plt.ylabel("Y-axis")  # add Y-axis label
+
 plt.show()
 ```
 ![](./img/matplotlib_11.png)
 
-## 线图风格
+## 折线图风格
 matplotlib.pyplot 的 matplotlib.pyplot.plot(*args, **kwargs) 方法用于绘制图形并指定图形样式，如颜色或线条样式。
 
 ### 风格
@@ -37,6 +38,8 @@ matplotlib.pyplot 的 matplotlib.pyplot.plot(*args, **kwargs) 方法用于绘制
 | `-.` | 长短点虚线 |
 | `:` | 点线 |
 
+![](./img/linestyles.png)
+
 #### 案例:
 
 ```python
@@ -46,10 +49,19 @@ import numpy as np
 x = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 y = x*2
   
-plt.plot(x, x + 4, linestyle='-')  # 实线
-plt.plot(x, x + 5, linestyle='--') # 虚线
-plt.plot(x, x + 6, linestyle='-.') # 长短点虚线
-plt.plot(x, x + 7, linestyle=':');  # 点线
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+y = x*2
+
+plt.plot(x, x + 4, linestyle='-')
+plt.plot(x, x + 5, linestyle='--')
+plt.plot(x, x + 6, linestyle='-.')
+plt.plot(x, x + 7, linestyle=':')
+plt.plot(x, x + 8, linestyle=(0,(0.01,2)))
+
+plt.show()
 
 plt.show()
 ```
@@ -87,7 +99,6 @@ plt.plot(x, y, color="b")
 plt.show()
 ```
 ![](./img/matplotlib_13.png)
-
 
 
 #### 案例2:
@@ -172,6 +183,7 @@ plt.plot(places, female_literacy, color='r',
          linewidth=4, label="Female Literacy rate")
   
 plt.legend(loc='lower left', ncol=1)
+
 plt.show()
 ```
 ![](./img/matplotlib_17.png)
@@ -195,6 +207,7 @@ plt.plot(age, survival_chances, color='y', linewidth=3,
          label="Survival Chances", marker='o', markerfacecolor='g', markersize=12)
   
 plt.legend(loc='lower right', ncol=1)
+
 plt.show()
 ```
 ![](./img/matplotlib_18.png)

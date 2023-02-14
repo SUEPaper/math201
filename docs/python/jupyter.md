@@ -12,116 +12,138 @@ sidebar_position: 4
 ```bash
 pip install notebook
 ```
-## 2.安装扩展
-### 扩展官方文档：https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/
-### Github地址 ：https://github.com/ipython-contrib/jupyter_contrib_nbextensions
-![](./img/numpy_jupyter_3.png) 
-### 发现多了Nbextensions
-### 然后取消勾选下面的这个选项就可以使用扩展了
-![](./img/numpy_jupyter_4.png) 
+## 2. 启动
+- 通过"win+R"输入"cmd"打开Dos页面
+![](./img/jupyter_1.png)
+- 在Dos页面输"jupyter notebook"，他就会自动给你打开一个网页。但你的电脑可能也没有给你打开，那就需要你自己复制出现的路径在浏览器中打开。
+![](./img/jupyter_2.png)
 
 ## 3. 运行
-### 在终端环境下输入 jupyter notebook即可在浏览器中自动打 notebook
-### 点击 NEW 可创建新的 notebook、Text File(文本文件)、Folder(文件夹)或Terminal(终端)
-#### 在 "Text File" 选项中，你会得到一个空白的文档。输入你喜欢的任何字母，单词和数字。它基本上是一个文本编辑器（类似于 Ubuntu 上的应用程序）。你也可以选择一种语言（支持非常多的语言），然后用该语言来写一个脚本。你还可以查找和替换文件中的单词。
-#### 在 "Folder" 选项中， 顾名思义它的功能就是创建文件夹。你可以创建一个新文件夹来放入文件，重新命名或者删除它。
-#### "Terminal" 的工作方式与你的 Mac 电脑或 Linux 电脑上的终端完全相同（或者 Windows 上的 cmd ）。它在你的Web浏览器中支持终端会话。在这个终端中输入 python ，瞧！现在你已经可以开始写 python 脚本了。
-#### 但在本文中，我们将重点介绍 Notebooks，因此我们将从“New”选项中选择 "Python 3" 选项。你会看到如下的截图
-![](./img/numpy_jupyter_1.png) 
-### 然后，你可以导入最常见的 Python 库——pandas 和 numpy——来开始你的项目。代码上方的菜单栏提供了操作单元格的各种选项：insert (添加)，edit (编辑)，cut (剪切)，move cell up/down (上下移动单元格)，run cells(在单元格中运行代码)，interupt (停止代码)，save (保存工作)，以及 restart (重新启动内核)。
-![](./img/numpy_jupyter_2.png) 
-### 在下拉菜单中（如上所示），你有四个选项：
-#### Code - 这是你输入代码的地方
-#### Markdown - 这是你输入文本的地方。你可以在运行代码后添加结论，添加注释等。
-#### Raw NBConvert - 这是一个命令行工具，可将你的笔记本转换为另一种格式（如 HTML）
-#### Heading - 你可以将标题添加到单独的小节并使你的 Notebook 看起来干净整洁。这个选项现在已经集成到 Markdown 选项中。添加一个“##”，以确保在你之后输入的内容将被视为标题
+- 打开网页你一般会看到这样一个页面
+![](./img/jupyter_3.png)
+- 这时需要你点击"NEW"然后选择"python"打开一个新的文件
+![](./img/jupyter_4.png)
+- 在这个页面你就可以编写你的程序了
+![](./img/jupyter_5.png)
+- 例如，我们现在输入"print(Hello,World)"
+- 输入完成后你可以通过点击小三角图标或者点击
+Cell菜单（Cell > Run Cells）来完成程序的运行
+![](./img/jupyter_6.png)
+![](./img/jupyter_7.png)
+- 最终你将会看到这样的运行结果
+![](./img/jupyter_8.png)
 
-## 4.快捷键
-### notebook 自带一组快捷键，能让你快速使用键盘与单元格交互，而无需使用鼠标和工具栏。熟悉这些快捷键需要花费一点时间，但如果能熟练掌握，将大大加快你在 notebook 中的工作速度。
-### 这些快捷键可以通过单元格 蓝色 状态下按 "h" 来查看：
-![](./img/numpy_jupyter_5.png) 
+## 4.使用matplotilb画图
+matplotlib可能是Python 2D绘图领域使用最广泛的库了。它能够让使用者轻松地将数据图形化，并且提供多样化的输出格式。同时，它几乎能够对图进行所有你能够想到的细节的修饰。
 
-## 5.命令
-### 5.1系统命令
-#### 以!开始的一行命令可以运行系统命令（也就是启动jupyter notebook时的终端命令），这里以windows下的cmd命令提示符为例。
-![](./img/numpy_jupyter_6.png) 
-#### 系统命令的输出内容可以储存在python变量中
-![](./img/numpy_jupyter_7.png) 
-#### 在命令行中使用python变量
-![](./img/numpy_jupyter_8.png) 
-#### 系统命令也可以嵌套在python循环内使用
-![](./img/numpy_jupyter_9.png) 
-### 5.2魔法命令
-#### Magic有两种形式：Line Magics和Cell Magics
-##### Line Magics：以%开头，该行后面的内容都是Line Magics代码
-##### Cell Magics：以%%开头，后面整个单元格内都是Cell Magics代码
-![](./img/numpy_jupyter_10.png) 
-#### %lsmagic查看所有魔法命令
-![](./img/numpy_jupyter_11.png) 
-#### %time?查看time魔法命令帮助文档
-![](./img/numpy_jupyter_12.png) 
-%time??查看time魔法命令源代码
-![](./img/numpy_jupyter_13.png) 
-#### 常用的魔法命令
-##### %%writefile命令用于将本单元格中的代码写入一个文件。
-###### 命令格式：%%writefile [-a] filename
-###### 如果带有-a参数则将内容追加到文件中，否则将覆盖文件内容
-##### %pycat命令用于显示python源文件内容。
-###### 命令格式：%pycat filename，filename可以是本地文件、URL和代码历史范围等
-##### %run命令用于运行python源文件。
-###### 命令格式：%run filename。
-##### %load命令用于加载文件到Notebook中
-###### 命令格式：%run filename，filename可以是本地文件、URL和代码历史范围等
-##### %store命令用于保存变量当前值，可以在多个Notebook之间传递变量。
-###### 命令格式：%store variablename。
-###### 当前Notebook中储存,另一个Notebook中取出
-##### %who命令用于显示所有变量清单，也可以显示指定变量类型。
-###### 命令格式：%who [type].
-##### %matplotlib inline，使得matplotlib绘制的图像直接在单元格中显示，而不需要plt.show()
-#### 自定义魔法命令
-##### 官方文档：https://ipython.readthedocs.io/en/stable/config/custommagics.html
+首先，我们现看一个示例
+![](./img/jupyter_9.png)
+这就是一个完整的绘制简单饼状图的过程
 
-## 6.display模块显示示多媒体内容
-### Jupyter notebook中使用IPython.display模块可以输出显示多媒体内容，如音频、视频、图片和网页等
-### 6.1 显示图片、HTML、音频、视频
-#### 导入需要的类和函数，display用于显示多媒体内容
-![](./img/numpy_jupyter_14.png) 
-#### 显示图片
-![](./img/numpy_jupyter_15.png) 
-#### 显示HTML
-![](./img/numpy_jupyter_16.png) 
-#### 播放音频
-![](./img/numpy_jupyter_17.png) 
-#### 显示视频
-![](./img/numpy_jupyter_18.png) 
-### 6.2 显示网页
-#### 直接嵌入网页
-![](./img/numpy_jupyter_19.png) 
-#### 嵌入在线音频
-##### 需要找到相应的嵌入代码，例如嵌入网易云音乐，可以去网易云官网找到嵌入代码，如下图所示：
-![](./img/numpy_jupyter_20.png) 
-![](./img/numpy_jupyter_21.png) 
-#### 嵌入本地pdf
-![](./img/numpy_jupyter_22.png) 
+绘制这样的图像你首先需要了解matplotilb的编程方式，主要有以下三种：
+- pyplot： 是 Matplotlib 的子库，提供了和 MATLAB 类似的绘图 API。（**常用**）
+![](./img/jupyter_10.png)
+- 面向对象的方式：Matplotlib的精髓，更基础和底层的方式。（**常用**）
+![](./img/jupyter_11.png)
+- pylab：将Matplotlib和Numpy合并的模块，模拟Matlab的编程环境。（不推荐使用）
+pyplot与pylab的区别：从pylab代码可以看出，通过pylab可以直接调用函数。例：arange(0,10)，而不是np.arange(0,10)
+![](./img/jupyter_12.png)
 
+接下来你就可以了解基础的绘图了
+### Matplotlib绘图基础
+- Matplotlib绘图标记使用plot()方法的marker参数定义
+在下面的网页中你可以看到详细的标记参数信息
+(https://blog.csdn.net/Yangyuqing_/article/details/124099762?spm=1001.2014.3001.5502)
+然后你就可以绘制出一张这样的图
+![](./img/jupyter_13.png)
 
+### Matplotlib绘图线
+- Matplotlib线的类型用linestyle参数来定义：
+|类型(简写)|说明 |
+|:--:|:--:|
+|'-'|实线|
+|':'|点虚线|
+|'--'|破折线|
+|'-.'|点划线|
+|''或' '|不画线|
+|'steps'|阶梯线|
+同样我也给出一个示例
+![](./img/jupyter_14.png)
 
+- Matplotlib线的颜色用color参数来定义
+'r'	红色    'g'	绿色     'c'青色     'y'黄色     'k'黑色
+(部分常见用色)
+这可以实现这样的效果
+![](./img/jupyter_15.png)
 
+- Matplotlib线的宽度用linewidth参数来定义
+*说明：值除了是整数，也可以是浮点数*
+![](./img/jupyter_16.png)
 
+- Matplotlib轴标签使用xlabel()和ylabel()方法
+*说明：Matplotlib默认情况下不支持中文，可以使用rcParams显示中文*
+![](./img/jupyter_19.png)
+![](./img/jupyter_17.png)
 
+- Matplotlib标题使用title()方法
+![](./img/jupyter_18.png)
+![](./img/jupyter_20.png)
 
+- Matplotlib标题与标签的定位提供了loc参数
+|方法|参数|默认|
+|:--:|:--:|:--:|
+|title()|'left', 'right', 和 'center'|'center'|
+|xlabel()|'left', 'right', 和 'center'|'center'|
+|ylabel()|'bottom', 'top', 和 'center'|	'center'|
+![](./img/jupyter_21.png)
+![](./img/jupyter_22.png)
 
+- Matplotlib网格线使用pyplot中的grid()方法
+grid()语法：
+matplotlib.pyplot.grid(b=None, which='major', axis='both', )
+b：可选，默认为 None，可以设置布尔值，true 为显示网格线，false 为不显示，如果设置 **kwargs 参数，则值为 true。
+which：可选，可选值有 'major'、'minor' 和 'both'，默认为 'major'，表示应用更改的网格线。
+axis：可选，设置显示哪个方向的网格线，可以是取 'both'（默认），'x' 或 'y'，分别表示两个方向，x 轴方向或 y 轴方向。
+**kwargs：可选，设置网格样式，可以是 color='r', linestyle='-' 和 linewidth=2，分别表示网格线的颜色，样式和宽度。
 
-
-
-
+- 添加网格线，参数使用默认值。plt.grid() 
+- 使用axis参数控制网格线显示方向。
+plt.grid(axis='x')设置在x轴方向显示网格或者plt.grid(axis='y')设置在y轴方向显示网格
+- 更改网格线样式 参数color,linestyle,linewidth等同于Matplotlib绘图线
+![](./img/jupyter_23.png)
 
 
+# 设置字体为黑体 显示中文
+plt.rcParams['font.sans-serif']=['STLiti']
+ 
+x=np.arange(0,10)
+ 
+plt.plot(x,marker='o',color='r',linewidth=2)
+ 
+# fontsize设置字体大小
+# loc设置标签显示位置
+plt.xlabel('x轴',fontsize=20,loc='left')
+plt.ylabel('y轴',fontsize=20,loc='top')
+plt.title('标题',fontsize=25,loc="left")
+plt.show()
 
+下面是一些matplotlib中使用的简单参数和配置项：
+- 使用参数字典 rcParams，就像上面我们想要正常显示中文和负号进行的参数设置
+- 调用matplotlib.rc()命令，通过传入关键字元组来修改参数
+- axis：设置坐标轴边界和表面的颜色、坐标刻度值大小和网格的显示
+- figure: 控制dpi、边界颜色、图形大小、和子区( subplot)设置
+- font: 字体集（font family）、字体大小和样式设置
+- grid: 设置网格颜色和线性
+- legend: 设置图例和其中的文本的显示
+- line: 设置线条（颜色、线型、宽度等）和标记
+- patch: 是填充2D空间的图形对象，如多边形和圆。控制线宽、颜色和抗锯齿设置等
+- savefig: 可以对保存的图形进行单独设置。例如，设置渲染的文件的背景为白色。
+- verbose: 设置matplotlib在执行期间信息输出，如silent、helpful、debug和debug-annoying
+- xticks和yticks: 为x,y轴的主刻度和次刻度设置颜色、大小、方向，以及标签大小
 
-
-
-
-
-
-
+最后在这里汇总了常见的几种图像
+- 折线图 ：plt.plot(x,y)
+- 散点图 ：plt.scatter(x,y)
+- 柱状图 ：plt.bar(x,height)
+- 直方图 ：plt.hist(x,bins)
+- 饼图 ： plt.pie(x, labels=,autopct=,colors)
