@@ -71,3 +71,6 @@ class User:
 ![](./img/debug6.png)
 
 出现错误，‘User’对象没有'_namee'这个属性，发现是拼写错误。
+
+## 推选阅读资料
+[GDB debug](https://heather.cs.ucdavis.edu/~matloff/UnixAndC/CLanguage/Debug.html)
