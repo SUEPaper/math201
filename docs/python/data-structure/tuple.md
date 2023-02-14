@@ -68,3 +68,5 @@ print(max(tul2))
 5
 """
 ```
+### other
+[官网文档](https://docs.python.org/zh-cn/3/tutorial/datastructures.html#tuples-and-sequences)
