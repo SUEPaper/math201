@@ -25,7 +25,7 @@ sidebar_position: 3
 
 &emsp;它是需要我们自己下载的。通常会有一个中央仓库用于别人发布自己的包，如 Python 的 pypi 源，如果下载速度慢，通常还可以设置国内镜像加速。
 &emsp;怎么从这些源下载包？纯粹手动 ftp、http 下载吗？但下载好之后，还会要处理诸如怎么找到包，如何把包移动到合适的路径等，万一这个包还有依赖其他包怎么办？再去手动下载其他包？万一是个大项目，通常会依赖很多的包，并且还会牵涉到版本管理，问题太多了。
-&emsp;模块/包管理机制产生了！pip 就是 python 的包管理工具。现代的这些高级语言，基本都有一套模块/包管理机制，Python 的 pip，Java 的maven，Go 的 go module，PHP 的 composer，nodeJS 的 npm 等。前面提到的那些问题，工具帮你解决，真的是一站式解决方案。
+&emsp;模块/包管理机制产生了！pip 就是 Python 的包管理工具。现代的这些高级语言，基本都有一套模块/包管理机制，Python 的 pip，Java 的maven，Go 的 go module，PHP 的 composer，nodeJS 的 npm 等。前面提到的那些问题，工具帮你解决，真的是一站式解决方案。
 
 ## 如何进行pip包管理
 
@@ -75,15 +75,15 @@ pip --h
 
 ![1](./img/pip%20photo/1.png)
 
-### 下载指定的python包
+### 下载指定的Python包
 
 ```py
 pip install package_name
 ```
 
-也可在被安装包的名称后加上版本号以安装指定版本的python包，如pip install package_name==1.2.3。
+也可在被安装包的名称后加上版本号以安装指定版本的Python包，如pip install package_name==1.2.3。
 
-### 卸载指定的python包
+### 卸载指定的Python包
 
 ```py
 pip uninstall package_name
@@ -115,7 +115,7 @@ pip --version
 
 ![2](./img/pip%20photo/2.png)
 
-### 升级python包
+### 升级Python包
 
 ```py
 pip install --upgrade package_name

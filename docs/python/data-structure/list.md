@@ -262,4 +262,5 @@ True
 """
 ```
 #### other
-[剩余的内置方法](https://www.w3school.com.cn/python/python_ref_functions.asp)
+[剩余的内置方法，w3cshool](https://www.w3school.com.cn/python/python_ref_functions.asp)
+[官网文档](https://docs.python.org/zh-cn/3/tutorial/datastructures.html#more-on-lists)

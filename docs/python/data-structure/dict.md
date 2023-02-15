@@ -116,4 +116,5 @@ dict_items([('SUEP', 1951), ('xsm', 2348)])
 """
 ```
 ### other
-[剩余的内置方法](https://www.w3cschool.cn/python3/python3-dictionary.html)
+[剩余的内置方法，w3cshool](https://www.w3cschool.cn/python3/python3-dictionary.html)
+[官网文档](https://docs.python.org/zh-cn/3/tutorial/datastructures.html#dictionaries)
