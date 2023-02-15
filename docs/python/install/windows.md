@@ -47,3 +47,11 @@ Python官网地址为:https://www.python.org/
 2.输入`python`命令出现如下类似信息，则说明安装成功。
 
 ![](./img/windows_python_7.png)
+
+运行`python`命令出现的这个东西叫做Python交互式解释器(REPL)
+
+:::tip
+
+“读取-求值-输出”循环（英语：Read-Eval-Print Loop，简称REPL），也被称做交互式顶层构件（英语：interactive toplevel），是一个简单的，交互式的编程环境。这个词常常用于指代一个Lisp的交互式开发环境，也能指代命令行的模式。———[维基百科](https://zh.m.wikipedia.org/zh-hans/%E8%AF%BB%E5%8F%96%EF%B9%A3%E6%B1%82%E5%80%BC%EF%B9%A3%E8%BE%93%E5%87%BA%E5%BE%AA%E7%8E%AF)
+
+:::

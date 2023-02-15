@@ -1,5 +1,26 @@
 import React from "react";
 
+type WeekListItem = {
+    time: string,
+
+}
+
+const WeekLists: WeekListItem[] = [
+    {
+        time: "2023年3月1日"
+    },
+
+]
+
+
+function WeekList(): JSX.Element {
+    return (
+        <div>
+
+        </div>
+    )
+}
+
 function Schedules(): JSX.Element {
 
     return (
@@ -13,5 +34,6 @@ function Schedules(): JSX.Element {
     )
 
 }
+
 
 export default Schedules;
