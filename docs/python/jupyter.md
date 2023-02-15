@@ -8,142 +8,118 @@ sidebar_position: 4
 ## Jupyter 速查手册
 ![Jupyer Cheat Sheet](./img/jupyter-notebook-cheat-sheet.png)
 
-## 1. 安装
+## 1.简介
+什么是 Jupyter Notebook呢？
+>官方是这样告诉你的 ：Jupyter Notebook是基于网页的用于交互计算的应用程序。其可被应用于全过程计算：开发、文档编写、运行代码和展示结果。
+但简单来说 ，它是以网页的形式打开，可以在网页页面中直接编写代码和运行代码，代码的运行结果也会直接在代码块下显示的程序。
+总的来说，他是一个很牛的应用程序，也非常值得你花一些时间来了解它的应用。
+
+## 2. 安装
 ```bash
 pip install notebook
 ```
-## 2. 启动
-- 通过"win+R"输入"cmd"打开Dos页面
+## 3. 启动
+- 通过"win+R"输入"cmd"打开电脑终端
 ![](./img/jupyter_1.png)
-- 在Dos页面输"jupyter notebook"，他就会自动给你打开一个网页。但你的电脑可能也没有给你打开，那就需要你自己复制出现的路径在浏览器中打开。
-![](./img/jupyter_2.png)
 
-## 3. 运行
-- 打开网页你一般会看到这样一个页面
+###默认端口启动
+-在终端输入以下命令
+```
+jupyter notebook
+```
+-执行命令后终端会显示一系列notebook的服务信息，同时浏览器将会自动启动Jupyter Notebook。
+-启动过程中终端会显示如下内容
+```
+$ jupyter notebook
+[I 08:58:24.417 NotebookApp] Serving notebooks from local directory: /Users/catherine
+[I 08:58:24.417 NotebookApp] 0 active kernels
+[I 08:58:24.417 NotebookApp] The Jupyter Notebook is running at: http://localhost:8888/
+[I 08:58:24.417 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+```
+*注意：之后在Jupyter Notebook的所有操作，都**保持终端不要关闭**，一旦关闭就会与本地链接断开，就无法再继续再Jupyter Notebook中进行其他操作啦。*
+
+-浏览器地址栏中默认地会显示：http://localhost:8888
+"localhost"是指本机，"8888"则为端口号
+但如果你启动了多个Jupyter Notebook，由于默认端口“8888”被占用，因此地址栏中的数字将从“8888”起，每多启动一个Jupyter Notebook数字就加1，如“8889”、“8890”……
+
+###指定端口
+-在终端输入以下命令
+```
+jupyter notebook --port <port_number>
+```
+其中，“<port_number>”是自定义端口号，直接以数字的形式写在命令当中，数字两边不加尖括号“<>”。如：jupyter notebook --port 9999，即在端口号为“9999”的服务器启动Jupyter Notebook。
+
+###启动服务器但不打开浏览器
+如果你只是想启动Jupyter Notebook的服务器但不打算立刻进入到主页面，那么就无需立刻启动浏览器。在终端中输入：
+```
+jupyter notebook --no-browser
+```
+此时，将会在终端显示启动的服务器信息，并在服务器启动之后，显示出打开浏览器页面的链接。当你需要启动浏览器页面时，只需要复制链接，并粘贴在浏览器的地址栏中，轻按回车变转到了你的Jupyter Notebook页面。
+![](./img/jupyter_9.png)
+再上图就可以看见我同时启动了多个Jupyter Notebook，因此显示我的“8888”端口号被占用，最终分配给我的是“8889”。
+
+
+## 4.帮助
+如果你有任何关于 Jupyter Notebook命令的疑问你可以选择在终端查看官方文档，命令如下：
+```
+jupyter notebook --help
+```
+
+
+## 5. 运行
+-启动后你会看到这样一个页面
 ![](./img/jupyter_3.png)
 - 这时需要你点击"NEW"然后选择"python"打开一个新的文件
 ![](./img/jupyter_4.png)
 - 在这个页面你就可以编写你的程序了
 ![](./img/jupyter_5.png)
-- 例如，我们现在输入"print(Hello,World)"
-- 输入完成后你可以通过点击小三角图标或者点击
-Cell菜单（Cell > Run Cells）来完成程序的运行
+- 例如，我们现在输入
+```
+print(Hello,World)
+```
+- 输入完成后你可以通过点击小三角图标或者点击Cell菜单（Cell > Run Cells）来完成程序的运行
 ![](./img/jupyter_6.png)
 ![](./img/jupyter_7.png)
 - 最终你将会看到这样的运行结果
 ![](./img/jupyter_8.png)
 
-## 4.使用matplotilb画图
-matplotlib可能是Python 2D绘图领域使用最广泛的库了。它能够让使用者轻松地将数据图形化，并且提供多样化的输出格式。同时，它几乎能够对图进行所有你能够想到的细节的修饰。
+** 如果你是想要在notebook中嵌入Matplotilb画出来的图像，你需要在最开始加入如下代码：
+```
+%matplotib inline
+```
 
-首先，我们现看一个示例
-![](./img/jupyter_9.png)
-这就是一个完整的绘制简单饼状图的过程
-
-绘制这样的图像你首先需要了解matplotilb的编程方式，主要有以下三种：
-- pyplot： 是 Matplotlib 的子库，提供了和 MATLAB 类似的绘图 API。（**常用**）
+## 6. Jupyter Notebook快捷键
+-  Jupyter Notebook笔记本的两种模式
+① 命令模式
+命令模式将键盘命令与Jupyter Notebook笔记本命令相结合，可以通过键盘不同键的组合运行笔记本的命令。
+按esc键进入命令模式。
+命令模式下，单元格边框为灰色，且左侧边框线为蓝色粗线条。
 ![](./img/jupyter_10.png)
-- 面向对象的方式：Matplotlib的精髓，更基础和底层的方式。（**常用**）
+② 编辑模式
+编辑模式使用户可以在单元格内编辑代码或文档。
+按enter或return键进入编辑模式。
+编辑模式下，单元格边框和左侧边框线均为绿色。
 ![](./img/jupyter_11.png)
-- pylab：将Matplotlib和Numpy合并的模块，模拟Matlab的编程环境。（不推荐使用）
-pyplot与pylab的区别：从pylab代码可以看出，通过pylab可以直接调用函数。例：arange(0,10)，而不是np.arange(0,10)
+- 两种模式的快捷键
+① 命令模式
 ![](./img/jupyter_12.png)
-
-接下来你就可以了解基础的绘图了
-### Matplotlib绘图基础
-- Matplotlib绘图标记使用plot()方法的marker参数定义
-在下面的网页中你可以看到详细的标记参数信息
-(https://blog.csdn.net/Yangyuqing_/article/details/124099762?spm=1001.2014.3001.5502)
-然后你就可以绘制出一张这样的图
+② 编辑模式
 ![](./img/jupyter_13.png)
 
-### Matplotlib绘图线
-- Matplotlib线的类型用linestyle参数来定义：
-|类型(简写)|说明 |
-|:--:|:--:|
-|'-'|实线|
-|':'|点虚线|
-|'--'|破折线|
-|'-.'|点划线|
-|''或' '|不画线|
-|'steps'|阶梯线|
-同样我也给出一个示例
+
+## 7.关闭和退出
+- 关闭笔记本和终端
+当我们在Jupyter Notebook中创建了终端或笔记本时，将会弹出新的窗口来运行终端或笔记本。当我们使用完毕想要退出终端或笔记本时，仅仅关闭页面是无法结束程序运行的，因此我们需要通过以下步骤将其完全关闭。
+⑴ 进入“Running”页面。
 ![](./img/jupyter_14.png)
-
-- Matplotlib线的颜色用color参数来定义
-'r'	红色    'g'	绿色     'c'青色     'y'黄色     'k'黑色
-(部分常见用色)
-这可以实现这样的效果
+⑵ 第一栏是“Terminals”，即所有正在运行的终端均会在此显示；第二栏是“Notebooks”，即所有正在运行的“ipynb”笔记本均会在此显示。
+⑶ 点击想要关闭的终端或笔记本后黄色“关闭”按钮。
 ![](./img/jupyter_15.png)
-
-- Matplotlib线的宽度用linewidth参数来定义
-*说明：值除了是整数，也可以是浮点数*
-![](./img/jupyter_16.png)
-
-- Matplotlib轴标签使用xlabel()和ylabel()方法
-*说明：Matplotlib默认情况下不支持中文，可以使用rcParams显示中文*
-![](./img/jupyter_19.png)
-![](./img/jupyter_17.png)
-
-- Matplotlib标题使用title()方法
-![](./img/jupyter_18.png)
-![](./img/jupyter_20.png)
-
-- Matplotlib标题与标签的定位提供了loc参数
-|方法|参数|默认|
-|:--:|:--:|:--:|
-|title()|'left', 'right', 和 'center'|'center'|
-|xlabel()|'left', 'right', 和 'center'|'center'|
-|ylabel()|'bottom', 'top', 和 'center'|	'center'|
-![](./img/jupyter_21.png)
-![](./img/jupyter_22.png)
-
-- Matplotlib网格线使用pyplot中的grid()方法
-grid()语法：
-matplotlib.pyplot.grid(b=None, which='major', axis='both', )
-b：可选，默认为 None，可以设置布尔值，true 为显示网格线，false 为不显示，如果设置 **kwargs 参数，则值为 true。
-which：可选，可选值有 'major'、'minor' 和 'both'，默认为 'major'，表示应用更改的网格线。
-axis：可选，设置显示哪个方向的网格线，可以是取 'both'（默认），'x' 或 'y'，分别表示两个方向，x 轴方向或 y 轴方向。
-**kwargs：可选，设置网格样式，可以是 color='r', linestyle='-' 和 linewidth=2，分别表示网格线的颜色，样式和宽度。
-
-- 添加网格线，参数使用默认值。plt.grid() 
-- 使用axis参数控制网格线显示方向。
-plt.grid(axis='x')设置在x轴方向显示网格或者plt.grid(axis='y')设置在y轴方向显示网格
-- 更改网格线样式 参数color,linestyle,linewidth等同于Matplotlib绘图线
-![](./img/jupyter_23.png)
-
-
-# 设置字体为黑体 显示中文
-plt.rcParams['font.sans-serif']=['STLiti']
- 
-x=np.arange(0,10)
- 
-plt.plot(x,marker='o',color='r',linewidth=2)
- 
-# fontsize设置字体大小
-# loc设置标签显示位置
-plt.xlabel('x轴',fontsize=20,loc='left')
-plt.ylabel('y轴',fontsize=20,loc='top')
-plt.title('标题',fontsize=25,loc="left")
-plt.show()
-
-下面是一些matplotlib中使用的简单参数和配置项：
-- 使用参数字典 rcParams，就像上面我们想要正常显示中文和负号进行的参数设置
-- 调用matplotlib.rc()命令，通过传入关键字元组来修改参数
-- axis：设置坐标轴边界和表面的颜色、坐标刻度值大小和网格的显示
-- figure: 控制dpi、边界颜色、图形大小、和子区( subplot)设置
-- font: 字体集（font family）、字体大小和样式设置
-- grid: 设置网格颜色和线性
-- legend: 设置图例和其中的文本的显示
-- line: 设置线条（颜色、线型、宽度等）和标记
-- patch: 是填充2D空间的图形对象，如多边形和圆。控制线宽、颜色和抗锯齿设置等
-- savefig: 可以对保存的图形进行单独设置。例如，设置渲染的文件的背景为白色。
-- verbose: 设置matplotlib在执行期间信息输出，如silent、helpful、debug和debug-annoying
-- xticks和yticks: 为x,y轴的主刻度和次刻度设置颜色、大小、方向，以及标签大小
-
-最后在这里汇总了常见的几种图像
-- 折线图 ：plt.plot(x,y)
-- 散点图 ：plt.scatter(x,y)
-- 柱状图 ：plt.bar(x,height)
-- 直方图 ：plt.hist(x,bins)
-- 饼图 ： plt.pie(x, labels=,autopct=,colors)
+⑷ 成功关闭终端或笔记本。
+- 退出Jupyter Notebook程序
+如果你想退出Jupyter Notebook程序，仅仅通过关闭网页是无法退出的，因为当你打开Jupyter Notebook时，其实是启动了它的服务器。
+因此，想要彻底退出Jupyter Notebook，需要关闭它的服务器。只需要在它启动的终端上按：
+```
+ctrl c
+```
+然后在终端上会提示：“Shutdown this notebook server (y/[n])?”输入y即可关闭服务器，这才是彻底退出了Jupyter Notebook程序。
