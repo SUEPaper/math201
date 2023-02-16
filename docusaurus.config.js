@@ -9,7 +9,7 @@ const katex = require('rehype-katex');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '数值计算方法实训课',
-  tagline: 'Dinosaurs are cool',
+  tagline: '纸上得来终觉浅',
   url: 'https://suepaper.github.io',
   baseUrl: '/math201',
   onBrokenLinks: 'throw',
