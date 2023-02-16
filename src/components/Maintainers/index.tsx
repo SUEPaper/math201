@@ -1,6 +1,9 @@
 import React from "react";
 
-import HeadImageUrl from '@site/static/img/head.jpg';
+import HaiwenImageUrl from '@site/static/img/haiwen.jpg';
+import LHYImageUrl from '@site/static/img/lhy.jpg';
+import XCImageUrl from '@site/static/img/xc.jpg';
+import ZJQImageUrl from '@site/static/img/zjq.jpg';
 
 function Maintainers(): JSX.Element {
 
@@ -20,27 +23,27 @@ function Maintainers(): JSX.Element {
                     </thead>
                     <tbody>
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={HeadImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={HaiwenImageUrl}/></td>
                             <td className="border-0 bg-white">章海文</td>
                             <td className="border-0 bg-white">haiwensummer@gmail.com</td>
                             <td className="border-0 bg-white"><a href="https://github.com/HaiwenZhang">HaiwenZhang</a></td>
                         </tr>   
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={HeadImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={LHYImageUrl}/></td>
                             <td className="border-0 bg-white">李卉元</td>
                             <td className="border-0 bg-white">1472927952@qq.com</td>
                             <td className="border-0 bg-white"><a href="https://github.com/huiyuan-li">lihuiyuan</a></td>
                         </tr>  
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={HeadImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={XCImageUrl}/></td>
                             <td className="border-0 bg-white">徐驰</td>
-                            <td className="border-0 bg-white">chi.xu@math201.com</td>
+                            <td className="border-0 bg-white">2389799176@qq.com</td>
                             <td className="border-0 bg-white"><a href="https://github.com/XxC-904">XxC-904</a></td>
                         </tr>  
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={HeadImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={ZJQImageUrl}/></td>
                             <td className="border-0 bg-white">赵俊棋</td>
-                            <td className="border-0 bg-white">junqi.zhao@math201.com</td>
+                            <td className="border-0 bg-white">1134672109@qq.com</td>
                             <td className="border-0 bg-white"><a href="https://github.com/Thejunqi">Thejunqi</a></td>
                         </tr>                     
                     </tbody>
