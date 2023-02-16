@@ -42,3 +42,7 @@
   --ifm-color-primary-lightest: #c04ca3;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

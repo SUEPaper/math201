@@ -16,7 +16,7 @@ sidebar_position: 4
 总的来说，他是一个很牛的应用程序，也非常值得你花一些时间来了解它的应用。
 
 ## 2. 安装
-```bash
+```sh
 pip install notebook
 ```
 ## 3. 启动
@@ -25,14 +25,18 @@ pip install notebook
 ![](./img/jupyter_1.png)
 
 
-###默认端口启动
--在终端输入以下命令
-```
+### 默认端口启动
+
+- 在终端输入以下命令
+
+```sh
 jupyter notebook
 ```
--执行命令后终端会显示一系列notebook的服务信息，同时浏览器将会自动启动Jupyter Notebook。
--启动过程中终端会显示如下内容
-```
+
+- 执行命令后终端会显示一系列notebook的服务信息，同时浏览器将会自动启动Jupyter Notebook。
+- 启动过程中终端会显示如下内容
+
+```sh
 $ jupyter notebook
 [I 08:58:24.417 NotebookApp] Serving notebooks from local directory: /Users/catherine
 [I 08:58:24.417 NotebookApp] 0 active kernels
@@ -41,22 +45,27 @@ $ jupyter notebook
 ```
 *注意：之后在Jupyter Notebook的所有操作，都**保持终端不要关闭**，一旦关闭就会与本地链接断开，就无法再继续再Jupyter Notebook中进行其他操作啦。*
 
--浏览器地址栏中默认地会显示：http://localhost:8888
+- 浏览器地址栏中默认地会显示：http://localhost:8888
 "localhost"是指本机，"8888"则为端口号
 但如果你启动了多个Jupyter Notebook，由于默认端口“8888”被占用，因此地址栏中的数字将从“8888”起，每多启动一个Jupyter Notebook数字就加1，如“8889”、“8890”……
 
-###指定端口
--在终端输入以下命令
-```
+### 指定端口启动
+
+- 在终端输入以下命令
+
+```sh
 jupyter notebook --port port_number
 ```
-其中，`port_number`是自定义端口号，直接以数字的形式写在命令当中。如："jupyter notebook --port 9999"，即在端口号为“9999”的服务器启动Jupyter Notebook。
+
+其中，`port_number`是自定义端口号，直接以数字的形式写在命令当中。如：`jupyter notebook --port 9999`，即在端口号为“9999”的服务器启动Jupyter Notebook。
 
 ###启动服务器但不打开浏览器
 如果你只是想启动Jupyter Notebook的服务器但不打算立刻进入到主页面，那么就无需立刻启动浏览器。在终端中输入：
-```
+
+```sh
 jupyter notebook --no-browser
 ```
+
 此时，将会在终端显示启动的服务器信息，并在服务器启动之后，显示出打开浏览器页面的链接。当你需要启动浏览器页面时，只需要复制链接，并粘贴在浏览器的地址栏中，轻按回车变转到了你的Jupyter Notebook页面。
 
 ![](./img/jupyter_9.png)
@@ -65,14 +74,15 @@ jupyter notebook --no-browser
 
 
 ## 4.帮助
+
 如果你有任何关于 Jupyter Notebook命令的疑问你可以选择在终端查看官方文档，命令如下：
-```
+
+```sh
 jupyter notebook --help
 ```
 
-
 ## 5. 运行
--启动后你会看到这样一个页面
+- 启动后你会看到这样一个页面
 
 ![](./img/jupyter_3.png)
 
@@ -98,25 +108,23 @@ print(Hello,World)
 
 ![](./img/jupyter_8.png)
 
+:::tip
+如果你是想要在notebook中嵌入Matplotilb画出来的图像，你需要在最开始加入如下代码：
 
-** 如果你是想要在notebook中嵌入Matplotilb画出来的图像，你需要在最开始加入如下代码：
-```
+```python
 %matplotib inline
 ```
+:::
 
 ## 6. Jupyter Notebook快捷键
 -  Jupyter Notebook笔记本的两种模式
 ① 命令模式
-命令模式将键盘命令与Jupyter Notebook笔记本命令相结合，可以通过键盘不同键的组合运行笔记本的命令。
-按esc键进入命令模式。
-命令模式下，单元格边框为灰色，且左侧边框线为蓝色粗线条。
+命令模式将键盘命令与Jupyter Notebook笔记本命令相结合，可以通过键盘不同键的组合运行笔记本的命令。按`esc`键进入命令模式。命令模式下，单元格边框为灰色，且左侧边框线为蓝色粗线条。
 
 ![](./img/jupyter_10.png)
 
 ② 编辑模式
-编辑模式使用户可以在单元格内编辑代码或文档。
-按enter或return键进入编辑模式。
-编辑模式下，单元格边框和左侧边框线均为绿色。
+编辑模式使用户可以在单元格内编辑代码或文档。按`enter`键进入编辑模式。编辑模式下，单元格边框和左侧边框线均为绿色。
 
 ![](./img/jupyter_11.png)
 
@@ -132,21 +140,24 @@ print(Hello,World)
 
 ## 7.关闭和退出
 - 关闭笔记本和终端
+
 当我们在Jupyter Notebook中创建了终端或笔记本时，将会弹出新的窗口来运行终端或笔记本。当我们使用完毕想要退出终端或笔记本时，仅仅关闭页面是无法结束程序运行的，因此我们需要通过以下步骤将其完全关闭。
+
 ⑴ 进入“Running”页面。
 
 ![](./img/jupyter_14.png)
 
 ⑵ 第一栏是“Terminals”，即所有正在运行的终端均会在此显示；第二栏是“Notebooks”，即所有正在运行的“ipynb”笔记本均会在此显示。
+
 ⑶ 点击想要关闭的终端或笔记本后黄色“关闭”按钮。
 
 ![](./img/jupyter_15.png)
 
 ⑷ 成功关闭终端或笔记本。
+
 - 退出Jupyter Notebook程序
 如果你想退出Jupyter Notebook程序，仅仅通过关闭网页是无法退出的，因为当你打开Jupyter Notebook时，其实是启动了它的服务器。
-因此，想要彻底退出Jupyter Notebook，需要关闭它的服务器。只需要在它启动的终端上按：
-```
-ctrl c
-```
+因此，想要彻底退出Jupyter Notebook，需要关闭它的服务器。只需要在它启动的终端上按: `ctrl+c`
+
+
 然后在终端上会提示：“Shutdown this notebook server (y/[n])?”输入y即可关闭服务器，这才是彻底退出了Jupyter Notebook程序。
