@@ -20,25 +20,25 @@ function Maintainers(): JSX.Element {
                     </thead>
                     <tbody>
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full w-32 h-32 object-cover" src={HeadImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={HeadImageUrl}/></td>
                             <td className="border-0 bg-white">章海文</td>
                             <td className="border-0 bg-white">haiwensummer@gmail.com</td>
                             <td className="border-0 bg-white"><a href="https://github.com/HaiwenZhang">HaiwenZhang</a></td>
                         </tr>   
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full w-32 h-32 object-cover" src={HeadImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={HeadImageUrl}/></td>
                             <td className="border-0 bg-white">李卉元</td>
                             <td className="border-0 bg-white">1472927952@qq.com</td>
                             <td className="border-0 bg-white"><a href="https://github.com/huiyuan-li">lihuiyuan</a></td>
                         </tr>  
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full w-32 h-32 object-cover" src={HeadImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={HeadImageUrl}/></td>
                             <td className="border-0 bg-white">徐驰</td>
                             <td className="border-0 bg-white">chi.xu@math201.com</td>
                             <td className="border-0 bg-white"><a href="https://github.com/XxC-904">XxC-904</a></td>
                         </tr>  
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full w-32 h-32 object-cover" src={HeadImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={HeadImageUrl}/></td>
                             <td className="border-0 bg-white">赵俊棋</td>
                             <td className="border-0 bg-white">junqi.zhao@math201.com</td>
                             <td className="border-0 bg-white"><a href="https://github.com/Thejunqi">Thejunqi</a></td>

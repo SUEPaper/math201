@@ -6,6 +6,11 @@ module.exports = {
     container: {
       padding: '2rem',
     },
+    extend: {
+      maxWidth: {
+        '20': '5rem',
+      }
+    }
   },
   plugins: [],
   corePlugins: {

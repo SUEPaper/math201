@@ -11,7 +11,7 @@ import styles from './index.module.css';
 
 export default function HomepageFeatures(): JSX.Element {
   return (
-      <div className="container w-4/5 mt-14 mx-auto">
+      <div className="container w-5/6 mt-14 mx-auto">
           <CourseInfos />
           <Schedules />
           <Teachers />

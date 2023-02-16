@@ -22,19 +22,19 @@ function TAs(): JSX.Element {
                     </thead>
                     <tbody>
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full w-32 h-32 object-cover" src={HeadImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={HeadImageUrl}/></td>
                             <td className="border-0 bg-white">朱志强</td>
                             <td className="border-0 bg-white">zhiqiang.zhu@math201.com</td>
                             <td className="border-0 bg-white"><a href="https://github.com/dushangdonglou">dushangdonglou</a></td>
                         </tr>  
                         <tr className="border-0"> 
-                            <td className="border-0 bg-white"><img className="rounded-full w-32 h-32 object-cover" src={ZCXImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={ZCXImageUrl}/></td>
                             <td className="border-0 bg-white">张辰星</td>
                             <td className="border-0 bg-white">2049314799@qq.com</td>
                             <td className="border-0 bg-white"><a href="https://github.com/zcxxxxxxx">zcxxxxxxx</a></td>
                         </tr>   
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full w-32 h-32 object-cover" src={HeadImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={HeadImageUrl}/></td>
                             <td className="border-0 bg-white">董宇航</td>
                             <td className="border-0 bg-white">yuhang.dong@math201.com</td>
                             <td className="border-0 bg-white"><a href="https://github.com/ryggh">ryggh</a></td>

@@ -25,28 +25,28 @@ function Teachers(): JSX.Element {
                     </thead>
                     <tbody>
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full w-32 h-32 object-cover" src={XULIImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={XULIImageUrl}/></td>
                             <td className="border-0 bg-white">徐丽</td>
                             <td className="border-0 bg-white">周三 2:00-3:00pm</td>
                             <td className="border-0 bg-white">临港B2楼A412室</td>
                             <td className="border-0 bg-white">xulimaths@163.com</td>
                         </tr>   
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full w-32 h-32 object-cover" src={DHYImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={DHYImageUrl}/></td>
                             <td className="border-0 bg-white">邓化宇</td>
                             <td className="border-0 bg-white">周三 2:00-3:00pm</td>
                             <td className="border-0 bg-white">临港B2楼A412室</td>
                             <td className="border-0 bg-white">hydeng@shiep.edu.cn</td>
                         </tr>  
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full w-32 h-32 object-cover" src={LLHImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={LLHImageUrl}/></td>
                             <td className="border-0 bg-white">李丽花</td>
                             <td className="border-0 bg-white">周三 2:00-3:00pm</td>
                             <td className="border-0 bg-white">临港B2楼A412室</td>
                             <td className="border-0 bg-white">llh@shiep.edu.cn</td>
                         </tr>  
                         <tr className="border-0">
-                            <td className="border-0 bg-white"><img className="rounded-full w-32 h-32 object-cover" src={CJJImageUrl}/></td>
+                            <td className="border-0 bg-white"><img className="rounded-full max-w-20 max-h-20 object-cover" src={CJJImageUrl}/></td>
                             <td className="border-0 bg-white">蔡静静</td>
                             <td className="border-0 bg-white">周三 2:00-3:00pm</td>
                             <td className="border-0 bg-white">临港B2楼A412室</td>
