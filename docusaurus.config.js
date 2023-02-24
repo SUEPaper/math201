@@ -8,7 +8,7 @@ const katex = require('rehype-katex');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '数值计算方法实训课',
+  title: '数值计算方法训练',
   tagline: '纸上得来终觉浅',
   url: 'https://suepaper.github.io',
   baseUrl: '/math201',
@@ -81,7 +81,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Math 201: 数值计算方法实训课',
+        title: 'Math 201: 数值计算方法训练',
         // logo: {
         //   alt: 'My Site Logo',
         //   src: 'img/logo.svg',
