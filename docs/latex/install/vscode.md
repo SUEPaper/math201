@@ -25,7 +25,17 @@ sidebar_position: 4
 
 > ▶ LaTeX Workshop
 
-最后需要进行插件配置。使用快捷键 Ctrl + Shift + P（MacOS: Command + Shift + P）打开命令列表，输入“setting”，找到并点击“首选项:打开设置(json)”。
+最后需要进行插件配置。使用快捷键 Ctrl + Shift + P（MacOS: Command + Shift + P）打开命令列表，输入“setting”，找到并点击“首选项:打开用户设置(json)”。
+
+:::danger
+
+请注意是**用户设置**不是**默认设置**
+
+:::
+
+![](./img/vscode_settings.png)
+
+将原来的配置删除，将下方内容复制进去，然后按Ctrl+S保存，最后重启VS Code即可。
 
 ```json
 {
