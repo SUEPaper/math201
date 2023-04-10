@@ -5,6 +5,12 @@ sidebar_position: 5
 
 # TeXstudio 搭建LaTeX编辑环境
 
+:::caution
+
+*非常重要，请仔细阅读完本文以后再进行相关操作。（因未仔细阅读完本文，出现任何错误后果自负， 逃～～～逃～～～逃*
+
+:::
+
 :::info
 
 本教程采用Windows版本安装，Linux和MacOS版本安装类似，既然你已经使用Linux/MacOS，作者认为你的动手解决问题的能力很强，相信你可以通过自己的努力在Linux/MacOS上安装好TeXstudio。
