@@ -5,6 +5,12 @@ sidebar_position: 3
 
 # MacOS 安装
 
+:::caution
+
+*非常重要，请仔细阅读完本文以后再进行相关操作。（因未仔细阅读完本文，出现任何错误后果自负， 逃～～～逃～～～逃*
+
+:::
+
 ## 安装C编译器
 
 ```bash
@@ -17,6 +23,12 @@ xcode-select --install
 ```bash
 export PATH=/usr/local/bin:/opt/homebrew/bin:$PATH
 ```
+
+:::note
+
+Homebrew 是啥？请看[Mac必备神器Homebrew](https://zhuanlan.zhihu.com/p/59805070)
+
+:::
 
 ## Homebrew 安装Python
 

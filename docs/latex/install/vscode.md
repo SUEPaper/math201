@@ -5,6 +5,12 @@ sidebar_position: 4
 
 # VS Code 搭建LaTeX编辑环境
 
+:::caution
+
+*非常重要，请仔细阅读完本文以后再进行相关操作。（因未仔细阅读完本文，出现任何错误后果自负， 逃～～～逃～～～逃*
+
+:::
+
 ## 安装VS Code
 
 本人强烈推荐 Microsoft Visual Studio Code 软件作为LaTeX配套的文本编辑器。

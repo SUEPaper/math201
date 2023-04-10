@@ -7,6 +7,12 @@ sidebar_position: 6
 本文参考
 - https://ri0016.github.io/Overleaf-zh/
 
+:::caution
+
+*非常重要，请仔细阅读完本文以后再进行相关操作。（因未仔细阅读完本文，出现任何错误后果自负， 逃～～～逃～～～逃*
+
+:::
+
 [OverLeaf](https://cn.overleaf.com/)是一款在线的LaTeX编辑器，它提供了很多非常强大的功能。借助Overleaf,你可以实现多人合作编辑,无缝同步进度,追踪文件修改历史等功能。本节简单介绍了Overleaf的一些功能以及如何使用Overleaf来导入和使用本课程的报告模板。
 
 ## 文件同步

@@ -5,6 +5,12 @@ sidebar_position: 3
 
 # VS Code 搭建 Python 开发环境
 
+:::caution
+
+*非常重要，请仔细阅读完本文以后再进行相关操作。（因未仔细阅读完本文，出现任何错误后果自负， 逃～～～逃～～～逃*
+
+:::
+
 本文参考：
 
 - [Getting Started with Python in VS Code](https://code.visualstudio.com/docs/python/python-tutorial#_start-vs-code-in-a-workspace-folder)

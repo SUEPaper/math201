@@ -5,6 +5,12 @@ sidebar_position: 4
 
 # Jupyter Notebook 介绍
 
+:::caution
+
+*非常重要，请仔细阅读完本文以后再进行相关操作。（因未仔细阅读完本文，出现任何错误后果自负， 逃～～～逃～～～逃*
+
+:::
+
 ## Jupyter 速查手册
 
 ![Jupyer Cheat Sheet](./img/jupyter-notebook-cheat-sheet.png)
