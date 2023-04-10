@@ -19,7 +19,7 @@ sidebar_position: 4
 
 > ▶ LaTeX Workshop
 
-最后需要进行插件配置。点击左下角的设置按钮，点击设置，然后再搜索框中搜索recipe，找到标题"Latex-workshop > Latex:Recipes",点击该设置项的在settings.json中编辑，将原来的删除，将下方内容复制进去，然后按Ctrl+S保存，最后重启vscode即可。
+最后需要进行插件配置。使用快捷键 Ctrl + Shift + P（MacOS: Command + Shift + P）打开命令列表，输入“setting”，找到并点击“首选项:打开设置(json)”。
 
 ```json
 {
