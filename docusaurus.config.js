@@ -1,32 +1,32 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-const math = require('remark-math');
-const katex = require('rehype-katex');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const math = require("remark-math");
+const katex = require("rehype-katex");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '数值计算方法训练',
-  tagline: '纸上得来终觉浅',
-  url: 'https://suepaper.github.io',
-  baseUrl: '/math201',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/logo.png',
+  title: "数值计算方法训练",
+  tagline: "纸上得来终觉浅",
+  url: "https://suepaper.github.io",
+  baseUrl: "/math201",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/logo.png",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'SUEPaper', // Usually your GitHub org/user name.
-  projectName: 'math201', // Usually your repo name.
+  organizationName: "SUEPaper", // Usually your GitHub org/user name.
+  projectName: "math201", // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   plugins: [
@@ -46,22 +46,23 @@ const config = {
   markdown: {
     mermaid: true,
   },
-  themes: ['@docusaurus/theme-mermaid'],
+  themes: ["@docusaurus/theme-mermaid"],
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          routeBasePath: "/",
+          sidebarPath: require.resolve("./sidebars.js"),
           remarkPlugins: [math],
           rehypePlugins: [katex],
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
@@ -69,11 +70,11 @@ const config = {
 
   stylesheets: [
     {
-      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
-      type: 'text/css',
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
+      type: "text/css",
       integrity:
-        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
-      crossorigin: 'anonymous',
+        "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+      crossorigin: "anonymous",
     },
   ],
 
@@ -81,41 +82,41 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Math 201: 数值计算方法训练',
+        title: "Math 201: 数值计算方法训练",
         // logo: {
         //   alt: 'My Site Logo',
         //   src: 'img/logo.svg',
         // },
         items: [
           {
-            type: 'docSidebar',
-            position: 'left',
-            sidebarId: 'labSidebar',
-            label: '课程实验',
+            type: "docSidebar",
+            position: "left",
+            sidebarId: "labSidebar",
+            label: "课程实验",
           },
           {
-            type: 'docSidebar',
-            position: 'left',
-            sidebarId: 'pythonSidebar',
-            label: 'Python',
+            type: "docSidebar",
+            position: "left",
+            sidebarId: "pythonSidebar",
+            label: "Python",
           },
           {
-            type: 'docSidebar',
-            position: 'left',
-            sidebarId: 'latexSidebar',
-            label: 'LaTeX',
+            type: "docSidebar",
+            position: "left",
+            sidebarId: "latexSidebar",
+            label: "LaTeX",
           },
           {
-            type: 'docSidebar',
-            position: 'left',
-            sidebarId: 'gitSidebar',
-            label: 'Git代码管理',
+            type: "docSidebar",
+            position: "left",
+            sidebarId: "gitSidebar",
+            label: "Git代码管理",
           },
           {
-            type: 'docSidebar',
-            position: 'right',
-            sidebarId: 'noteSidebar',
-            label: '推荐材料',
+            type: "docSidebar",
+            position: "right",
+            sidebarId: "noteSidebar",
+            label: "推荐材料",
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           // {
@@ -126,7 +127,7 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         // links: [
         //   {
         //     title: 'Docs',
@@ -169,21 +170,21 @@ const config = {
         //   },
         // ],
         // copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-        copyright: `<div>本网站仅供教学使用，自创内容采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 CN</a>许可协议发布，其他借鉴参考内容许可协议请参考原文许可协议。<div>`
+        copyright: `<div>本网站仅供教学使用，自创内容采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 CN</a>许可协议发布，其他借鉴参考内容许可协议请参考原文许可协议。<div>`,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['java', 'latex'],
+        additionalLanguages: ["java", "latex"],
         magicComments: [
           {
-            className: 'theme-code-block-highlighted-line',
-            line: 'highlight-next-line',
-            block: {start: 'highlight-start', end: 'highlight-end'},
+            className: "theme-code-block-highlighted-line",
+            line: "highlight-next-line",
+            block: { start: "highlight-start", end: "highlight-end" },
           },
           {
-            className: 'code-block-error-line',
-            line: 'This will error',
+            className: "code-block-error-line",
+            line: "This will error",
           },
         ],
       },
