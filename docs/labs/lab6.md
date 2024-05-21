@@ -215,9 +215,9 @@ $$
   $$
   \begin{cases}
   {\color{red}k_1}=f(x_n,y_n),\\
-  {\color{red}k_2}=f\left(x_n+\dfrac{1}{2}h,y_n+\dfrac{1}{2}k_1\right),\\
-  {\color{red}k_3}=f\left(x_n+\dfrac{1}{2}h,y_n+\dfrac{1}{2}k_2\right),\\
-  {\color{red}k_4}=f(x_n+h,y_n+k_3)\\
+  {\color{red}k_2}=f\left(x_n+\dfrac{1}{2}h,y_n+\dfrac{1}{2}hk_1\right),\\
+  {\color{red}k_3}=f\left(x_n+\dfrac{1}{2}h,y_n+\dfrac{1}{2}hk_2\right),\\
+  {\color{red}k_4}=f(x_n+h,y_n+hk_3)\\
   y_{n+1}=y_n+\dfrac{1}{6}h({\color{red}k_1+2k_2+2k_3+k_4}),\\
   \end{cases},~~n=0,1,\cdots,N-1
   $$
