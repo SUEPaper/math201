@@ -3,7 +3,7 @@ id: picture
 sidebar_position: 2
 ---
 
-# 图片插入
+# 插入图片
 如果想要在文章中插入图片，此时，宏包的作用就来了，我们需要在导言区中调用graphicx宏包。
 ```latex
 \usepackage{graphicx}

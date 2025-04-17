@@ -1,5 +1,5 @@
 ---
-id: captions
+id: docs
 sidebar_position: 1
 ---
 
