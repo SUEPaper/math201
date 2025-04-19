@@ -11,7 +11,7 @@ sidebar_position: 2
 
 在文件夹 `latex_learn`中创建一个名为 `package_doc.tex` 的文件, 并在其中输入以下代码:
 ```latex
-\documentclass{article}
+\documentclass{ctexart}
 \usepackage{amsmath}
 \usepackage{unicode-math}
 \begin{document}

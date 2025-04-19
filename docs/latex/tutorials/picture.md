@@ -1,10 +1,11 @@
 ---
 id: picture
-sidebar_position: 2
+sidebar_position: 5
 ---
 
 # 插入图片
 如果想要在文章中插入图片，此时，宏包的作用就来了，我们需要在导言区中调用graphicx宏包。
+
 ```latex
 \usepackage{graphicx}
 ```
@@ -13,18 +14,23 @@ sidebar_position: 2
 在正式插入图片之前，我们需要了解如何更改插入图片的大小，以及对图片的旋转。方法如下：
 1. 按照图片原大小进行缩放
 下面的代码意为将图片缩放为原来的0.6倍
+
 ```latex
 \includegraphics[scale=0.6]{图片名} 
 ```
+
 2. 设定图片的高度或宽度的大小
 其中的”高度”和”宽度”是指希望图片打印的高度和宽度, 必须给出单位, 可用厘米(cm)或英寸(in)。高度和宽度若同时给出, 就会改变原图的长宽比
+
 ```latex
 \includegraphics[height=3in]{图片名}
 或者: 
 \includegraphics[width=5cm]{图片名}
 ```
+
 3. 按照文本高度或宽度进行缩放
 我非常推荐在下面的图片插入时利用此方法来实现，文本高度和宽度即为当文字充满整页时一列或一行的长度。
+
 ```latex
 \includegraphics[height=0.2\textheight]{图片名}
 或者
@@ -33,17 +39,20 @@ sidebar_position: 2
 
 4. 图片的旋转
 图片的旋转可以在原来代码的基础上再添加一个angle参数即可
+
 ```latex
 \includegraphics[width=0.8\textwidth, angle=60]{图片名}
 ```
 
 ## 定位
 为了使图片的位置在我们希望的地方，我们需要引入一个新的环境。
+
 ```latex
 \begin{figure}[h]
 \includegraphics[width=8cm]{图片名}
 \end{figure}
 ```
+
 该figure环境用于将图片显示为文档中的浮动元素。这意味着我们将图片包含在环境中，而不必担心它的位置。当然，除了h参数以外，还有如下参数：
 
 |参数|位置|
@@ -57,6 +66,7 @@ sidebar_position: 2
 
 ## 单图插入
 现在我们正式开始插入一张图片
+
 ```latex
 \begin{figure}[h]  
     \centering  %图片居中
@@ -64,11 +74,14 @@ sidebar_position: 2
     \caption{latex图片} %文档中显示的图片标题
 \end{figure}
 ```
+
 如果一篇文章中我们需要插入较多的图片，我们可以将这些图片保存在某些文件夹下，并在导言区设定好这些文件夹，那么系统将会在这些文件夹下搜索我们图片的名字来进行导入，方法如下：
+
 ```latex
 \graphicspath{{figures/}{pictures/}{images/}}
 ```
 同样的，我们可以给这些图片设置label，以便在正文中引用他们，不仅如此，在左侧的结构栏中也可以让我们快速找到这些标签以便管理。综合以上代码：
+
 ```latex
 \documentclass[UTF8,12pt,a4paper]{ctexart}
 \usepackage{graphicx}
@@ -118,6 +131,7 @@ sidebar_position: 2
 
 ### 横向排列或横向排列
 需要注意的是caption在源代码的位置将决定其在图片上方还是下方
+
 ```latex
 \begin{figure}[h]
     \centering
@@ -152,6 +166,7 @@ sidebar_position: 2
 ![](./img/img6.png)
 
 ### 特殊排列方式
+
 通过以上示例，我们可以体会到minipage其实就是一个小方框，这些小方框里面可以继续套小方框，因此，通过控制这些方框的参数来实现我们想要的排列方式，以下为一个示例，其他更多的排列方式可自行研究。
 ```latex
 \begin{figure}[h]

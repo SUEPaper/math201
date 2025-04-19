@@ -63,7 +63,7 @@ TeX有多种文档类型可选，笔者较常用的有如下几种类型：
 ```
 文件的正文部分需要放入document环境中，在document环境外的部分不会出现在文件中。
 
-将`first_doc.tex`中代码更改为
+将`first_doc.tex`中代码更改为:
 
 ```tex
 \documentclass{ctexart}
@@ -78,5 +78,26 @@ xelatex first_doc.tex
 ``` 
 
 于是你就变得到了一个中文版本的PDF文档，而且不会报错。
+
+## 注释
+
+LaTeX 是一种 "程序代码"，但它是专门用于文档排版的；因此，就像用其他编程语言编写的代码一样，在文档中加入注释是非常有用的。LATEX 注释是一段不会被排版或以任何方式影响文档的文字--通常用于添加 "待办 "事项；包括解释性说明；在调试时对棘手的宏或 LaTeX 代码的注释行/段提供内行解释。
+
+在LATEX中做注释，只需在行首写上`%`符号即可，如下面使用上述例子的代码所示：
+
+将`first_doc.tex`中代码更改为:
+
+```latex
+\documentclass{ctexart}
+\begin{document}
+   % 这是一个注释
+   你好世界!
+\end{document}
+```
+运行以下命令：
+```bash
+xelatex first_doc.tex
+```
+你就会发现，注释部分不会出现在PDF文档中。
 
 
