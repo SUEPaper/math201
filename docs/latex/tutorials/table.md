@@ -75,8 +75,55 @@ sidebar_position: 4
 
 ## 浮动体
 
+### 什么是浮动体
 
+在 LaTeX 中，表格（tabular）是一种浮动体（floating object）。浮动体是指那些在文档的正常排版流程之外，需要被 LaTeX 引擎重新排版的对象，主要包括图（figure）和表（table）环境。浮动体可以在文档的任意位置出现，并且会被 LaTeX 引擎重新排版，以确保它们不会影响文档的正常排版。
 
+### 基本示例
+
+在 LaTeX 中，你可以使用 `table` 环境来创建浮动体表格。在文件夹 `latex_learn`中创建一个名为 `float_doc.tex` 的文件, 并在其中输入以下代码，并且编译代码:
+
+```latex
+\documentclass{ctexart}
+\begin{document}
+
+    如表 \ref{tab:example} 所示：
+    \begin{table}[ht]
+    \centering
+    \caption{示例表格}
+    \label{tab:example}
+    \begin{tabular}{|l|l|r|}
+        \hline
+        姓名 & 年龄 & 分数 \\
+        \hline
+        张三 & 20 & 85 \\
+        李四 & 22 & 92 \\
+        王五 & 19 & 78 \\
+        \hline
+    \end{tabular}
+    \end{table}
+\end{document}
+```
+此示例中，浮动体会尽量出现在“这里”（h）或页面顶部（t）。
+
+### 位置参数
+
+#### 3.1 基本选项 `[h]`、`[t]`、`[b]`、`[p]`
+
+- `h` (“here”): 尽可能将浮动体放在当前位置。
+- `t` (“top”): 放在页面顶部。
+- `b` (“bottom”): 放在页面底部。
+- `p` (“page”): 放在浮动页（仅浮动体的专页）。 
+
+#### 3.2 组合与优先级
+
+可以组合多个选项，如 `[htbp]` 或 `[tbp]`，LaTeX 会按 “`h→t→b→p`” 顺序尝试。
+在选项前加!（如 `[!ht]`）可放宽 LaTeX 的限制，提高浮动成功率。
+
+### 标题与交叉引用
+
+- `\caption{}` 命令用于设置浮动体的标题，并会自动生成编号 
+- `\label{}` 给浮动体打标签，然后文中可用 `\ref{}` 引用对应编号，如 “`\ref{tab:example}`” 
 
 ## 三线表
 

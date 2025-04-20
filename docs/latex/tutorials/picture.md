@@ -65,14 +65,19 @@ sidebar_position: 5
 |H|将浮动体精确地放置在LATEX代码中的位置，需宏包float，但偶尔可能会导致一些问题|
 
 ## 单图插入
-现在我们正式开始插入一张图片
+
+在文件夹 `latex_learn`中创建一个名为 `image_doc.tex` 的文件, 并在其中输入以下代码并编译:
 
 ```latex
-\begin{figure}[h]  
-    \centering  %图片居中
-    \includegraphics[width=0.8\textwidth]{img.png}
-    \caption{latex图片} %文档中显示的图片标题
-\end{figure}
+\documentclass{ctexart}
+\usepackage{graphicx}
+\begin{document}
+    \begin{figure}[h]  
+        \centering  %图片居中
+        \includegraphics[width=0.8\textwidth]{img.png}
+        \caption{latex图片} %文档中显示的图片标题
+    \end{figure}
+\end{document}
 ```
 
 如果一篇文章中我们需要插入较多的图片，我们可以将这些图片保存在某些文件夹下，并在导言区设定好这些文件夹，那么系统将会在这些文件夹下搜索我们图片的名字来进行导入，方法如下：
@@ -80,38 +85,48 @@ sidebar_position: 5
 ```latex
 \graphicspath{{figures/}{pictures/}{images/}}
 ```
-同样的，我们可以给这些图片设置label，以便在正文中引用他们，不仅如此，在左侧的结构栏中也可以让我们快速找到这些标签以便管理。综合以上代码：
+同样的，我们可以给这些图片设置label，以便在正文中引用他们，不仅如此，在左侧的结构栏中也可以让我们快速找到这些标签以便管理。
+
+将 `image_doc.tex`代码修改为如下所示并编译：
 
 ```latex
-\documentclass[UTF8,12pt,a4paper]{ctexart}
+\documentclass{ctexart}
 \usepackage{graphicx}
 \graphicspath{{figures/}{pictures/}{images/}}
 
 \begin{document}
-这是正文\par
-这是图\ref{fig:latex},一张latex的图片
-\begin{figure}[h]  
-    \centering  %图片居中
-    \includegraphics[width=0.8\textwidth]{img.png}
-    \caption{latex图片} %文档中显示的图片标题
-    \label{fig:latex} %用于文内引用的标签
-\end{figure}
+    这是正文\par
+    这是图\ref{fig:latex},一张latex的图片
+    \begin{figure}[h]  
+        \centering  %图片居中
+        \includegraphics[width=0.8\textwidth]{img.png}
+        \caption{latex图片} %文档中显示的图片标题
+        \label{fig:latex} %用于文内引用的标签
+    \end{figure}
 
-这是图\ref{fig:latex60},一张latex的图片旋转60度
-\begin{figure}[h]  
-    \centering  %图片居中
-    \includegraphics[width=0.5\textwidth, angle=60]{img.png}
-    \caption{latex图片旋转60度} %文档中显示的图片标题
-    \label{fig:latex60} %用于文内引用的标签
-\end{figure}
+    这是图\ref{fig:latex60},一张latex的图片旋转60度
+    \begin{figure}[h]  
+        \centering  %图片居中
+        \includegraphics[width=0.5\textwidth, angle=60]{img.png}
+        \caption{latex图片旋转60度} %文档中显示的图片标题
+        \label{fig:latex60} %用于文内引用的标签
+    \end{figure}
 \end{document}
 ```
 ![](./img/img5.png)
 
 ## 多图插入
-对于多图插入，需要使用宏包subcaption来辅助实现。
+对于多图插入，需要使用宏包`subcaption`来辅助实现。
+
+将 `image_doc.tex`代码修改为如下所示并编译：
 
 ```latex
+\documentclass{ctexart}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\graphicspath{{figures/}{pictures/}{images/}}
+
+\begin{document}
 \begin{figure}[h]
     \centering
     \caption{多图横向排列}
@@ -126,49 +141,65 @@ sidebar_position: 5
         \subcaption{组徽}
     \end{minipage}
 \end{figure}
+\end{document}
 ```
-对于以上代码而言，首先在figure环境下，我们设置了居中对齐以及标题，随后引入了minipage环境，此处[c]表示居中，同意还要参数[l][r]表示左对齐和右对齐，随后利用{0.49\textwidth}设置了minipage的大小，这里如果若干个minipage的大小之和大于等于1\textwidth，那么最后一个minipage将会换行，因此通过控制minipage的大小我们可以实现多图横向排列或者纵向排列，而minipage里面的参数与单图插入类似。需要注意的是上述minipage里面的[width=1\textwidth]表示的是minipage的宽度。通过以下示例可以方便大家快速理解
+对于以上代码而言，首先在`figure`环境下，我们设置了居中对齐以及标题，随后引入了`minipage`环境，此处`[c]`表示居中，同意还要参数`[l][r]`表示左对齐和右对齐，随后利用`{0.49\textwidth}`设置了`minipage`的大小，这里如果若干个`minipage`的大小之和大于等于`1\textwidth`，那么最后一个`minipage`将会换行，因此通过控制`minipage`的大小我们可以实现多图横向排列或者纵向排列，而`minipage`里面的参数与单图插入类似。需要注意的是上述`minipage`里面的`[width=1\textwidth]`表示的是`minipage`的宽度。通过以下示例可以方便大家快速理解
 
 ### 横向排列或横向排列
-需要注意的是caption在源代码的位置将决定其在图片上方还是下方
+
+需要注意的是`caption`在源代码的位置将决定其在图片上方还是下方
 
 ```latex
-\begin{figure}[h]
-    \centering
-    \begin{minipage}[c]{0.49\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{img}
-        \subcaption{latex图片}
-    \end{minipage}
-    \begin{minipage}[c]{0.49\textwidth}
-        \centering
-        \includegraphics[width=1\textwidth]{img}
-        \subcaption{latex图片}
-    \end{minipage}
-    \caption{多图横向排列}
-\end{figure}
+\documentclass{ctexart}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\graphicspath{{figures/}{pictures/}{images/}}
 
-\begin{figure}[!h]
-    \centering
-    \caption{多图纵向排列}
-    \begin{minipage}[c]{0.5\textwidth}
+\begin{document}
+    \begin{figure}[h]
         \centering
-        \includegraphics[width=1\textwidth]{img}
-        \subcaption{latex图片}
-    \end{minipage}
-    \begin{minipage}[c]{0.8\textwidth}
+        \begin{minipage}[c]{0.49\textwidth}
+            \centering
+            \includegraphics[width=1\textwidth]{img}
+            \subcaption{latex图片}
+        \end{minipage}
+        \begin{minipage}[c]{0.49\textwidth}
+            \centering
+            \includegraphics[width=1\textwidth]{img}
+            \subcaption{latex图片}
+        \end{minipage}
+        \caption{多图横向排列}
+    \end{figure}
+
+    \begin{figure}[!h]
         \centering
-        \includegraphics[width=1\textwidth]{img}
-        \subcaption{latex图片}
-    \end{minipage}
-\end{figure}
+        \caption{多图纵向排列}
+        \begin{minipage}[c]{0.5\textwidth}
+            \centering
+            \includegraphics[width=1\textwidth]{img}
+            \subcaption{latex图片}
+        \end{minipage}
+        \begin{minipage}[c]{0.8\textwidth}
+            \centering
+            \includegraphics[width=1\textwidth]{img}
+            \subcaption{latex图片}
+        \end{minipage}
+    \end{figure}
+\end{document}
 ```
 ![](./img/img6.png)
 
 ### 特殊排列方式
 
-通过以上示例，我们可以体会到minipage其实就是一个小方框，这些小方框里面可以继续套小方框，因此，通过控制这些方框的参数来实现我们想要的排列方式，以下为一个示例，其他更多的排列方式可自行研究。
+通过以上示例，我们可以体会到`minipage`其实就是一个小方框，这些小方框里面可以继续套小方框，因此，通过控制这些方框的参数来实现我们想要的排列方式，以下为一个示例，其他更多的排列方式可自行研究。
+
 ```latex
+\documentclass{ctexart}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\graphicspath{{figures/}{pictures/}{images/}}
+
+\begin{document}
 \begin{figure}[h]
     \begin{minipage}[c]{0.49\textwidth}
         \begin{minipage}[c]{1\textwidth}
@@ -189,5 +220,6 @@ sidebar_position: 5
     \end{minipage}
     \caption{特殊排列}
 \end{figure}
+\end{document}
 ```
 ![](./img/img7.png)
