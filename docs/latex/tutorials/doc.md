@@ -5,18 +5,27 @@ sidebar_position: 1
 
 # 文章结构
 
-从 begin{document}开始，我们就走出了导言区。而对于一篇文章来说，它有标题，摘要，目录，正文，参考文献以及附录。下面我们需要利用代码来对他们进行实现。
+从 `begin{document}`开始，我们就走出了导言区。而对于一篇文章来说，它有标题，摘要，目录，正文，参考文献以及附录。下面我们需要利用代码来对他们进行实现。
 
 ## 标题
 
-文章的标题通常需要在导言区设置好，可以通过如下命令实现：
+文章的标题通常需要在导言区设置好，标题可以用`\title{}`设置，作者可以用`\author`设置，日期可以用`\date{}`设置，这些都需要放在导言区。为了在文档中显示标题信息，需要使用`\maketitle`。
+
+在文件夹 `latex_learn`中创建一个名为 `content_doc.tex` 的文件, 并在其中输入以下代码:
 
 ```latex
-\documentclass[UTF8,12pt,a4paper]{ctexart}
-\title{文章标题}
+\documentclass{ctexart}
+% 导言区
+\title{我的第一个\LaTeX 文档}
+\author{SUEP}
+\date{\today}
 
 \begin{document}
+
 \maketitle
+
+这里是正文. 
+
 \end{document}
 ```
 
@@ -30,21 +39,51 @@ sidebar_position: 1
 \end{abstract}
 ```
 
-而如果 ctexart 提供的并不是我们想要的样式，可以通过自定义格式来实现，但是这并不是我们入门教程讨论的，感兴趣可以自行研究。
+而如果 `ctexart` 提供的并不是我们想要的样式，可以通过自定义格式来实现，但是这并不是我们入门教程讨论的，感兴趣可以自行研究。
 
-## 目录
-
-目录的设置更为简单，只需要我们在正文中设置好文章的层次，在通过一个命令即可实现:
-
-```latex
-\tableofcontents
-```
 
 ## 正文
 
-在正文中，我们需要设置好每个层次的标题，ctexart 中供提供了 3 个层次的标题，命令如下：
+正文可以直接在`document`环境中书写，没有必要加入空格来缩进，因为文档默认会进行首行缩进。相邻的两行在编译时仍然会视为同一段。在LaTeX中，另起一段的方式是使用一行相隔，例如：
 
 ```latex
+我是第一段.。
+
+我是第二段。
+```
+
+这样编译出来就是两个段落。在正文部分，多余的空格、回车等等都会被自动忽略，这保证了全文排版不会突然多出一行或者多出一个空格。另外，另起一页的方式是：
+
+```latex
+\newpage
+```
+
+## 章节
+
+在正文中，我们需要设置好每个层次的标题，`ctexart` 中供提供了 3 个层次的章节：分别用`\section{}`、`\subsection{}`、`\subsubsection{}`命令来标记。将`content_doc.tex` 代码更改成如下并编译：
+
+```latex
+\documentclass{ctexart}
+% 导言区
+
+\title{我的第一个\LaTeX 文档}
+\author{SUEP}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{一级标题}
+
+\subsection{二级标题}
+
+这里是正文. 
+
+\subsection{二级标题}
+
+这里是正文. 
+
 \section{一级标题}
 \subsection{二级标题1}
 \subsubsection{三级标题1-1}
@@ -52,6 +91,56 @@ sidebar_position: 1
 \subsection{二级标题2}
 \subsubsection{三级标题2-1}
 \subsubsection{三级标题2-2}
+
+\end{document}
+```
+
+## 目录
+
+在有了章节的结构之后，使用`\tableofcontents`命令就可以在指定位置生成目录。通常带有目录的文件需要编译两次，因为需要先在目录中生成`.toc`文件，再据此生成目录。
+
+将`content_doc.tex` 代码更改成如下：
+
+```latex
+\documentclass{ctexart}
+% 导言区
+
+\title{我的第一个\LaTeX 文档}
+\author{SUEP}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{一级标题}
+
+\subsection{二级标题}
+
+这里是正文. 
+
+\subsection{二级标题}
+
+这里是正文. 
+
+\section{一级标题}
+\subsection{二级标题1}
+\subsubsection{三级标题1-1}
+\subsubsection{三级标题1-2}
+\subsection{二级标题2}
+\subsubsection{三级标题2-1}
+\subsubsection{三级标题2-2}
+
+\end{document}
+```
+
+运行如下命令进行编译：
+
+```bash
+xelatex content_doc.tex
+xelatex content_doc.tex
 ```
 
 ## 参考文献
@@ -65,17 +154,32 @@ sidebar_position: 1
 \end{thebibliography}
 ```
 
-而在正文中，可以通过\cite{自定义名称}来进行引用，需要注意的是正文中引用的序号是上述代码中其所处的位置所决定。
+而在正文中，可以通过`\cite{自定义名称}`来进行引用，需要注意的是正文中引用的序号是上述代码中其所处的位置所决定。
 
 ## 附录
 
-附录的实现需要宏包 appendix，可以使用如下命令实现附录：
+附录的实现需要宏包 `appendix`，将`content_doc.tex` 代码更改成如下并编译：
 
 ```latex
-\begin{appendix}
-\section{内容1}
-\section{内容2}
-\end{appendix}
+\documentclass{ctexart}
+\usepackage{appendix}
+% 导言区
+\title{我的第一个\LaTeX 文档}
+\author{SUEP}
+\date{\today}
+
+\begin{document}
+    \maketitle
+    \section{一级标题}
+    \subsection{二级标题}
+    这里是正文.
+    \subsection{二级标题}
+    这里是正文.
+    \begin{appendix}
+    \section{内容1}
+    \section{内容2}
+    \end{appendix}
+\end{document}
 ```
 
 ## 总结
