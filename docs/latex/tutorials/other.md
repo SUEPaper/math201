@@ -1,6 +1,6 @@
 ---
 id: other
-sidebar_position: 6
+sidebar_position: 16
 ---
 
 # 其他
@@ -58,39 +58,6 @@ sidebar_position: 6
 {\zihao{3}\color{red}\heiti{正文}} % 红色黑体3号字
 ```
 
-## 列表
-### 无序列表
-对于无序列表，可以利用itemize环境来实现：
-```latex
-\begin{itemize}
-\item \textbf{上}：正文1
-\item \textbf{中}：正文2
-\item \textbf{下}：正文3
-\end{itemize}
-```
-![](./img/img9.png)
-
-当然 如果我们不想用·来作为编号，我们可以使用如下方法进行修改：
-```latex
-\begin{itemize}
-\item[-] \textbf{上}：正文1
-\item[+] \textbf{中}：正文2
-\item[|] \textbf{下}：正文3
-\end{itemize}
-```
-![](./img/img10.png)
-
-### 有序列表
-对于有序列表，我们需要导入enumerate宏包，使用方法如下：
-```latex
-\begin{enumerate}
-	\item 正文1
-	\item 正文2
-    \item 正文3
-\end{enumerate}
-```
-![](./img/img11.png)
-
 ## 取消缩进
 可以使用\noindent命令，方法如下：
 ```latex
@@ -118,51 +85,59 @@ sidebar_position: 6
 ```
 ![](./img/img13.png)
 
-## 代码环境
-使用代码环境，需要引入宏包minted，并将language设置成目标语言类型，方法如下：
-```latex
-\begin{minted}{python}
-N = 8  #共有N项
-S = [0] * (N + 1) #包含S0共有N+1项，初始化
-S[0] = 0.182 #初始值
-#for循环进行递推计算
-for n in range(1, N+1):
-    S[n] = 1/n - 5 * S[n-1]  #递推关系式
-    print('S' + str(n) + ' =', S[n]) #打印算法结果
-\end{minted}
-```
-![](./img/img20.png)
 
-同样的，为了使我们的代码更加好看，我们可以使用xcolor宏包并在导言区进行一些配置来完成，方法如下：
-```latex
-\begin{minted}
-[
-    frame=lines,
-    framesep=2mm,
-    baselinestretch=1.2,
-    bgcolor=LightGray,
-    fontsize=\footnotesize,
-    linenos
-]
-{python}
-N = 8  #共有N项
-S = [0] * (N + 1) #包含S0共有N+1项，初始化
-S[0] = 0.182 #初始值
-#for循环进行递推计算
-for n in range(1, N+1):
-    S[n] = 1/n - 5 * S[n-1]  #递推关系式
-    print('S' + str(n) + ' =', S[n]) #打印算法结果
-\end{minted}
-```
-![](./img/img21.png)
+## 注意事项
+该点是为了说明一些latex的内置的基本规则，旨在帮助同学们后面写正文时防止踩坑。建议将下面代码自己手动编译一次感受区别并牢牢记住！
 
-我们也可以直接通过导入代码文件的方式进行引入，方法如下：
+### 空格的使用
+latex默认是忽略文字之间的空格的，如果想要使用空格，可以在设置文档类型时加入space，这样latex就不会忽略我们输入的空格，方法如下：
 ```latex
-\inputminted[
-    frame=lines,
-    framesep=2mm,
-    baselinestretch=1.2,
-    fontsize=\small,
-    linenos
-]{python}{代码文件名} % 我们也可以利用路径{代码文件夹/代码文件名}的方式导入
+\documentclass[UTF8,12pt,a4paper,space]{ctexart}
 ```
+当然，我是很不推荐这样使用space的，我们可以利用如下方法来添加空格：
+```latex
+\documentclass[UTF8,12pt,a4paper]{ctexart}
+\begin{document}
+你好啊！你好 啊！你好{ }啊！你好\ 啊！
+\end{document}
+```
+![](./img/img1.png)
+
+### 换行
+latex中回车是不会换行的，需要输入\\或\newline来进行换行，方法如下：
+```latex
+\documentclass[UTF8,12pt,a4paper]{ctexart}
+\begin{document}
+你好啊！\\
+你好{ }啊！\newline
+你好\ 啊！
+\end{document}
+```
+![](./img/img2.png)
+
+### 分段
+当运行了上面的代码时可以发现，第一个你好啊！是有首行缩进的，而后面两个是没有的，说明他们依旧是一个段落，如果想对他们进行分段，可以对两个段落之间空一行或使用\par进行分段
+```latex
+\documentclass[UTF8,12pt,a4paper]{ctexart}
+\begin{document}
+你好啊！\\
+你好{ }啊！
+
+你好\ 啊！\par
+你好啊！
+\end{document}
+```
+![](./img/img3.png)
+
+### 换页
+换页只需要在你想换页的地方使用\clearpage命令即可实现。
+
+### 特殊字符
+特殊控制字符：#，$， %， & ，{， }， ^， ~，由于这些字符在latex各司其职，要输出这些控制符用下列命令：
+```latex
+\documentclass[UTF8,12pt,a4paper]{ctexart}
+\begin{document}
+\#，\$，\%，\&，\{，\}，\^{}，\~{} 
+\end{document}
+```
+![](./img/img4.png)

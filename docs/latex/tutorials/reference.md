@@ -1,6 +1,6 @@
 ---
 id: reference
-sidebar_position: 5
+sidebar_position: 14
 ---
 
 # 参考文献管理
@@ -218,21 +218,4 @@ xelatex main.tex  # 第三次编译
 于是我们就得到了一篇支持`GB/T 7714－2015`标准的参考文献PDF文档。
 
 ![](./img/gt_01.png)
-
-### biber命令不存在的错误
-
-如果你遇到了biber命令不存在的问题，请用MikTeX手动安装biber这个宏包。
-
-请打开 `MikTeX Console`。
-
-1. 点击宏包
-2. 在搜索框搜索 `biber`
-3. 右击名称为`biber-ms-windows-x64`的宏包
-4. 点击`安装宏包`
-5. 安装好便解决了 biber not found的问题了。
-
-![](./img/biber_01.png)
-![](./img/biber_02.png)
-
-
 
