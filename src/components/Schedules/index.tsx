@@ -13,43 +13,43 @@ type WeekListItem = {
 const weekLists: WeekListItem[] = [
     {
         id: 1,
-        time: "2023年3月1日",
+        time: "第一次课",
         name: "课程介绍和 Python 介绍",
         url: "/slides/python01"
     },
     {
         id: 2,
-        time: "2023年3月1日",
+        time: "第二次课",
         name: "Python 基础",
         url: "/slides/python02"
     },
     {
         id: 3,
-        time: "2023年3月1日",
+        time: "第三次课",
         name: "Python 函数",
         url: "/slides/python03"
     },
     {
         id: 4,
-        time: "2023年3月1日",
+        time: "第四次课",
         name: "Python 数据结构",
         url: "/slides/python04"
     },
     {
         id: 5,
-        time: "2023年3月1日",
+        time: "第五次课",
         name: "NumPy 基础",
         url: "/slides/numpy"
     },
     {
         id: 6,
-        time: "2023年3月1日",
+        time: "第六次课",
         name: "Matplotlib 基础",
         url: "/slides/matplotlib"
     },
     {
         id: 7,
-        time: "2023年3月1日",
+        time: "第七次课",
         name: "LaTeX Talk",
         url: "https://github.com/SUEPaper/latex-talk"
     },
