@@ -85,6 +85,7 @@ sidebar_position: 4
 
 ```latex
 \documentclass{ctexart}
+\usepackage{caption}
 \begin{document}
 
     如表 \ref{tab:example} 所示：
